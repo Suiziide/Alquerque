@@ -2,10 +2,8 @@ import java.util.Scanner;
 public class Alquerque {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
-        String playerOneName = "NoName"; // placeholder names for player 1 and player 2.
-        String playerTwoName = "NoName";
-        boolean isOneCPU;
-        boolean isTwoCPU;
+        String playerOneName = "NoName", playerTwoName = "NoName";  // Placeholder names for player 1 and player 2.
+        boolean isOneCPU, isTwoCPU;
         boolean startGame = false;
         int option;
 

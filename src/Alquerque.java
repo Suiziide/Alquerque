@@ -1,3 +1,7 @@
 public class Alquerque {
-Hej
+    public static void main(String[] args) {
+
+
+
+    }
 }

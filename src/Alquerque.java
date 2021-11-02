@@ -9,7 +9,7 @@ public class Alquerque {
         boolean startGame = false;
         int option;
 
-        System.out.println("Welcome to Alquerque, Master.");
+        System.out.println("Greetings Master! And welcome to Alquerque.");
         do {
             printOptions();
             option = reader.nextInt();
@@ -62,7 +62,7 @@ public class Alquerque {
                     System.out.println("Invalid option, " + option + " is not a valid option");
             }
         } while (!startGame);
-        System.out.println("The two players names are:");
+        System.out.println("The two player's names are:");
         System.out.println("Player 1 (White): " + playerOneName);
         System.out.println("Player 2 (Black): " + playerTwoName);
     }

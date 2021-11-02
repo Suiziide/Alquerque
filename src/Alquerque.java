@@ -37,12 +37,14 @@ public class Alquerque {
                     if (color == 'B') {
                         System.out.println("\n You have chosen to play black the CPU will therefore play white");
                         System.out.print("Please enter the name of the player: ");
+                        reader.nextLine(); // clears input
                         playerTwoName = reader.nextLine().trim();
                         isOneCPU = true;
                         playerOneName = "CPU";
                     } else {
                         System.out.println("\n You have chosen to play white the CPU will therefore play black");
                         System.out.print("Please enter the name of the player: ");
+                        reader.nextLine(); // clears input
                         playerOneName = reader.nextLine().trim();
                         isTwoCPU = true;
                         playerTwoName = "CPU";

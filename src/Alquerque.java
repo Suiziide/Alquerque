@@ -33,7 +33,7 @@ public class Alquerque {
                     do {
                         System.out.print("Please enter the color you want to play black or white (B/W): ");
                         color = reader.next().charAt(0);
-                    } while(color != 'B' || color != 'W');
+                    } while(color != 'B' && color != 'W');
                     if (color == 'B') {
                         System.out.println("\n You have chosen to play black the CPU will therefore play white");
                         System.out.print("Please enter the name of the player: ");

@@ -4,8 +4,6 @@ public class Alquerque {
         String playerTwoName;
         boolean isOneAi;
         boolean isTwoAi;
-        boolean testlinux;
-
 
     }
 }

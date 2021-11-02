@@ -6,8 +6,6 @@ public class Alquerque {
         boolean isOneAi;
         boolean isTwoAi;
 
-
-
     }
     private static void init() {
         Scanner reader = new Scanner(System.in);

@@ -107,10 +107,10 @@ public class Alquerque {
         for (int j = 1; j < boardArr.length; j++)
             for (int i = 0; i < boardArr[j].length; i++)
                 boardArr[j][i] = ' '; // Fills board with empty spaces
-        for (int i = 0; i < game.black().length; i++)
-            boardArr[(game.black()[i] - 1) / 5][(game.black()[i]) % 5] = 'B'; // Places black pieces
-        for (int i = 0; i < game.white().length; i++)
-            boardArr[(game.white()[i] - 1) / 5][(game.white()[i]) % 5] = 'W'; // Places white pieces
+        for (int i = 0; i < board.black().length; i++)
+            boardArr[(board.black()[i] - 1) / 5][(board.black()[i]) % 5] = 'B'; // Places black pieces
+        for (int i = 0; i < board.white().length; i++)
+            boardArr[(board.white()[i] - 1) / 5][(board.white()[i]) % 5] = 'W'; // Places white pieces
         return boardArr;
     }
 
@@ -118,10 +118,11 @@ public class Alquerque {
     public static void printBoard(){
         int i = 0, j = 1;
         System.out.println("   A   B   C   D   E"); //upper-coordinate-line (A-E)
+        char[][] boardWithPieces = boardWithPieces();
         while(j < 6){
             System.out.print(j + " "); //left-hand coordinate (1-5)
             while(i < 6){
-                System.out.print("[" + boardWithPieces()[i][j] + "]");
+                System.out.print("[" + boardWithPieces[i][j] + "]");
                 if(i < 4)
                     System.out.print("-");
                 i++;

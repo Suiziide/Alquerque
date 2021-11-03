@@ -92,4 +92,20 @@ public class Alquerque {
         System.out.println();
         System.out.print("Please enter the number corresponding to the option you want executed: ");
     }
+
+    /*
+    * Returns a two dimensional array 5 x 5 with the game pieces placed in correct positions
+    * Precondition: Relies on method black() and white() to return valid positions numbered from 1-25
+    */
+//    private static String[][] boardWithPieces(){
+//        String[][] boardArr = new String[5][5];
+//        for (int j = 0; j < boardArr.length; j++)
+//            for (int i = 0; i < boardArr[j].length; i++)
+//                boardArr[j][i] = " ";
+//        for (int i = 0; i < game.black().length; i++)
+//            boardArr[(game.black()[i] - 1) / 5][(game.black()[i] - 1) % 5] = "B";
+//        for (int i = 0; i < game.white().length; i++)
+//            boardArr[(game.white()[i] - 1) / 5][(game.white()[i] - 1) % 5] = "W";
+//        return boardArr;
+//    }
 }

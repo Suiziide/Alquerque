@@ -13,10 +13,10 @@ public class Alquerque {
 
 
         /*
-        System.out.println("\nThe two player's names are:");
-        System.out.println("Player 1 (White): " + playerOneName);
-        System.out.println("Player 2 (Black): " + playerTwoName);
-        */
+         * System.out.println("\nThe two player's names are:");
+         * System.out.println("Player 1 (White): " + playerOneName);
+         * System.out.println("Player 2 (Black): " + playerTwoName);
+         */
     }
 
     /**
@@ -98,20 +98,45 @@ public class Alquerque {
     }
 
     /**
-    * Returns a two dimensional array 5 x 5 with the game pieces placed in correct positions
-    * Precondition: Relies on method black() and white() to return valid positions numbered from 1-25
-    */
-    /*
-    private static String[][] boardWithPieces(){
-        String[][] boardArr = new String[5][5];
-        for (int j = 0; j < boardArr.length; j++)
+     * Returns a two dimensional array 5 x 5 with the game pieces placed in correct positions
+     * Precondition: Relies on method black() and white() to return valid positions numbered from 1-25
+     */
+
+    private static char[][] boardWithPieces(){
+        char[][] boardArr = new char[5][6]; //A-E & (no 0) 1-5
+        for (int j = 1; j < boardArr.length; j++)
             for (int i = 0; i < boardArr[j].length; i++)
-                boardArr[j][i] = " "; // Fills board with empty spaces
+                boardArr[j][i] = ' '; // Fills board with empty spaces
         for (int i = 0; i < game.black().length; i++)
-            boardArr[(game.black()[i] - 1) / 5][(game.black()[i] - 1) % 5] = "B"; // Places black pieces
+            boardArr[(game.black()[i] - 1) / 5][(game.black()[i]) % 5] = 'B'; // Places black pieces
         for (int i = 0; i < game.white().length; i++)
-            boardArr[(game.white()[i] - 1) / 5][(game.white()[i] - 1) % 5] = "W"; // Places white pieces
+            boardArr[(game.white()[i] - 1) / 5][(game.white()[i]) % 5] = 'W'; // Places white pieces
         return boardArr;
     }
-     */
-}
+
+
+    public static void printBoard(){
+        int i = 0, j = 1;
+        System.out.println("   A   B   C   D   E"); //upper-coordinate-line (A-E)
+        while(j < 6){
+            System.out.print(j + " "); //left-hand coordinate (1-5)
+            while(i < 6){
+                System.out.print("[" + boardWithPieces()[i][j] + "]");
+                if(i < 4)
+                    System.out.print("-");
+                i++;
+            }
+            System.out.print(" " + (1+j)); //right-hand coordinate (1-5)
+            System.out.println("");
+            i = 0;
+            if(j == 0 || j == 2)
+                System.out.println("   | \\ | / | \\ | / |");
+            if(j == 1 || j == 3)
+                System.out.println("   | / | \\ | / | \\ |");
+            j++;
+        }
+        System.out.println("   A   B   C   D   E"); //bottom-coordinate-line (A-E)
+    }
+
+
+}//m.i.s.

@@ -101,11 +101,11 @@ public class Alquerque {
 //        String[][] boardArr = new String[5][5];
 //        for (int j = 0; j < boardArr.length; j++)
 //            for (int i = 0; i < boardArr[j].length; i++)
-//                boardArr[j][i] = " ";
+//                boardArr[j][i] = " "; // Fills board with empty spaces
 //        for (int i = 0; i < game.black().length; i++)
-//            boardArr[(game.black()[i] - 1) / 5][(game.black()[i] - 1) % 5] = "B";
+//            boardArr[(game.black()[i] - 1) / 5][(game.black()[i] - 1) % 5] = "B"; // Places black pieces
 //        for (int i = 0; i < game.white().length; i++)
-//            boardArr[(game.white()[i] - 1) / 5][(game.white()[i] - 1) % 5] = "W";
+//            boardArr[(game.white()[i] - 1) / 5][(game.white()[i] - 1) % 5] = "W"; // PLaces white pieces
 //        return boardArr;
 //    }
 }

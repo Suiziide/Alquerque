@@ -8,12 +8,15 @@ public class Alquerque {
     // ved ikke om de nedenstående variabler skal være her, men det gjorde main mere clean.
     private static int moveFrom = 0;
     private static int moveTo = 0;
+    private static String coordsFrom;
+    private static String coordsTo;
     private static boolean isWhite = true;
     private static Move nextMove;
     // flyt alle initialiseringerne ind i init og ikke her.
 
     public static void main(String[] args) {
         init();
+        //reader.nextLine(); //Den skal nok i init, men smed den her, for ellers kom der en newline når jeg tastede coords
         do {
             printBoard();
             if (!isWhiteCPU && isWhite || !isBlackCPU && !isWhite) {
@@ -21,16 +24,23 @@ public class Alquerque {
                 do {
                     System.out.print("\nIt's " + (isWhite ? whiteName : blackName) + "'s turn" + ", please enter which " +
                             "piece you want to move: ");
-                    moveFrom = reader.nextInt(); // Missing, input validation on convertCoordinate method
+                    coordsFrom = reader.nextLine().trim();
+                    //moveFrom = reader.nextInt(); // Missing, input validation on convertCoordinate method
                     System.out.print("Please enter where you want to move the piece: ");
-                    moveTo = reader.nextInt(); // Missing, input validation on convertCoordinate method
-                    if (moveFrom >= 1 && moveFrom <= 25 && moveTo >= 1 && moveTo <= 25) {
-                        nextMove = new Move(moveFrom, moveTo);
+                    coordsTo = reader.nextLine().trim();
+                    //moveTo = reader.nextInt(); // Missing, input validation on convertCoordinate method
+                    //if (moveFrom >= 1 && moveFrom <= 25 && moveTo >= 1 && moveTo <= 25) {
+                    if (isValidCoords(coordsFrom) && isValidCoords(coordsTo)){
+                        //moveFrom = convertCoordinate(coordsFrom);
+                        //moveTo = convertCoordinate(coordsTo);
+                        //nextMove = new Move(moveFrom, moveTo);
+                        nextMove = new Move(convertCoordinate(coordsFrom), convertCoordinate(coordsTo));
                         if (board.isLegal(nextMove))
                         inputWithinRange = true;
                     }
                     if (!inputWithinRange)
-                        System.out.println(moveFrom + " to " + moveTo + " is not a valid move, " +
+                        //System.out.println(moveFrom + " to " + moveTo + " is not a valid move, " +
+                        System.out.println(coordsFrom + " to " + coordsTo + " is not a valid move, " +
                                 "please try again.");
                 } while (!inputWithinRange);
                 board.move(nextMove);
@@ -110,6 +120,7 @@ public class Alquerque {
                     } while (color != 'B' && color != 'W');
                     System.out.print("How far ahead do you want the CPU to analyze: ");
                     cpuDepth = reader.nextInt();
+                    reader.nextLine(); // clears input
                     break;
                 case 3: // CPU vs CPU
                     System.out.println("You have chosen option " + option + ": CPU vs CPU");
@@ -181,5 +192,31 @@ public class Alquerque {
         }
         System.out.println("   A   B   C   D   E"); //bottom-coordinate-line (A-E)
         System.out.println(""); // new line
+    }
+    private static boolean isValidCoords(String coords){
+        return (coords.matches("[A-E][1-5]")); // Regex for matching
+    }
+    private static int convertCoordinate(String coord){
+        int position = 0;
+        switch(coord.charAt(0)){
+            case 'A':
+                position = (1+(5*((Integer.parseInt(coord.substring(1))-1))));
+                break;
+            case 'B':
+                position = (2+(5*((Integer.parseInt(coord.substring(1))-1))));
+                break;
+            case 'C':
+                position = (3+(5*((Integer.parseInt(coord.substring(1))-1))));
+                break;
+            case 'D':
+                position = (4+(5*((Integer.parseInt(coord.substring(1))-1))));
+                break;
+            case 'E':
+                position = (5+(5*((Integer.parseInt(coord.substring(1))-1))));
+                break;
+            default:
+                return 0;
+        }
+        return position;
     }
 }//m.i.s.

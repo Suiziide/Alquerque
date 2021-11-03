@@ -101,7 +101,6 @@ public class Alquerque {
      * Returns a two dimensional array 5 x 5 with the game pieces placed in correct positions
      * Precondition: Relies on method black() and white() to return valid positions numbered from 1-25
      */
-
     private static char[][] boardWithPieces(){
         char[][] boardArr = new char[5][6]; //A-E & (no 0) 1-5
         for (int j = 1; j < boardArr.length; j++)
@@ -114,7 +113,9 @@ public class Alquerque {
         return boardArr;
     }
 
-
+    /**
+     * prints a representation of the board to the terminal
+     */
     public static void printBoard(){
         int i = 0, j = 1;
         System.out.println("   A   B   C   D   E"); //upper-coordinate-line (A-E)

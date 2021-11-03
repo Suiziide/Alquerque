@@ -4,12 +4,12 @@ public class Alquerque {
         Scanner reader = new Scanner(System.in);
         String playerOneName = "NoName", playerTwoName = "NoName";  // Placeholder names for player 1 and player 2.
         boolean isOneCPU, isTwoCPU;
-        boolean startGame = false;
-        int option;
 
+        int option;
         System.out.println("Greetings Master! And welcome to Alquerque.");
         do {
             printOptions();
+            System.out.print("Please enter the number corresponding to the option you want executed: ");
             option = reader.nextInt();
             switch (option) {
                 case 0:
@@ -23,7 +23,6 @@ public class Alquerque {
                     playerOneName = reader.nextLine().trim();
                     System.out.print("Please enter the name of player 2: ");
                     playerTwoName = reader.nextLine().trim();
-                    startGame = true;
                     break;
                 case 2: // Player vs CPU
                     System.out.println("You have chosen option " + option + ": Player vs CPU");
@@ -49,24 +48,23 @@ public class Alquerque {
                             playerTwoName = "CPU";
                             break;
                             default:
-                                System.out.println("'" + color + "'" + " is not a valid input option, please try again.");
+                                System.out.println("'" + color + "'" + " is not a valid input option, please try again.\n");
                         }
                     } while(color != 'B' && color != 'W');
-                    startGame = true;
                     break;
                 case 3: // CPU vs CPU
                     System.out.println("You have chosen option " + option + ": CPU vs CPU");
                     isOneCPU = true;
                     isTwoCPU = true;
-                    startGame = true;
                     playerOneName = "CPU1";
                     playerTwoName = "CPU2";
                     break;
                 default:
-                    System.out.println("Invalid option, " + option + " is not a valid option");
+                    System.out.println("Invalid option, " + option + " is not a valid option\n");
             }
-        } while (!startGame);
-        System.out.println("The two player's names are:");
+        } while (option > 3 && option < 0);
+
+        System.out.println("\nThe two player's names are:");
         System.out.println("Player 1 (White): " + playerOneName);
         System.out.println("Player 2 (Black): " + playerTwoName);
     }
@@ -81,7 +79,7 @@ public class Alquerque {
     /**
      * Prints the option menu to the terminal.
      */
-    public static void printOptions() {
+    private static void printOptions() {
         System.out.println();
         System.out.println("Now, what do you wish to do?");
         System.out.println();
@@ -90,22 +88,23 @@ public class Alquerque {
         System.out.println("Option 2: Player vs CPU");
         System.out.println("Option 3: CPU vs CPU");
         System.out.println();
-        System.out.print("Please enter the number corresponding to the option you want executed: ");
     }
 
-    /*
+    /**
     * Returns a two dimensional array 5 x 5 with the game pieces placed in correct positions
     * Precondition: Relies on method black() and white() to return valid positions numbered from 1-25
     */
-//    private static String[][] boardWithPieces(){
-//        String[][] boardArr = new String[5][5];
-//        for (int j = 0; j < boardArr.length; j++)
-//            for (int i = 0; i < boardArr[j].length; i++)
-//                boardArr[j][i] = " "; // Fills board with empty spaces
-//        for (int i = 0; i < game.black().length; i++)
-//            boardArr[(game.black()[i] - 1) / 5][(game.black()[i] - 1) % 5] = "B"; // Places black pieces
-//        for (int i = 0; i < game.white().length; i++)
-//            boardArr[(game.white()[i] - 1) / 5][(game.white()[i] - 1) % 5] = "W"; // PLaces white pieces
-//        return boardArr;
-//    }
+    /*
+    private static String[][] boardWithPieces(){
+        String[][] boardArr = new String[5][5];
+        for (int j = 0; j < boardArr.length; j++)
+            for (int i = 0; i < boardArr[j].length; i++)
+                boardArr[j][i] = " "; // Fills board with empty spaces
+        for (int i = 0; i < game.black().length; i++)
+            boardArr[(game.black()[i] - 1) / 5][(game.black()[i] - 1) % 5] = "B"; // Places black pieces
+        for (int i = 0; i < game.white().length; i++)
+            boardArr[(game.white()[i] - 1) / 5][(game.white()[i] - 1) % 5] = "W"; // Places white pieces
+        return boardArr;
+    }
+     */
 }

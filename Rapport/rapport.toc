@@ -1,6 +1,6 @@
 \babel@toc {english}{}\relax 
 \contentsline {section}{\numberline {1}Introduction}{2}{}%
 \contentsline {section}{\numberline {2}Design}{2}{}%
-\contentsline {section}{\numberline {3}Implementering}{2}{}%
+\contentsline {section}{\numberline {3}Implementation}{2}{}%
 \contentsline {section}{\numberline {4}Test}{2}{}%
 \contentsline {section}{\numberline {5}Conclusion}{2}{}%

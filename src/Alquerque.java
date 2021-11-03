@@ -145,7 +145,7 @@ public class Alquerque {
     /**
      * prints a representation of the board to the terminal
      */
-    public static void printBoard(){
+    private static void printBoard(){
         int i = 0, j = 1;
         System.out.println("   A   B   C   D   E"); //upper-coordinate-line (A-E)
         char[][] boardWithPieces = boardWithPieces();

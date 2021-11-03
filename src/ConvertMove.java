@@ -7,7 +7,7 @@ public class ConvertMove{
     /*
      * Converts a coordinate to a value (to determine board position for methods
      */
-    public static int convertCoordinate(String coord){
+    private static int convertCoordinate(String coord){
         int position = 0;
         switch(coord.charAt(0)){
             case 'A':

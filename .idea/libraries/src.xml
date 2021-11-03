@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="Alquerque">
+  <library name="src">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$" />
+      <root url="file://$PROJECT_DIR$/src" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

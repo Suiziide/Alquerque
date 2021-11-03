@@ -149,9 +149,9 @@ public class Alquerque {
         int i = 0, j = 1;
         System.out.println("   A   B   C   D   E"); //upper-coordinate-line (A-E)
         char[][] boardWithPieces = boardWithPieces();
-        while(j < 6){
+        while (j < 6){
             System.out.print(j + " "); //left-hand coordinate (1-5)
-            while(i < 5) {
+            while (i < 5) {
                 System.out.print("[" + boardWithPieces[j][i] + "]");
                 if (i < 4)
                     System.out.print("-");
@@ -160,9 +160,9 @@ public class Alquerque {
             System.out.print(" " + (j)); //right-hand coordinate (1-5)
             System.out.println("");
             i = 0;
-            if(j == 1 || j == 3)
+            if (j % 2 == 1 && j < 5)
                 System.out.println("   | \\ | / | \\ | / |");
-            if(j == 2 || j == 4)
+            else if (j % 2 == 0)
                 System.out.println("   | / | \\ | / | \\ |");
             j++;
         }

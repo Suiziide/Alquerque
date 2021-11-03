@@ -1,10 +1,28 @@
 import java.util.Scanner;
 public class Alquerque {
-    public static void main(String[] args) {
-        Scanner reader = new Scanner(System.in);
-        String playerOneName = "NoName", playerTwoName = "NoName";  // Placeholder names for player 1 and player 2.
-        boolean isOneCPU, isTwoCPU;
+    private static Scanner reader = new Scanner(System.in);
+    private static String playerOneName = "NoName", playerTwoName = "NoName";  // Placeholder names for player 1 and player 2.
+    private static boolean isOneCPU, isTwoCPU;
+    private static Board board = new Board();
 
+    public static void main(String[] args) {
+        init();
+        do {
+
+        } while(!board.isGameOver());
+
+
+        /*
+        System.out.println("\nThe two player's names are:");
+        System.out.println("Player 1 (White): " + playerOneName);
+        System.out.println("Player 2 (Black): " + playerTwoName);
+        */
+    }
+
+    /**
+     * Initializes the program and runs the start menu.
+     */
+    private static void init() {
         int option;
         System.out.println("Greetings Master! And welcome to Alquerque.");
         do {
@@ -32,21 +50,21 @@ public class Alquerque {
                         color = reader.next().charAt(0);
                         switch (color) {
                             case 'B':
-                            System.out.println("\nYou have chosen to play black the CPU will therefore play white");
-                            System.out.print("Please enter the name of the player: ");
-                            reader.nextLine(); // clears input
-                            playerTwoName = reader.nextLine().trim();
-                            isOneCPU = true;
-                            playerOneName = "CPU";
-                            break;
+                                System.out.println("\nYou have chosen to play black the CPU will therefore play white");
+                                System.out.print("Please enter the name of the player: ");
+                                reader.nextLine(); // clears input
+                                playerTwoName = reader.nextLine().trim();
+                                isOneCPU = true;
+                                playerOneName = "CPU";
+                                break;
                             case 'W':
-                            System.out.println("\nYou have chosen to play white the CPU will therefore play black");
-                            System.out.print("Please enter the name of the player: ");
-                            reader.nextLine(); // clears input
-                            playerOneName = reader.nextLine().trim();
-                            isTwoCPU = true;
-                            playerTwoName = "CPU";
-                            break;
+                                System.out.println("\nYou have chosen to play white the CPU will therefore play black");
+                                System.out.print("Please enter the name of the player: ");
+                                reader.nextLine(); // clears input
+                                playerOneName = reader.nextLine().trim();
+                                isTwoCPU = true;
+                                playerTwoName = "CPU";
+                                break;
                             default:
                                 System.out.println("'" + color + "'" + " is not a valid input option, please try again.\n");
                         }
@@ -63,17 +81,6 @@ public class Alquerque {
                     System.out.println("Invalid option, " + option + " is not a valid option\n");
             }
         } while (option > 3 && option < 0);
-
-        System.out.println("\nThe two player's names are:");
-        System.out.println("Player 1 (White): " + playerOneName);
-        System.out.println("Player 2 (Black): " + playerTwoName);
-    }
-
-    /**
-     * Initializes the program.
-     */
-    private static void init() {
-
     }
 
     /**

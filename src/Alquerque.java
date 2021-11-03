@@ -1,49 +1,59 @@
 import java.util.Scanner;
 public class Alquerque {
     private static Scanner reader = new Scanner(System.in);
-    private static String whiteName = "White(CPU)", blackName = "Black(CPU)";  // Placeholder names for player 1 and player 2.
+    private static String whiteName = "White(CPU)", blackName = "Black(CPU)";
     private static boolean isWhiteCPU, isBlackCPU;
     private static Board board = new Board();
     private static int cpuDepth;
+    // ved ikke om de nedenstående variabler skal være her, men det gjorde main mere clean.
+    private static int moveFrom = 0;
+    private static int moveTo = 0;
+    private static boolean isWhite = true;
+    private static Move nextMove;
+    // flyt alle initialiseringerne ind i init og ikke her.
 
     public static void main(String[] args) {
-        //init();
-        int moveFrom = 0;
-        int moveTo = 0;
-        Move nextMove;
-        printBoard(); // flyt måske til init eller et andet sted.
+        System.out.print("write a move to test if it is valid: ");
+        Move testMove = new Move(reader.nextInt(), reader.nextInt());
+        System.out.println(board.isLegal(testMove));
 
+
+        init();
         do {
-            if (!isWhiteCPU && !board.isGameOver()) { // fjern måske !board.isGameOver();
+            printBoard();
+            if (!isWhiteCPU && isWhite || !isBlackCPU && !isWhite) {
+                boolean inputWithinRange = false;
                 do {
-                    System.out.print("\nIt's "+ whiteName + ", please enter which piece you want to move: ");
-                    moveFrom = reader.nextInt(); // input validation on convertCoordinate method
-                    System.out.print("Where do you want to move that piece: ");
-                    moveTo = reader.nextInt(); // input validation on convertCoordinate method
-                    System.out.println(); // newline
-                    nextMove = new Move(moveFrom, moveTo);
-                } while(!board.isLegal(nextMove));
+                    System.out.print("\nIt's " + (isWhite ? whiteName : blackName) + "'s turn" + ", please enter which " +
+                            "piece you want to move: ");
+                    moveFrom = reader.nextInt(); // Missing, input validation on convertCoordinate method
+                    System.out.print("Please enter where you want to move the piece: ");
+                    moveTo = reader.nextInt(); // Missing, input validation on convertCoordinate method
+                    if (moveFrom >= 1 && moveFrom <= 25 && moveTo >= 1 && moveTo <= 25) {
+                        nextMove = new Move(moveFrom, moveTo);
+                        if (board.isLegal(nextMove))
+                        inputWithinRange = true;
+                    }
+                    if (!inputWithinRange)
+                        System.out.println(moveFrom + " to " + moveTo + " is not a valid move, " +
+                                "please try again.");
+                } while (!inputWithinRange);
                 board.move(nextMove);
-                printBoard();
             } else if (!board.isGameOver()) {
-                // make CPU do a move.
-            }
-
-            if (!isBlackCPU && !board.isGameOver()) { // fjern måske !board.isGameOver();
-                do {
-                    System.out.print("\nIt's " + blackName + ", please enter which piece you want to move: ");
-                    moveFrom = reader.nextInt(); // input validation on convertCoordinate method
-                    System.out.print("Where do you want to move that piece: ");
-                    moveTo = reader.nextInt(); // input validation on convertCoordinate method
-                    System.out.println(); // newline;
-                    nextMove = new Move(moveFrom, moveTo);
-                } while(!board.isLegal(nextMove));
+                nextMove = new Minimax().nextMove(board, cpuDepth, isWhite);
+                System.out.println((isWhite ? whiteName : blackName) + " played " +
+                        nextMove.from() + " to " + nextMove.to());
                 board.move(nextMove);
-                printBoard();
-            } else if (!board.isGameOver()) {
-                // make CPU do a move.
             }
-        } while(!board.isGameOver());
+            isWhite = !isWhite; // changes whos turn it is
+        } while (!board.isGameOver());
+        printBoard(); // prints the state of the board when game over
+        if (board.black().length > 0 && board.white().length <= 0)
+            System.out.println(blackName + " is the winner!");
+        else if (board.black().length <= 0 && board.white().length > 0)
+            System.out.println(whiteName + " is the winner!");
+        else
+            System.out.println("It's a draw!");
     }
 
 
@@ -52,10 +62,13 @@ public class Alquerque {
      */
     private static void init() {
         int option;
+        System.out.println("*******************************************");
         System.out.println("Greetings Master! And welcome to Alquerque.");
+        System.out.println("*******************************************");
         do {
             printOptions();
-            System.out.print("Please enter the number corresponding to the option you want executed: ");
+            System.out.print("Please enter the coordinat corresponding " +
+                    "to the option you want executed: ");
             option = reader.nextInt();
             switch (option) {
                 case 0:
@@ -74,11 +87,13 @@ public class Alquerque {
                     System.out.println("You have chosen option " + option + ": Player vs CPU");
                     char color;
                     do {
-                        System.out.print("Please enter the color you want to play black or white (B/W): ");
+                        System.out.print("Please enter the color you want to play " +
+                                "black or white (B/W): ");
                         color = Character.toUpperCase(reader.next().charAt(0));
                         switch (color) {
                             case 'B':
-                                System.out.println("\nYou have chosen to play black the CPU will therefore play white");
+                                System.out.println("\nYou have chosen to play black the CPU " +
+                                        "will therefore play white");
                                 System.out.print("Please enter the name of the player: ");
                                 reader.nextLine(); // clears input
                                 blackName = reader.nextLine().trim();
@@ -86,16 +101,18 @@ public class Alquerque {
                                 isWhiteCPU = true;
                                 break;
                             case 'W':
-                                System.out.println("\nYou have chosen to play white the CPU will therefore play black");
+                                System.out.println("\nYou have chosen to play white the CPU " +
+                                        "will therefore play black");
                                 System.out.print("Please enter the name of the player: ");
                                 reader.nextLine(); // clears input
                                 whiteName = reader.nextLine().trim();
                                 isBlackCPU = true;
                                 break;
                             default:
-                                System.out.println("'" + color + "'" + " is not a valid input option, please try again.\n");
+                                System.out.println("'" + color + "'" + " is not a valid input " +
+                                        "option, please try again.\n");
                         }
-                    } while(color != 'B' && color != 'W');
+                    } while (color != 'B' && color != 'W');
                     System.out.print("How far ahead do you want the CPU to analyze: ");
                     cpuDepth = reader.nextInt();
                     break;
@@ -116,13 +133,13 @@ public class Alquerque {
      * Prints the option menu to the terminal.
      */
     private static void printOptions() {
-        System.out.println();
         System.out.println("Now, what do you wish to do?");
-        System.out.println();
+        System.out.println("****************************");
         System.out.println("Option 0: Exit program");
         System.out.println("Option 1: Player vs Player");
         System.out.println("Option 2: Player vs CPU");
         System.out.println("Option 3: CPU vs CPU");
+        System.out.println("****************************");
         System.out.println();
     }
 
@@ -130,7 +147,7 @@ public class Alquerque {
      * Returns a two dimensional array 5 x 5 with the game pieces placed in correct positions
      * Precondition: Relies on method black() and white() to return valid positions numbered from 1-25
      */
-    private static char[][] boardWithPieces(){
+    private static char[][] boardWithPieces() {
         char[][] boardArr = new char[6][5]; //A-E & (no 0) 1-5
         for (int j = 1; j < boardArr.length; j++)
             for (int i = 0; i < boardArr[j].length; i++)
@@ -145,11 +162,12 @@ public class Alquerque {
     /**
      * prints a representation of the board to the terminal
      */
-    private static void printBoard(){
+    private static void printBoard() {
+        System.out.println(); // new line
         int i = 0, j = 1;
         System.out.println("   A   B   C   D   E"); //upper-coordinate-line (A-E)
         char[][] boardWithPieces = boardWithPieces();
-        while (j < 6){
+        while (j < 6) {
             System.out.print(j + " "); //left-hand coordinate (1-5)
             while (i < 5) {
                 System.out.print("[" + boardWithPieces[j][i] + "]");
@@ -167,5 +185,6 @@ public class Alquerque {
             j++;
         }
         System.out.println("   A   B   C   D   E"); //bottom-coordinate-line (A-E)
+        System.out.println(""); // new line
     }
 }//m.i.s.

@@ -13,11 +13,6 @@ public class Alquerque {
     // flyt alle initialiseringerne ind i init og ikke her.
 
     public static void main(String[] args) {
-        System.out.print("write a move to test if it is valid: ");
-        Move testMove = new Move(reader.nextInt(), reader.nextInt());
-        System.out.println(board.isLegal(testMove));
-
-
         init();
         do {
             printBoard();

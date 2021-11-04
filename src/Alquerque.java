@@ -197,14 +197,14 @@ public class Alquerque {
     }
 
     /**
-     *
-     * @param coord
-     * @return
+     * Converts an input coordinate to the corresponding position on the board, determined by numbers 1-25
+     * @param coord move coordinate input from user
+     * @return position on board, represented by an integer (1-25)
      */
     private static int convertCoordinate(String coord){
         int position = 0;
         switch(Character.toUpperCase(coord.charAt(0))){
-            case 'A':
+            case 'A':   //value of each column is added to the row-determined multiplum of 5 (e.g. D is 4'th, so positional value is +4)
                 position = (1+(5*((Integer.parseInt(coord.substring(1))-1))));
                 break;
             case 'B':
@@ -224,4 +224,5 @@ public class Alquerque {
         }
         return position;
     }
-}//m.i.s.
+
+} //close of class, m.i.s.

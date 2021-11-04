@@ -250,7 +250,7 @@ public class Alquerque {
                 coord = "E";
                 break;
         }
-                coord = coord + ((position / 5) + 1);
+        coord = coord + ((position / 5) + 1);
         return coord;
     }
     /**
@@ -258,11 +258,11 @@ public class Alquerque {
      */
     public static int intCheck(Scanner keyboard){
         try{
-            return keyboard.nextInt();
+            return keyboard.nextInt(); // gets input from the user and checks if it throws input mismatch error
         } catch (InputMismatchException e) {
             System.out.print("Please input a number: ");
             keyboard.next(); // clears cache
-            return intCheck(keyboard);
+            return intCheck(keyboard); // if error it prints that it is an error, and returns a recursive call of it self
         }
     }
 } //close of class, m.i.s.

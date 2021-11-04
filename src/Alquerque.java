@@ -227,6 +227,32 @@ public class Alquerque {
         return position;
     }
 
+    private static String convertPosition(int position){
+        String coord = "";
+        switch ((position - 1) / 5){
+            case 0:
+                coord = "A";
+                break;
+            case 1:
+                coord = "B";
+                break;
+            case 2:
+                coord = "C";
+                break;
+            case 3:
+                coord = "D";
+                break;
+            case 4:
+                coord = "E";
+                break;
+        }
+        if (position % 5 == 0) {
+            coord = coord + 5;
+        }else{
+                coord = coord + (((position) % 5));
+            }
+        return coord;
+    }
     /**
      * Catches exceptions when input doesn't match int
      */

@@ -226,7 +226,11 @@ public class Alquerque {
         }
         return position;
     }
-
+    /**
+     * Converts an input position, represented by a number 1-25 to the corresponding coordinates in form [A-E][1-5]
+     * @param position position represented by an int
+     * @return coord position represented by coordinates [A-E][1-5]
+     */
     private static String convertPosition(int position){
         String coord = "";
         switch ((position - 1) % 5){
@@ -250,7 +254,7 @@ public class Alquerque {
         return coord;
     }
     /**
-     * Catches exceptions when input doesn't match int
+     * Catches exceptions when input doesn't match an integer
      */
     public static int intCheck(Scanner keyboard){
         try{
@@ -261,5 +265,4 @@ public class Alquerque {
             return intCheck(keyboard);
         }
     }
-
 } //close of class, m.i.s.

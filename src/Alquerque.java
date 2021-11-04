@@ -6,8 +6,6 @@ public class Alquerque {
     private static Board board = new Board();
     private static int cpuDepth;
     // ved ikke om de nedenstående variabler skal være her, men det gjorde main mere clean.
-    private static int moveFrom = 0;
-    private static int moveTo = 0;
     private static String coordsFrom;
     private static String coordsTo;
     private static boolean isWhite = true;

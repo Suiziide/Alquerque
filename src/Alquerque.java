@@ -19,7 +19,7 @@ public class Alquerque {
             if (!isWhiteCPU && isWhite || !isBlackCPU && !isWhite) {
                 boolean inputWithinRange = false;
                 do { // loop for validating player moves
-                    System.out.print("\nIt's " + (isWhite ? whiteName : blackName) + "'s turn" + ", please enter which " +
+                    System.out.print("It's " + (isWhite ? whiteName : blackName) + "'s turn" + ", please enter which " +
                             "piece you want to move: ");
                     coordsFrom = reader.nextLine().trim();
                     System.out.print("Please enter where you want to move the piece: ");
@@ -37,7 +37,7 @@ public class Alquerque {
             } else if (!board.isGameOver()) {
                 nextMove = new Minimax().nextMove(board, cpuDepth, isWhite);
                 System.out.println((isWhite ? whiteName : blackName) + " played " +
-                        nextMove.from() + " to " + nextMove.to());
+                        convertPosition(nextMove.from()) + " to " + convertPosition(nextMove.to()));
                 board.move(nextMove);
             }
             isWhite = !isWhite; // changes whos turn it is
@@ -93,7 +93,7 @@ public class Alquerque {
                         switch (Character.toUpperCase(color.charAt(0))) {
                             case 'B':
                                 System.out.println("\nYou have chosen to play black.\n" +
-                                        "The CPUwill therefore play white");
+                                        "The CPU will therefore play white");
                                 System.out.print("Please enter the name of the player: ");
                                 blackName = reader.nextLine().trim();
                                 System.out.println();
@@ -229,7 +229,7 @@ public class Alquerque {
 
     private static String convertPosition(int position){
         String coord = "";
-        switch ((position - 1) / 5){
+        switch ((position - 1) % 5){
             case 0:
                 coord = "A";
                 break;
@@ -246,11 +246,7 @@ public class Alquerque {
                 coord = "E";
                 break;
         }
-        if (position % 5 == 0) {
-            coord = coord + 5;
-        }else{
-                coord = coord + (((position) % 5));
-            }
+                coord = coord + ((position / 5) + 1);
         return coord;
     }
     /**

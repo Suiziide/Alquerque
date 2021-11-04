@@ -1,10 +1,12 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Alquerque {
     private static Scanner reader;
+    private static Board board;
+    public static final char EMPTY = ' ';
     private static String whiteName, blackName;
     private static int cpuDepth;
     private static boolean isWhiteCPU, isBlackCPU, isWhite;
-    private static Board board;
     // ved ikke om de nedenstående variabler skal være her, men det gjorde main mere clean.
     private static String coordsFrom;
     private static String coordsTo;
@@ -22,8 +24,8 @@ public class Alquerque {
                     coordsFrom = reader.nextLine().trim();
                     System.out.print("Please enter where you want to move the piece: ");
                     coordsTo = reader.nextLine().trim();
-                    if (isValidCoords(coordsFrom) && isValidCoords(coordsTo)) {
-                        nextMove = new Move(convertCoordinate(coordsFrom), convertCoordinate(coordsTo));
+                    if (isValidCoords(coordsFrom) && isValidCoords(coordsTo)) { //Checks if input is a valid letter+number
+                        nextMove = new Move(convertCoordinate(coordsFrom), convertCoordinate(coordsTo)); //Converts coordinate to int position
                         if (board.isLegal(nextMove))
                             inputWithinRange = true;
                     }
@@ -66,7 +68,7 @@ public class Alquerque {
             printOptions();
             System.out.print("Please enter the number corresponding " +
                     "to the option you want executed: ");
-            option = reader.nextInt();
+            option = intCheck(reader);
             switch (option) {
                 case 0:
                     System.out.println("You have chosen option " + option + ": Exit program");
@@ -90,16 +92,16 @@ public class Alquerque {
                         color = reader.nextLine();
                         switch (Character.toUpperCase(color.charAt(0))) {
                             case 'B':
-                                System.out.println("\nYou have chosen to play black the CPU " +
-                                        "will therefore play white");
+                                System.out.println("\nYou have chosen to play black.\n" +
+                                        "The CPUwill therefore play white");
                                 System.out.print("Please enter the name of the player: ");
                                 blackName = reader.nextLine().trim();
                                 System.out.println();
                                 isWhiteCPU = true;
                                 break;
                             case 'W':
-                                System.out.println("\nYou have chosen to play white the CPU " +
-                                        "will therefore play black");
+                                System.out.println("\nYou have chosen to play white.\n" +
+                                        "The CPU will therefore play black");
                                 System.out.print("Please enter the name of the player: ");
                                 whiteName = reader.nextLine().trim();
                                 isBlackCPU = true;
@@ -110,12 +112,12 @@ public class Alquerque {
                         }
                     } while (Character.toUpperCase(color.charAt(0)) != 'B' && Character.toUpperCase(color.charAt(0)) != 'W');
                     System.out.print("How far ahead do you want the CPU to analyze: ");
-                    cpuDepth = reader.nextInt(); // crashes when input not int
+                    cpuDepth = intCheck(reader);
                     break;
                 case 3: // CPU vs CPU
                     System.out.println("You have chosen option " + option + ": CPU vs CPU");
                     System.out.print("How far ahead do you want the CPU's to analyze: ");
-                    cpuDepth = reader.nextInt();
+                    cpuDepth = intCheck(reader);
                     isWhiteCPU = true;
                     isBlackCPU = true;
                     break;
@@ -150,7 +152,7 @@ public class Alquerque {
         char[][] boardArr = new char[6][5]; //A-E & (no 0) 1-5
         for (int j = 1; j < boardArr.length; j++)
             for (int i = 0; i < boardArr[j].length; i++)
-                boardArr[j][i] = ' '; // Fills board with empty spaces
+                boardArr[j][i] = EMPTY; // Fills board with empty spaces
         for (int i = 0; i < board.black().length; i++)
             boardArr[((board.black()[i] - 1) / 5) + 1][((board.black()[i] - 1) % 5)] = 'B'; // Places black pieces
         for (int i = 0; i < board.white().length; i++)
@@ -223,6 +225,19 @@ public class Alquerque {
                 return 0;
         }
         return position;
+    }
+
+    /**
+     * Catches exceptions when input doesn't match int
+     */
+    public static int intCheck(Scanner keyboard){
+        try{
+            return keyboard.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.print("Please input a number: ");
+            keyboard.next(); // clears cache
+            return intCheck(keyboard);
+        }
     }
 
 } //close of class, m.i.s.

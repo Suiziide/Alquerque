@@ -1,45 +1,35 @@
 import java.util.Scanner;
 public class Alquerque {
-    private static Scanner reader = new Scanner(System.in);
-    private static String whiteName = "White(CPU)", blackName = "Black(CPU)";
-    private static boolean isWhiteCPU, isBlackCPU;
-    private static Board board = new Board();
+    private static Scanner reader;
+    private static String whiteName, blackName;
     private static int cpuDepth;
+    private static boolean isWhiteCPU, isBlackCPU, isWhite;
+    private static Board board;
     // ved ikke om de nedenstående variabler skal være her, men det gjorde main mere clean.
     private static String coordsFrom;
     private static String coordsTo;
-    private static boolean isWhite = true;
-    private static Move nextMove;
-    // flyt alle initialiseringerne ind i init og ikke her.
+    private static Move nextMove; // skal nok ikke være en klasse variabel
 
     public static void main(String[] args) {
         init();
-        //reader.nextLine(); //Den skal nok i init, men smed den her, for ellers kom der en newline når jeg tastede coords
-        do {
+        do { // loop for making moves
             printBoard();
             if (!isWhiteCPU && isWhite || !isBlackCPU && !isWhite) {
                 boolean inputWithinRange = false;
-                do {
+                do { // loop for validating player moves
                     System.out.print("\nIt's " + (isWhite ? whiteName : blackName) + "'s turn" + ", please enter which " +
                             "piece you want to move: ");
                     coordsFrom = reader.nextLine().trim();
-                    //moveFrom = reader.nextInt(); // Missing, input validation on convertCoordinate method
                     System.out.print("Please enter where you want to move the piece: ");
                     coordsTo = reader.nextLine().trim();
-                    //moveTo = reader.nextInt(); // Missing, input validation on convertCoordinate method
-                    //if (moveFrom >= 1 && moveFrom <= 25 && moveTo >= 1 && moveTo <= 25) {
-                    if (isValidCoords(coordsFrom) && isValidCoords(coordsTo)){
-                        //moveFrom = convertCoordinate(coordsFrom);
-                        //moveTo = convertCoordinate(coordsTo);
-                        //nextMove = new Move(moveFrom, moveTo);
+                    if (isValidCoords(coordsFrom) && isValidCoords(coordsTo)) {
                         nextMove = new Move(convertCoordinate(coordsFrom), convertCoordinate(coordsTo));
                         if (board.isLegal(nextMove))
-                        inputWithinRange = true;
+                            inputWithinRange = true;
                     }
                     if (!inputWithinRange)
-                        //System.out.println(moveFrom + " to " + moveTo + " is not a valid move, " +
-                        System.out.println(coordsFrom + " to " + coordsTo + " is not a valid move, " +
-                                "please try again.");
+                        System.out.println(coordsFrom + " to " + coordsTo + " is " +
+                                "not a valid move, please try again.");
                 } while (!inputWithinRange);
                 board.move(nextMove);
             } else if (!board.isGameOver()) {
@@ -59,18 +49,22 @@ public class Alquerque {
             System.out.println("It's a draw!");
     }
 
-
     /**
      * Initializes the program and runs the start menu.
      */
     private static void init() {
+        reader = new Scanner(System.in);
+        board = new Board();
+        whiteName = "White(CPU)";
+        blackName = "Black(CPU)";
+        isWhite = true;
         int option;
         System.out.println("*******************************************");
         System.out.println("Greetings Master! And welcome to Alquerque.");
         System.out.println("*******************************************");
         do {
             printOptions();
-            System.out.print("Please enter the coordinat corresponding " +
+            System.out.print("Please enter the number corresponding " +
                     "to the option you want executed: ");
             option = reader.nextInt();
             switch (option) {
@@ -88,17 +82,17 @@ public class Alquerque {
                     break;
                 case 2: // Player vs CPU
                     System.out.println("You have chosen option " + option + ": Player vs CPU");
-                    char color;
+                    String color;
+                    reader.nextLine(); // clears input
                     do {
                         System.out.print("Please enter the color you want to play " +
                                 "black or white (B/W): ");
-                        color = Character.toUpperCase(reader.next().charAt(0));
-                        switch (color) {
+                        color = reader.nextLine();
+                        switch (Character.toUpperCase(color.charAt(0))) {
                             case 'B':
                                 System.out.println("\nYou have chosen to play black the CPU " +
                                         "will therefore play white");
                                 System.out.print("Please enter the name of the player: ");
-                                reader.nextLine(); // clears input
                                 blackName = reader.nextLine().trim();
                                 System.out.println();
                                 isWhiteCPU = true;
@@ -107,18 +101,16 @@ public class Alquerque {
                                 System.out.println("\nYou have chosen to play white the CPU " +
                                         "will therefore play black");
                                 System.out.print("Please enter the name of the player: ");
-                                reader.nextLine(); // clears input
                                 whiteName = reader.nextLine().trim();
                                 isBlackCPU = true;
                                 break;
                             default:
-                                System.out.println("'" + color + "'" + " is not a valid input " +
+                                System.out.println("'" + color + "'" + " is not a valid color " +
                                         "option, please try again.\n");
                         }
-                    } while (color != 'B' && color != 'W');
+                    } while (Character.toUpperCase(color.charAt(0)) != 'B' && Character.toUpperCase(color.charAt(0)) != 'W');
                     System.out.print("How far ahead do you want the CPU to analyze: ");
-                    cpuDepth = reader.nextInt();
-                    reader.nextLine(); // clears input
+                    cpuDepth = reader.nextInt(); // crashes when input not int
                     break;
                 case 3: // CPU vs CPU
                     System.out.println("You have chosen option " + option + ": CPU vs CPU");
@@ -131,6 +123,7 @@ public class Alquerque {
                     System.out.println("Invalid option, " + option + " is not a valid option\n");
             }
         } while (option > 3 && option < 0);
+        reader.nextLine(); // clears input before proceeding
     }
 
     /**
@@ -148,8 +141,10 @@ public class Alquerque {
     }
 
     /**
-     * Returns a two dimensional array 5 x 5 with the game pieces placed in correct positions
+     * Creates a representation of the game board with the pieces correctly placed
+     * in the form of a two dimensional array.
      * Precondition: Relies on method black() and white() to return valid positions numbered from 1-25
+     * @return a two dimensional array 5 x 5 with the game pieces placed correctly
      */
     private static char[][] boardWithPieces() {
         char[][] boardArr = new char[6][5]; //A-E & (no 0) 1-5
@@ -191,12 +186,24 @@ public class Alquerque {
         System.out.println("   A   B   C   D   E"); //bottom-coordinate-line (A-E)
         System.out.println(""); // new line
     }
+
+    /**
+     * Test wether an enterede coordinate is a valid coordinat
+     * @param coords, a coordinate to be tested
+     * @return true if the coordinat enterede is a valid coordinat else returns false
+     */
     private static boolean isValidCoords(String coords){
-        return (coords.matches("[A-E][1-5]")); // Regex for matching
+        return (coords.matches("[A-Ea-e][1-5]")); // Regex for matching
     }
+
+    /**
+     *
+     * @param coord
+     * @return
+     */
     private static int convertCoordinate(String coord){
         int position = 0;
-        switch(coord.charAt(0)){
+        switch(Character.toUpperCase(coord.charAt(0))){
             case 'A':
                 position = (1+(5*((Integer.parseInt(coord.substring(1))-1))));
                 break;

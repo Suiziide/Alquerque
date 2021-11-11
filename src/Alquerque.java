@@ -10,9 +10,10 @@ public class Alquerque {
     // ved ikke om de nedenstående variabler skal være her, men det gjorde main mere clean.
     private static String coordsFrom;
     private static String coordsTo;
-    private static Move nextMove; // skal nok ikke være en klasse variabel
+
 
     public static void main(String[] args) {
+        Move nextMove = new Move(0,0); // skal nok ikke være en klasse variabel
         init();
         do { // loop for making moves
             printBoard();

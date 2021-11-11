@@ -18,7 +18,7 @@ public class Alquerque {
             printBoard();
             if (!isWhiteCPU && isWhite || !isBlackCPU && !isWhite) {
                 boolean inputWithinRange = false;
-                do { // loop for validating player moves
+                do { // loop for validating the players input
                     System.out.print("It's " + (isWhite ? whiteName : blackName) + "'s turn" + ", please enter which " +
                             "piece you want to move: ");
                     coordsFrom = reader.nextLine().trim();
@@ -40,8 +40,9 @@ public class Alquerque {
                         convertPosition(nextMove.from()) + " to " + convertPosition(nextMove.to()));
                 board.move(nextMove);
             }
-            isWhite = !isWhite; // changes whos turn it is
+            isWhite = !isWhite; // changes who's turn it is
         } while (!board.isGameOver());
+        System.out.println("This is the final state of the board");
         printBoard(); // prints the state of the board when game over
         if (board.black().length > 0 && board.white().length <= 0)
             System.out.println(blackName + " is the winner!");
@@ -68,7 +69,7 @@ public class Alquerque {
             printOptions();
             System.out.print("Please enter the number corresponding " +
                     "to the option you want executed: ");
-            option = intCheck(reader);
+            option = reader.nextInt();
             switch (option) {
                 case 0:
                     System.out.println("You have chosen option " + option + ": Exit program");
@@ -112,12 +113,12 @@ public class Alquerque {
                         }
                     } while (Character.toUpperCase(color.charAt(0)) != 'B' && Character.toUpperCase(color.charAt(0)) != 'W');
                     System.out.print("How far ahead do you want the CPU to analyze: ");
-                    cpuDepth = intCheck(reader);
+                    cpuDepth = reader.nextInt();
                     break;
                 case 3: // CPU vs CPU
                     System.out.println("You have chosen option " + option + ": CPU vs CPU");
                     System.out.print("How far ahead do you want the CPU's to analyze: ");
-                    cpuDepth = intCheck(reader);
+                    cpuDepth = reader.nextInt();
                     isWhiteCPU = true;
                     isBlackCPU = true;
                     break;
@@ -252,17 +253,5 @@ public class Alquerque {
         }
         coord = coord + ((position / 5) + 1);
         return coord;
-    }
-    /**
-     * Catches exceptions when input doesn't match an integer
-     */
-    public static int intCheck(Scanner keyboard){
-        try{
-            return keyboard.nextInt(); // gets input from the user and checks if it throws input mismatch error
-        } catch (InputMismatchException e) {
-            System.out.print("Please input a number: ");
-            keyboard.next(); // clears cache
-            return intCheck(keyboard); // if error it prints that it is an error, and returns a recursive call of it self
-        }
     }
 } //close of class, m.i.s.

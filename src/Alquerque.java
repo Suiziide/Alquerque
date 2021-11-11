@@ -246,15 +246,8 @@ public class Alquerque {
                 coord = "E";
                 break;
         }
-        /*
-        * Fixes edgecase where a multiplum of 5 divided by 5 gives a whole number
-        * hence E3 becomes E4, and so forth because e.g. 15 / 5 = 3, 3 + 1 = 4 but should be 3
-        */
-        if (coord == "E")
-            coord = coord + (position / 5);
-        else
-            coord = coord + ((position / 5) + 1);
 
+        coord = coord + ((position - 1) / 5 + 1); // fordi det virker
         return coord;
     }
 } //close of class, m.i.s.

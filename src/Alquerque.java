@@ -88,25 +88,22 @@ public class Alquerque {
                         System.out.print("Please enter the color you want to play " +
                                 "black or white (B/W): ");
                         color = reader.nextLine();
-                        switch (Character.toUpperCase(color.charAt(0))) {
-                            case 'B':
-                                System.out.println("\nYou have chosen to play black.\n" +
-                                        "The CPU will therefore play white");
-                                System.out.print("Please enter the name of the player: ");
-                                blackName = reader.nextLine().trim();
-                                System.out.println();
-                                isWhiteCPU = true;
-                                break;
-                            case 'W':
-                                System.out.println("\nYou have chosen to play white.\n" +
-                                        "The CPU will therefore play black");
-                                System.out.print("Please enter the name of the player: ");
-                                whiteName = reader.nextLine().trim();
-                                isBlackCPU = true;
-                                break;
-                            default:
-                                System.out.println("'" + color + "'" + " is not a valid color " +
-                                        "option, please try again.\n");
+                        if (color.matches("[Bb]")){
+                            System.out.println("\nYou have chosen to play black.\n" +
+                                    "The CPU will therefore play white");
+                            System.out.print("Please enter the name of the player: ");
+                            blackName = reader.nextLine().trim();
+                            System.out.println();
+                            isWhiteCPU = true;
+                        } else if (color.matches("[Ww]")){
+                            System.out.println("\nYou have chosen to play white.\n" +
+                                    "The CPU will therefore play black");
+                            System.out.print("Please enter the name of the player: ");
+                            whiteName = reader.nextLine().trim();
+                            isBlackCPU = true;
+                        } else {
+                            System.out.println("'" + color + "'" + " is not a valid color " +
+                                    "option, please try again.\n");
                         }
                     } while (!color.matches("[B|b|W|w]"));
                     System.out.print("How far ahead do you want the CPU to analyze: ");
@@ -123,7 +120,6 @@ public class Alquerque {
                     System.out.println("Invalid option, " + option + " is not a valid option\n");
             }
         } while (option > 3 && option < 0);
-        reader.nextLine(); // clears input before proceeding
     }
 
     /**

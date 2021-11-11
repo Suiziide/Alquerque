@@ -7,15 +7,13 @@ public class Alquerque {
     private static String whiteName, blackName;
     private static int cpuDepth;
     private static boolean isWhiteCPU, isBlackCPU, isWhite;
-    // ved ikke om de nedenstående variabler skal være her, men det gjorde main mere clean.
-    private static String coordsFrom;
-    private static String coordsTo;
-
 
     public static void main(String[] args) {
+        String coordsFrom;
+        String coordsTo;
         Move nextMove = new Move(0,0); // skal nok ikke være en klasse variabel
         init();
-        do { // loop for making moves
+        do { // main game loop
             printBoard();
             if (!isWhiteCPU && isWhite || !isBlackCPU && !isWhite) {
                 boolean inputWithinRange = false;
@@ -68,8 +66,6 @@ public class Alquerque {
         System.out.println("*******************************************");
         do {
             printOptions();
-            System.out.print("Please enter the number corresponding " +
-                    "to the option you want executed: ");
             option = reader.nextInt();
             switch (option) {
                 case 0:
@@ -142,6 +138,8 @@ public class Alquerque {
         System.out.println("Option 3: CPU vs CPU");
         System.out.println("****************************");
         System.out.println();
+        System.out.print("Please enter the number corresponding " +
+                "to the option you want executed: ");
     }
 
     /**

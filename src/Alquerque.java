@@ -119,6 +119,7 @@ public class Alquerque {
                     System.out.println("Invalid option, " + option + " is not a valid option\n");
             }
         } while (option > 3 && option < 0);
+    reader.nextLine(); // clears input
     }
 
     /**

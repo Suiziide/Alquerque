@@ -75,7 +75,7 @@ public class Alquerque {
                 case 1: // Player vs Player
                     System.out.println("You have chosen option " + option + ": Player vs Player");
                     System.out.print("Please enter the name of player 1: ");
-                    reader.nextLine(); // clears terminal input
+                    reader.nextLine(); // clears input
                     whiteName = reader.nextLine().trim();
                     System.out.print("Please enter the name of player 2: ");
                     blackName = reader.nextLine().trim();

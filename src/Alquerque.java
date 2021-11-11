@@ -107,6 +107,7 @@ public class Alquerque {
                     } while (!color.matches("[BbWw]"));
                     System.out.print("How far ahead do you want the CPU to analyze: ");
                     cpuDepth = reader.nextInt();
+                    reader.nextLine(); // clears input
                     break;
                 case 3: // CPU vs CPU
                     System.out.println("You have chosen option " + option + ": CPU vs CPU");
@@ -119,7 +120,6 @@ public class Alquerque {
                     System.out.println("Invalid option, " + option + " is not a valid option\n");
             }
         } while (option > 3 && option < 0);
-    reader.nextLine(); // clears input
     }
 
     /**

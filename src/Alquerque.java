@@ -93,7 +93,6 @@ public class Alquerque {
                                     "The CPU will therefore play white");
                             System.out.print("Please enter the name of the player: ");
                             blackName = reader.nextLine().trim();
-                            System.out.println();
                             isWhiteCPU = true;
                         } else if (color.matches("[Ww]")){
                             System.out.println("\nYou have chosen to play white.\n" +

@@ -105,7 +105,7 @@ public class Alquerque {
                             System.out.println("'" + color + "'" + " is not a valid color " +
                                     "option, please try again.\n");
                         }
-                    } while (!color.matches("[B|b|W|w]"));
+                    } while (!color.matches("[BbWw]"));
                     System.out.print("How far ahead do you want the CPU to analyze: ");
                     cpuDepth = reader.nextInt();
                     break;

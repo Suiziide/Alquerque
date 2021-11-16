@@ -11,7 +11,7 @@ public class Alquerque {
     public static void main(String[] args) {
         String coordsFrom;
         String coordsTo;
-        Move nextMove = new Move(0,0); // skal nok ikke være en klasse variabel
+        Move nextMove = new Move(0,0);
         init();
         do { // main game loop
             printBoard();

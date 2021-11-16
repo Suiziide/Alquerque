@@ -29,7 +29,7 @@ public class Alquerque {
                     }
                     if (!inputWithinRange)
                         System.out.println(coordsFrom + " to " + coordsTo + " is " +
-                                "not a valid move, please try again.");
+                                "not a valid move, please enter a coordinate A-E 1-5.");
                 } while (!inputWithinRange);
                 board.move(nextMove);
             } else if (!board.isGameOver()) {
@@ -246,7 +246,7 @@ public class Alquerque {
                 break;
         }
 
-        coord = coord + ((position - 1) / 5 + 1); // fordi det virker
+        coord = coord + ((position - 1) / 5 + 1);
         return coord;
     }
 } //close of class, m.i.s.

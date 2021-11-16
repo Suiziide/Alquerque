@@ -39,7 +39,7 @@ public class Alquerque {
                         convertPosition(nextMove.from()) + " to " + convertPosition(nextMove.to()));
                 board.move(nextMove);
             }
-            isWhite = !isWhite; // changes who's turn it is
+            isWhite = !isWhite; // changes who's turn it is at the end of a turn
         } while (!board.isGameOver());
         System.out.println("This is the final state of the board");
         printBoard(); // prints the state of the board when game over

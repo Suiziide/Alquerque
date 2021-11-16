@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Alquerque {
     private static Scanner reader;
     private static Board board;
-    public static final char EMPTY = ' ';
+    private static final char EMPTY = ' ';
     private static String whiteName, blackName;
     private static int cpuDepth;
     private static boolean isWhiteCPU, isBlackCPU, isWhite;

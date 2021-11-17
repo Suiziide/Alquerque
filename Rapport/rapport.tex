@@ -66,7 +66,6 @@
 	This section will give an overview of how the program works, and which design choices has been made while writing the program.
 	
 	\subsection{Option menu \& game initilization}
-	
 	The program works by first asking the user to select one of three playable game scenarios; (1) Player vs Player, (2) Player vs CPU, and (3) CPU vs CPU, or (0) to exit the program. The game is then initiated according to what the user picked.
 	
 	If the user chooses to play against another player, they will be prompted to enter the name of player 1 and then player 2. The game will thereafter commence with player 1 being white and player 2 being black. The game will continue, first prompting the current player, starting with white, to input which piece they want to move followed by where they want to move it, updating the position of the pieces and displaying the updated gamestate to the user, then switching to the next player and repeating the same process for that player. This continues until one of three things happen, either black wins, white wins or the game is a draw. 
@@ -76,11 +75,9 @@
 	Alternatively the user can choose to pit two CPUs against each other, picking how many moves the CPUs are allowed to look ahead, being able to spectate their respective moves as they are calculated and executed. Updating the pieces positions and then displaying them to the user. This continues until either black wins, white wins or the game is a draw.
 	
 	\subsection{Getters \& setters:}
-	
 	Getters and setters have not been implemented because the class is not going to be instantiated, and it is not defined in the contract that another class should be able to use these variables.	
 	
 	\subsection{Chess notation}
-	
 	For improved QOL/user friendliness, we have chosen to assign coordinates to the visual representation of the board with letters, A through E, above and below the board, as well as numbers, 1 through 5, to the left and to the right of the board. Due to the familiarity from chess, this way of identifying board positions should feel more intuitive.
 	
 	\newpage
@@ -113,6 +110,7 @@
 	First it initiates the array, and fills it with empty spaces, defined by the EMPTY constant.
 	It then uses the methods black and white from the Board class, to fill in the spaces occupied by black and white pieces.
 	\\\\
+	
 	The printBoard() method, which is used in the main game loop to display the board on the screen, makes an array from boardWithPieces() and prints it out, along with letters from A - B in the top and bottom, numbers from 1-5 in the sides and the guiding lines between the squares.
 	
 	\subsubsection{Chess notation and functionality}
@@ -186,9 +184,8 @@
 	}
 	\end{lstlisting}
 	\vspace{10mm}
-	
 	\section{Test}
-	
+
 	\subsection{Error when inputting non-integers in menus}
 	The game crashes when a non-integer input is typed in the menu, or when choosing the cpu depth, as the Scanner method nextInt is used. This causes the program to throw an inputMismatchException.
 	
@@ -198,9 +195,10 @@
 	
 	\subsection{CPU moves being printed incorrectly}
 	When the CPU made a move, we discovered that whenever it was to or from the E file, regardless of rank, the move, although correctly executed, would be printed as a rank 1 higher than intended. An example of this would be the move D1 to E1 being misprinted as “White/Black(CPU) moved D1 to E2”. To fix this, we found that in our method to convert a position represented by an integer to a position represented by a coordinate, we would have to subtract 1 from the position integer before dividing by 5 to get the rank. This meant that position 5 would accurately be converted to 1, instead of 2. The same thing applied to 10, 15, 20, and 25.
-	[ indsæt code-snippet af linje 250 (coord=coord +((position-1)/5+1);) ]
 	
 	\section{Conclusion}
+
+
 	\section{Appendix}
 	\subsection{Program Code}
 	\lstinputlisting[style=JavaStyle]{../src/Alquerque.java}

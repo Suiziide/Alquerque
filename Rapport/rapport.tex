@@ -193,7 +193,7 @@
 	
 	\subsection{Mistake in B/W input, fixed with regex}
 	During testing we found that, when choosing to play white or black, the user could type any characters after the B or W and it would still accept it. For example you could write Bwhite, and it would be accepted as black.
-	When this error occurred the program would accept a string as input for what color the player wanted to play. The input string would then be passed to a switch where the character at index 0 would be checked and all charecters after index 0 was ignored.
+	When this error occurred the program would accept a string as input for what color the player wanted to play. The input string would then be passed to a switch where the character at index 0 would be checked and all characters after index 0 was ignored.
 	To fix this error, we changed it to an if-else statement, using regex to match B and W specifically, but case insensitive.
 	
 	\subsection{CPU moves being printed incorrectly}

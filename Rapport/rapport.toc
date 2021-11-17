@@ -12,7 +12,7 @@
 \contentsline {section}{\numberline {4}Test}{9}{}%
 \contentsline {subsection}{\numberline {4.1}Error when inputting non-integers in menus}{9}{}%
 \contentsline {subsection}{\numberline {4.2}Mistake in B/W input, fixed with regex}{9}{}%
-\contentsline {subsection}{\numberline {4.3}CPU moves being printed incorrectly}{10}{}%
+\contentsline {subsection}{\numberline {4.3}CPU moves being printed incorrectly}{9}{}%
 \contentsline {section}{\numberline {5}Conclusion}{10}{}%
 \contentsline {section}{\numberline {6}Appendix}{10}{}%
 \contentsline {subsection}{\numberline {6.1}Program Code}{10}{}%

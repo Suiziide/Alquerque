@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.11.17)  17 NOV 2021 09:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.11.17)  17 NOV 2021 09:58
 entering extended mode
 **./rapport.tex
 (rapport.tex
@@ -256,7 +256,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [3]
-Overfull \hbox (4.30424pt too wide) in paragraph at lines 84--85
+Overfull \hbox (4.30424pt too wide) in paragraph at lines 86--87
 []\OT1/cmr/m/n/12 Following this mindset, we decided to represent the board in 
 a two-dimensional
  []
@@ -279,23 +279,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 99--104
+Underfull \hbox (badness 10000) in paragraph at lines 102--107
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--113
+Underfull \hbox (badness 10000) in paragraph at lines 110--116
 
  []
 
 
-Overfull \hbox (2.25009pt too wide) in paragraph at lines 107--113
+Overfull \hbox (2.25009pt too wide) in paragraph at lines 110--116
 \OT1/cmr/m/n/12 translate to numbers between 1 - 25, which therefore satisfies 
 the precondition. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--113
+Underfull \hbox (badness 10000) in paragraph at lines 110--116
 
  []
 
@@ -383,7 +383,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Here is how much of TeX's memory you used:
  5232 strings out of 480636
  80267 string characters out of 2898531
- 1202616 words of memory out of 3000000
+ 1202624 words of memory out of 3000000
  23030 multiletter control sequences out of 15000+600000
  411233 words of font info for 55 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
@@ -400,7 +400,7 @@ nts/type1/public/amsfonts/cm/cmsy10.pfb></home/suiziide/.miktex/texmfs/install/
 fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/suiziide/.miktex/texmfs/install
 /fonts/type1/public/amsfonts/cm/cmti8.pfb></home/suiziide/.miktex/texmfs/instal
 l/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on rapport.pdf (13 pages, 163437 bytes).
+Output written on rapport.pdf (13 pages, 163544 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

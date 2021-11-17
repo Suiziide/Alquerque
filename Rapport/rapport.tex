@@ -72,8 +72,11 @@
 	
 	Else, if the player chooses to play against a CPU they are first prompted to pick what color they want to play as. The CPU will then play as the opposite color. The player is then prompted to enter their name followed by the number of moves they want the CPU to look ahead while calculating its moves, which determines the level of difficulty. The game will then commence with white making the opening move, may that be either the player or the CPU. Assuming the CPU is white it will calculate its move, in accordance with the number of moves it was allowed to look ahead by the player, and play it. The game state is then updated and displayed, then switching to the player, saying that it is their turn, prompting them to input which piece they want to move followed by where they want to move it. The pieces position are updated and the updated gamestate is displayed, then the CPU makes a move and this cycle continues until either black wins, white wins or the game is a draw. 
 	
-	Alternatively the user can choose to pit two CPUs against each other, picking how many moves the CPUs are allowed to look ahead, being able to spectate their respective moves as they are calculated and executed. Updating the pieces positions and then displaying them to the user. This continues until either black wins, white wins or the game is a draw.
+	Alternatively, the user can choose to pit two CPUs against each other, picking how many moves the CPUs are allowed to look ahead, being able to spectate their respective moves as they are calculated and executed. Updating the pieces positions and then displaying them to the user. This continues until either black wins, white wins or the game is a draw.
 	
+    \subsection{Programming methodology}
+    The program is  written in a top-down fashion, by constructing a main method, which included all the methods we would need to make the program function as we had intended. After constructing the main, we created the individual methods for printing the board, printing the options menu, converting coordinates from chess notation to positional integers, etc.
+
 	\subsection{Getters \& setters:}
 	Getters and setters have not been implemented because the class is not going to be instantiated, and it is not defined in the contract that another class should be able to use these variables.	
 	
@@ -97,18 +100,18 @@
 	
 	\subsection{The init() method}
 	
-	The method init() is the first thing being called when the program starts, when this happens all variables get initialized throughout the method. Firstly the variables which have predefined values get initialized e.g. board becomes a new board, reader becomes a new scanner. Secondly the program greets the user, prints the available options the user can pick from and then prompts the user to pick one of the options, which is then passed through a switch, which is wrapped in a do while loop, which repeats until a valid option is picked. The switch determines which of the available options, if any, the user's input corresponds to. If the user’s input does not correspond to a valid option the switch defaults to telling the users that their inputted option is an invalid option and to try again. This response is followed by the option menu being printed for the user to view the available options again. 
+	The method init() is the first thing being called when the program starts, when this happens all variables get initialized throughout the method. Firstly the variables which have predefined values get initialized e.g. board becomes a new board, reader becomes a new scanner. Secondly the program greets the user, prints the available options the user can pick from and then prompts the user to pick one of the options, which is then passed through a switch, which is wrapped in a do-while loop, which repeats until a valid option is picked. The switch determines which of the available options, if any, the user's input corresponds to. If the user’s input does not correspond to a valid option the switch defaults to telling the users that their inputted option is an invalid option and to try again. This response is followed by the option menu being printed for the user to view the available options again.
 	Depending on which option is chosen, the corresponding variables are defined, and the loop within init() is exited, since a valid option was picked, and the program continues to the main game loop.
 	
 	\subsection{The main game loop}
 	
-	In the main game loop the first thing that happens is that the initialized board is presented to the user. After this a check is run determining how the next move should be made. If the next one to play is a player they are prompted to choose a piece corresponding to the color of the player, which turn it is, that they want to move, and then where they want to move the piece, in accordance with standard chess notation. This move is then validated as a valid coordinate. An instance of the move class is then created and passed to isLegal to see if it is a legal move that can be played on the board in the current board-state. And if that is not the case the user is told that the entered move was invalid and a do-while repeatedly asks the user to input what piece they want to move and where to, until a valid and legal move is entered by the user. While the game is not over this process is repeated switching between black and white. If the player is a CPU, a new move is created in accordance with the calculations done by MiniMaxTree. If the do-while guard, encapsulating the player's moves, registers whether the game is over. An if-statement then checks whether black has won, white has won or if it is a draw between the two. This is then printed to the console for the player to view.
+	In the main game loop the first thing that happens is that the initialized board is presented to the user. After this a check is run determining how the next move should be made. If the next one to play is a player they are prompted to choose a piece corresponding to the color of the player, which turn it is, that they want to move, and then where they want to move the piece, in accordance with standard chess notation. This move is then validated as a valid coordinate. An instance of the move class is then created and passed to isLegal() to see if it is a legal move that can be played on the board in the current boardstate. And if that is not the case the user is told that the entered move was invalid and a do-while repeatedly asks the user to input what piece they want to move and where to, until a valid and legal move is entered by the user. While the game is not over this process is repeated switching between black and white. If the player is a CPU, a new move is created in accordance with the calculations done by MiniMaxTree. If the do-while guard, encapsulating the player's moves, registers whether the game is over. An if-statement then checks whether black has won, white has won or if it is a draw between the two. This is then printed to the console for the player to view.
 	
 	\subsection{Construction of the visual board}
 	
 	The board is represented in the program by a two-dimensional array, which is constructed in the boardWithPieces() method.
 	First it initiates the array, and fills it with empty spaces, defined by the EMPTY constant.
-	It then uses the methods black and white from the Board class, to fill in the spaces occupied by black and white pieces.
+	It then uses the methods black() and white() from the Board class, to fill in the spaces occupied by black and white pieces.
 	\\\\
 	The printBoard() method, which is used in the main game loop to display the board on the screen, makes an array from boardWithPieces() and prints it out, along with letters from A - B in the top and bottom, numbers from 1-5 in the sides and the guiding lines between the squares.
 	
@@ -144,7 +147,7 @@
 	\end{lstlisting}
 	
 	\newpage
-	Since the convertCoordinate method has a precondition that it can only accept coordinates that correspond to a number 1-25, we also wrote a method isValidCoords that returns a boolean true/false if the coordinates is a valid place on the board or not. It uses regex to check that it is a two letter string from A1 to E5, which, by the logic used in convertCoordinate, will only translate to numbers between 1 - 25, which therefore satisfies the precondition.
+	Since convertCoordinate() has a precondition that it can only accept coordinates that correspond to a number 1-25, we also wrote a method, isValidCoords(), that returns a boolean value for whether the coordinate is a valid position on the board or not. It uses regex to check if it is a string of length 2, and within A1-E5, which, by the logic used in convertCoordinate(), will only translate to numbers 1 through 25, thereby satisfying the precondition.
 
 	\begin{lstlisting}[style=JavaStyle]
 		private static boolean isValidCoords(String coords){
@@ -186,7 +189,7 @@
 
 	\section{Test}
 	This section describes some of the errors and challenges we faced during the construction of the program, either from challenges arising from the calculations, or by limitations of the methods used.
-	
+
 	\subsection{Error when inputting non-integers in menus}
 	The game crashes when a non-integer input is typed in the menu, or when choosing the CPU depth, as the Scanner method nextInt is used. This causes the program to throw an inputMismatchException.
 	
@@ -199,12 +202,12 @@
 	When the CPU made a move, we discovered that whenever it was to or from the E file, regardless of rank, the move, although correctly executed, would be printed as a rank 1 higher than intended. An example of this would be the move D1 to E1 being misprinted as “White/Black(CPU) moved D1 to E2”. To fix this, we found that in our method to convert a position represented by an integer to a position represented by a coordinate, we would have to subtract 1 from the position integer before dividing by 5 to get the rank. This meant that position 5 would accurately be converted to 1, instead of 2. The same thing applied to 10, 15, 20, and 25.
 	
 	\section{Conclusion}
-	We didn't encounter a lot of issues in this phase. We went in to the design phase with a clear picture in our minds, which was a movement system, similar to a chess game, with coordinates instead of numbers, and this proved to be a challenge to implement. 
-	
+	We didn't encounter a lot of issues in this phase. We went in to the design phase with a clear picture in our minds, which was a movement system, similar to a chess game, with coordinates instead of numbers, and this proved to be a challenge to implement.
+
 	In hindsight this might have made our code a bit more complicated, but we were committed to solving this issue, and implemented several methods to overcome the challenge, without breaching the contract.
-	
+
 	We managed to construct a working program without any major issues. The only thing left unsolved is the exception thrown if anything other than an integer is entered when the program expects an integer.
-	
+
 	\section{Appendix}
 	\subsection{Program Code}
 	\lstinputlisting[style=JavaStyle]{../src/Alquerque.java}

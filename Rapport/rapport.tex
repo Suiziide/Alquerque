@@ -113,7 +113,6 @@
 	First it initiates the array, and fills it with empty spaces, defined by the EMPTY constant.
 	It then uses the methods black and white from the Board class, to fill in the spaces occupied by black and white pieces.
 	\\\\
-	
 	The printBoard() method, which is used in the main game loop to display the board on the screen, makes an array from boardWithPieces() and prints it out, along with letters from A - B in the top and bottom, numbers from 1-5 in the sides and the guiding lines between the squares.
 	
 	\subsubsection{Chess notation and functionality}
@@ -189,8 +188,6 @@
 	\vspace{10mm}
 	
 	\section{Test}
-	
-	While coding and playing some test games a few different logical and runtime errors occurred, some of them were simple mistakes such as using the \&\& operator instead of the \(||\) operator. This resulted in some unwanted behavior, such as the case, where the do-while's guard, when the user is prompted to pick an option describing how they want to play, said that the option picked should be greater than three and less than zero, which is not possible, so even if the input did not correspond to a valid option the do-while guard would not stop the program from progressing to the main game loop, without letting the user pick how they wanted to play the game.    
 	
 	\subsection{Error when inputting non-integers in menus}
 	The game crashes when a non-integer input is typed in the menu, or when choosing the cpu depth, as the Scanner method nextInt is used. This causes the program to throw an inputMismatchException.

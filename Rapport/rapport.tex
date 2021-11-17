@@ -90,6 +90,8 @@
 		\caption{Chess Notation}
 		\includegraphics[width=0.4\textwidth]{chessnotation}		
 	\end{figure}
+	
+	\vspace{10mm}
 		
 	Following this mindset, we decided to represent the board in a two-dimensional array in the size of 6 x 5. The reason we chose this size is that the side of the board which represents the numbers seems more intuitive if the row number corresponds to the rank number on the board, which goes from 1-5. On the other hand the side of the board that represent the letters doesn’t have to correspond in the same way, so we kept the column as going from 0-4
 	
@@ -110,20 +112,81 @@
 	The board is represented in the program by a two-dimensional array, which is constructed in the boardWithPieces() method.
 	First it initiates the array, and fills it with empty spaces, defined by the EMPTY constant.
 	It then uses the methods black and white from the Board class, to fill in the spaces occupied by black and white pieces.
-    \\\\
+	\\\\
+	
 	The printBoard() method, which is used in the main game loop to display the board on the screen, makes an array from boardWithPieces() and prints it out, along with letters from A - B in the top and bottom, numbers from 1-5 in the sides and the guiding lines between the squares.
 	
 	\subsubsection{Chess notation and functionality}
 	
 	As mentioned in the design-section, we chose to represent the board with letters for columns and numbers for rows. However, this gives us a String coordinate rather than an integer in the preconditioned range of 1 through 25. So in order to satisfy the precondition for Move, we made the method convertCoordinate that converts an input coordinate to the corresponding positional number, so that it may be used by methods from() and to() in Moved.
 	The method works by assigning a numerical value to the coordinate letters, then adding it to a multiplum by 5, which is determined by the coordinate-numbers corresponding array-index.
-	\\\\
+	\\
+	\begin{lstlisting}[style=JavaStyle]
+	private static int convertCoordinate(String coord){
+		int position = 0;
+		switch(Character.toUpperCase(coord.charAt(0))){
+			case 'A':   //value of each column is added to the row-determined multiplum of 5 (e.g. D is 4'th, so positional value is +4)
+				position = (1+(5*((Integer.parseInt(coord.substring(1))-1))));
+				break;
+			case 'B':
+				position = (2+(5*((Integer.parseInt(coord.substring(1))-1))));
+				break;
+			case 'C':
+				position = (3+(5*((Integer.parseInt(coord.substring(1))-1))));
+				break;
+			case 'D':
+				position = (4+(5*((Integer.parseInt(coord.substring(1))-1))));
+				break;
+			case 'E':
+				position = (5+(5*((Integer.parseInt(coord.substring(1))-1))));
+				break;
+			default:
+				return 0;
+		}
+		return position;
+	}
+	\end{lstlisting}
+	
+	\newpage
 	Since the convertCoordinate method has a precondition that it can only accept coordinates that correspond to a number 1-25, we also wrote a method isValidCoords that returns a boolean true/false if the coordinates is a valid place on the board or not. It uses regex to check that it is a two letter string from A1 to E5, which, by the logic used in convertCoordinate, will only translate to numbers between 1 - 25, which therefore satisfies the precondition.
-	\\\\
+
+	\begin{lstlisting}[style=JavaStyle]
+		private static boolean isValidCoords(String coords){
+			return (coords.matches("[A-Ea-e][1-5]")); // Regex for matching
+		}
+	\end{lstlisting}
+	\vspace{10mm}
 	For a move to be printed as a coordinate, rather than as the positional integer which the CPU returns when a move is calculated, we had to make a method that would convert Move objects returned from MinMaxTree to the corresponding letters for files and numbers for ranks. The method functions by subtracting 1 from the positional integer, before subtracting 5 until the integer is between 0 and 4, which for each number corresponds to a letter for each file on the board.
 	
 	To determine the ranks, the positional integer is divided by 5, whereafter 1 is added to compensate for index 0 in the array.
 	However, during testing we discovered a minor issue with this method, although, for the most part, it worked as intended, we found the need to subtract 1 from the position before dividing; this will be elaborated in the test section of this report.
+	
+	\begin{lstlisting}[style=JavaStyle]
+    private static String convertPosition(int position){
+		String coord = "";
+		switch ((position - 1) % 5){
+			case 0:
+				coord = "A";
+				break;
+			case 1:
+				coord = "B";
+				break;
+			case 2:
+				coord = "C";
+				break;
+			case 3:
+				coord = "D";
+				break;
+			case 4:
+				coord = "E";
+				break;
+		}
+		
+		coord = coord + ((position - 1) / 5 + 1);
+		return coord;
+	}
+	\end{lstlisting}
+	\vspace{10mm}
 	
 	\section{Test}
 	

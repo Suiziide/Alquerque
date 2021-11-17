@@ -9,10 +9,10 @@
 \contentsline {subsection}{\numberline {3.2}The main game loop}{6}{}%
 \contentsline {subsection}{\numberline {3.3}Construction of the visual board}{6}{}%
 \contentsline {subsubsection}{\numberline {3.3.1}Chess notation and functionality}{7}{}%
-\contentsline {section}{\numberline {4}Test}{8}{}%
-\contentsline {subsection}{\numberline {4.1}Error when inputting non-integers in menus}{8}{}%
-\contentsline {subsection}{\numberline {4.2}Mistake in B/W input, fixed with regex}{8}{}%
-\contentsline {subsection}{\numberline {4.3}CPU moves being printed incorrectly}{8}{}%
-\contentsline {section}{\numberline {5}Conclusion}{9}{}%
-\contentsline {section}{\numberline {6}Appendix}{9}{}%
-\contentsline {subsection}{\numberline {6.1}Program Code}{9}{}%
+\contentsline {section}{\numberline {4}Test}{9}{}%
+\contentsline {subsection}{\numberline {4.1}Error when inputting non-integers in menus}{9}{}%
+\contentsline {subsection}{\numberline {4.2}Mistake in B/W input, fixed with regex}{9}{}%
+\contentsline {subsection}{\numberline {4.3}CPU moves being printed incorrectly}{10}{}%
+\contentsline {section}{\numberline {5}Conclusion}{10}{}%
+\contentsline {section}{\numberline {6}Appendix}{10}{}%
+\contentsline {subsection}{\numberline {6.1}Program Code}{10}{}%

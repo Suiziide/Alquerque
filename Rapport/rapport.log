@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.11.17)  17 NOV 2021 09:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.11.17)  17 NOV 2021 10:10
 entering extended mode
 **./rapport.tex
 (rapport.tex
@@ -256,7 +256,36 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [3]
-Overfull \hbox (4.30424pt too wide) in paragraph at lines 86--87
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4]
+<images//chessnotation.png, id=17, 195.129pt x 239.6955pt>
+File: images//chessnotation.png Graphic file (type png)
+<use images//chessnotation.png>
+Package pdftex.def Info: images//chessnotation.png  used on input line 91.
+(pdftex.def)             Requested size: 155.99762pt x 191.62863pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.94 	
+      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (4.30424pt too wide) in paragraph at lines 95--96
 []\OT1/cmr/m/n/12 Following this mindset, we decided to represent the board in 
 a two-dimensional
  []
@@ -269,33 +298,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 102--107
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--116
-
- []
-
-
-Overfull \hbox (2.25009pt too wide) in paragraph at lines 110--116
-\OT1/cmr/m/n/12 translate to numbers between 1 - 25, which therefore satisfies 
-the precondition. 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--116
+[5 <./images//chessnotation.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 111--116
 
  []
 
@@ -308,6 +312,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 119--125
+
+ []
+
+
+Overfull \hbox (2.25009pt too wide) in paragraph at lines 119--125
+\OT1/cmr/m/n/12 translate to numbers between 1 - 25, which therefore satisfies 
+the precondition. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--125
+
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -316,7 +335,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7] (/home/suiziide/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
+[7]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[8] (/home/suiziide/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (../src/Alquerque.java
@@ -326,15 +354,6 @@ LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line
 (/home/suiziide/.miktex/texmfs/install/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[8]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -370,7 +389,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[12])
+[12]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -379,15 +398,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[13] (rapport.aux) ) 
+[13])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[14] (rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 5232 strings out of 480636
- 80267 string characters out of 2898531
- 1202624 words of memory out of 3000000
- 23030 multiletter control sequences out of 15000+600000
+ 5246 strings out of 480636
+ 80584 string characters out of 2898531
+ 1220821 words of memory out of 3000000
+ 23041 multiletter control sequences out of 15000+600000
  411233 words of font info for 55 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 55i,12n,62p,1333b,1319s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,62p,1333b,1294s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/jknapp
 en/ec/dpi600/tcit0800.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/j
 knappen/ec/dpi600/tctt0800.pk></home/suiziide/.miktex/texmfs/install/fonts/type
@@ -400,9 +428,9 @@ nts/type1/public/amsfonts/cm/cmsy10.pfb></home/suiziide/.miktex/texmfs/install/
 fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/suiziide/.miktex/texmfs/install
 /fonts/type1/public/amsfonts/cm/cmti8.pfb></home/suiziide/.miktex/texmfs/instal
 l/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on rapport.pdf (13 pages, 163544 bytes).
+Output written on rapport.pdf (14 pages, 177415 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
+ 104 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

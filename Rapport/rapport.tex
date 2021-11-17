@@ -83,6 +83,15 @@
 	
 	For improved QOL/user friendliness, we have chosen to assign coordinates to the visual representation of the board with letters, A through E, above and below the board, as well as numbers, 1 through 5, to the left and to the right of the board. Due to the familiarity from chess, this way of identifying board positions should feel more intuitive.
 	
+	\newpage
+	
+	\begin{figure}[h]
+		\centering
+		\caption{Chess Notation}
+		\includegraphics[width=0.4\textwidth]{chessnotation}		
+	\end{figure}
+	\\
+	
 	Following this mindset, we decided to represent the board in a two-dimensional array in the size of 6 x 5. The reason we chose this size is that the side of the board which represents the numbers seems more intuitive if the row number corresponds to the rank number on the board, which goes from 1-5. On the other hand the side of the board that represent the letters doesn’t have to correspond in the same way, so we kept the column as going from 0-4
 	
 	\section{Implementation}
@@ -125,7 +134,7 @@
 	The game crashes when a non-integer input is typed in the menu, or when choosing the cpu depth, as the Scanner method nextInt is used. This causes the program to throw an inputMismatchException.
 	
 	\subsection{Mistake in B/W input, fixed with regex}
-	During testing we found that, when choosing to play white or black, you could type any characters after the B or W and it would still accept it. For example you could write Bwhite, and it would choose black. It was implemented via a switch statement that matched the char at index 0, which of course ignores all other charecters following then one at index 0.
+	During testing we found that, when choosing to play white or black, you could type any characters after the B or W and it would still accept it. For example you could write Bwhite, and it would choose black. It was implemented via a switch statement that matched the char at index 0, which of course ignores all other characters following then one at index 0.
 	To fix this error, we changed it to an if-else statement, using regex to match B and W specifically, but case insensitive.
 	
 	\subsection{CPU moves being printed incorrectly}

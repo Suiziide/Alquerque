@@ -121,6 +121,11 @@
 	The method works by assigning a numerical value to the coordinate letters, then adding it to a multiplum by 5, which is determined by the coordinate-numbers corresponding array-index.
 	\\
 	\begin{lstlisting}[style=JavaStyle]
+	/**
+	* Converts an input coordinate to the corresponding position on the board, determined by numbers 1-25
+	* @param coord move coordinate input from user
+	* @return position on board, represented by an integer (1-25)
+	*/
 	private static int convertCoordinate(String coord){
 		int position = 0;
 		switch(Character.toUpperCase(coord.charAt(0))){
@@ -150,6 +155,11 @@
 	Since convertCoordinate() has a precondition that it can only accept coordinates that correspond to a number 1-25, we also wrote a method, isValidCoords(), that returns a boolean value for whether the coordinate is a valid position on the board or not. It uses regex to check if it is a string of length 2, and within A1-E5, which, by the logic used in convertCoordinate(), will only translate to numbers 1 through 25, thereby satisfying the precondition.
 
 	\begin{lstlisting}[style=JavaStyle]
+		/**
+		* Test wether an enterede coordinate is a valid coordinat
+		* @param coords, a coordinate to be tested
+		* @return true if the coordinat enterede is a valid coordinat else returns false
+		*/
 		private static boolean isValidCoords(String coords){
 			return (coords.matches("[A-Ea-e][1-5]")); // Regex for matching
 		}
@@ -161,6 +171,11 @@
 	However, during testing we discovered a minor issue with this method, although, for the most part, it worked as intended, we found the need to subtract 1 from the position before dividing; this will be elaborated in the test section of this report.
 	
 	\begin{lstlisting}[style=JavaStyle]
+	/**
+	* Converts an input position, represented by a number 1-25 to the corresponding coordinates in form [A-E][1-5]
+	* @param position position represented by an int
+	* @return coord position represented by coordinates [A-E][1-5]
+	*/
     private static String convertPosition(int position){
 		String coord = "";
 		switch ((position - 1) % 5){

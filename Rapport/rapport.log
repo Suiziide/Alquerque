@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.10.5)  17 NOV 2021 11:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.10.5)  17 NOV 2021 13:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -231,6 +231,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [3]
+Overfull \hbox (2.44592pt too wide) in paragraph at lines 78--79
+\OT1/cmr/m/n/12 The pro-gram is writ-ten in a top-down fash-ion, by con-struct-ing a main method,
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -242,10 +246,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <images//chessnotation.png, id=18, 195.129pt x 239.6955pt>
 File: images//chessnotation.png Graphic file (type png)
 <use images//chessnotation.png>
-Package pdftex.def Info: images//chessnotation.png  used on input line 88.
+Package pdftex.def Info: images//chessnotation.png  used on input line 91.
 (pdftex.def)             Requested size: 155.99762pt x 191.62863pt.
 
-Overfull \hbox (4.30424pt too wide) in paragraph at lines 93--94
+Overfull \hbox (4.30424pt too wide) in paragraph at lines 96--97
 []\OT1/cmr/m/n/12 Following this mind-set, we de-cided to rep-re-sent the board in a two-dimensional
  []
 
@@ -257,12 +261,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [5 <./images//chessnotation.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 109--113
+Underfull \hbox (badness 10000) in paragraph at lines 112--116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--113
+Underfull \hbox (badness 10000) in paragraph at lines 112--116
 
  []
 
@@ -276,11 +280,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [6] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 118--121
+Underfull \hbox (badness 10000) in paragraph at lines 121--124
 
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 125.
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 128.
 (/usr/share/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
@@ -359,13 +363,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Here is how much of TeX's memory you used:
  4833 strings out of 478994
  66006 string characters out of 5864751
- 1213088 words of memory out of 5000000
+ 1213080 words of memory out of 5000000
  22270 multiletter control sequences out of 15000+600000
  411233 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,12n,74p,1312b,1228s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,12n,74p,1314b,1228s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfit0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on rapport.pdf (15 pages, 159478 bytes).
+Output written on rapport.pdf (15 pages, 159804 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream

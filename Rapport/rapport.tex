@@ -184,8 +184,10 @@
 	}
 	\end{lstlisting}
 	\vspace{10mm}
-	\section{Test}
 
+	\section{Test}
+	This section describes some of the errors and challenges we faced during the construction of the program, either from challenges arising from the calculations, or by limitations of the methods used.
+	
 	\subsection{Error when inputting non-integers in menus}
 	The game crashes when a non-integer input is typed in the menu, or when choosing the cpu depth, as the Scanner method nextInt is used. This causes the program to throw an inputMismatchException.
 	
@@ -197,8 +199,12 @@
 	When the CPU made a move, we discovered that whenever it was to or from the E file, regardless of rank, the move, although correctly executed, would be printed as a rank 1 higher than intended. An example of this would be the move D1 to E1 being misprinted as “White/Black(CPU) moved D1 to E2”. To fix this, we found that in our method to convert a position represented by an integer to a position represented by a coordinate, we would have to subtract 1 from the position integer before dividing by 5 to get the rank. This meant that position 5 would accurately be converted to 1, instead of 2. The same thing applied to 10, 15, 20, and 25.
 	
 	\section{Conclusion}
-
-
+	We didn't encounter a lot of issues in this phase. We went in to the design phase with a clear picture in our minds, which was a movement system, similar to a chess game, with coordinates instead of numbers, and this proved to be a challenge to implement. 
+	
+	In hindsight this might have made our code a bit more complicated, but we were committed to solving this issue, and implemented several methods to overcome the challenge, without breaching the contract.
+	
+	We managed to construct a working program without any major issues. The only thing left unsolved is the exception thrown if anything other than an integer is entered when the program expects an integer.
+	
 	\section{Appendix}
 	\subsection{Program Code}
 	\lstinputlisting[style=JavaStyle]{../src/Alquerque.java}

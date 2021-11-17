@@ -249,4 +249,4 @@ public class Alquerque {
         coord = coord + ((position - 1) / 5 + 1);
         return coord;
     }
-} //close of class, m.i.s.
+} // end of alquerque class

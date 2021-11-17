@@ -245,7 +245,6 @@ public class Alquerque {
                 coord = "E";
                 break;
         }
-
         coord = coord + ((position - 1) / 5 + 1);
         return coord;
     }

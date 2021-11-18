@@ -1,19 +1,19 @@
-\babel@toc {english}{}\relax 
+\babel@toc {english}{}
 \contentsline {section}{\numberline {1}Introduction}{3}{}%
 \contentsline {section}{\numberline {2}Design}{3}{}%
 \contentsline {subsection}{\numberline {2.1}Option menu \& game initilization}{3}{}%
 \contentsline {subsection}{\numberline {2.2}Programming methodology}{4}{}%
 \contentsline {subsection}{\numberline {2.3}Getters \& setters:}{4}{}%
-\contentsline {subsection}{\numberline {2.4}Chess notation}{4}{}%
-\contentsline {section}{\numberline {3}Implementation}{5}{}%
-\contentsline {subsection}{\numberline {3.1}The init() method}{5}{}%
+\contentsline {subsection}{\numberline {2.4}Chess notation}{5}{}%
+\contentsline {section}{\numberline {3}Implementation}{6}{}%
+\contentsline {subsection}{\numberline {3.1}The init() method}{6}{}%
 \contentsline {subsection}{\numberline {3.2}The main game loop}{6}{}%
-\contentsline {subsection}{\numberline {3.3}Construction of the visual board}{6}{}%
+\contentsline {subsection}{\numberline {3.3}Construction of the visual board}{7}{}%
 \contentsline {subsubsection}{\numberline {3.3.1}Chess notation and functionality}{7}{}%
-\contentsline {section}{\numberline {4}Test}{9}{}%
-\contentsline {subsection}{\numberline {4.1}Error when inputting non-integers in menus}{9}{}%
-\contentsline {subsection}{\numberline {4.2}Mistake in B/W input, fixed with regex}{9}{}%
+\contentsline {section}{\numberline {4}Test}{10}{}%
+\contentsline {subsection}{\numberline {4.1}Error when inputting non-integers in menus}{10}{}%
+\contentsline {subsection}{\numberline {4.2}Mistake in B/W input, fixed with regex}{10}{}%
 \contentsline {subsection}{\numberline {4.3}CPU moves being printed incorrectly}{10}{}%
-\contentsline {section}{\numberline {5}Conclusion}{10}{}%
-\contentsline {section}{\numberline {6}Appendix}{10}{}%
-\contentsline {subsection}{\numberline {6.1}Program Code}{10}{}%
+\contentsline {section}{\numberline {5}Conclusion}{11}{}%
+\contentsline {section}{\numberline {6}Appendix}{12}{}%
+\contentsline {subsection}{\numberline {6.1}Program Code}{12}{}%

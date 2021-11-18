@@ -185,9 +185,9 @@ public class Alquerque {
     }
 
     /**
-     * Test wether an enterede coordinate is a valid coordinat
+     * Test whether an enterede coordinate is a valid coordinate
      * @param coords, a coordinate to be tested
-     * @return true if the coordinat enterede is a valid coordinat else returns false
+     * @return true if the coordinate entered is a valid coordinate, returns false if not
      */
     private static boolean isValidCoords(String coords){
         return (coords.matches("[A-Ea-e][1-5]")); // Regex for matching

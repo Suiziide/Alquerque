@@ -56,6 +56,11 @@ public class Board {
      * @param move the move to simulate.
      */
     public void move(Move move) {
+        /*
+        board[to] = board[from];
+        board[from] = ' ';
+        this.turn++;
+        */
         board[move.to()] = board[move.from()];
         board[move.from()] = ' ';
         this.turn++;

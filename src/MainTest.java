@@ -1,10 +1,9 @@
-import java.util.Locale;
 import java.util.Scanner;
-
-public class TestFile {
+public class MainTest {
     public static Board myBoard = new Board();
     public static Scanner reader = new Scanner(System.in);
     public static final char EMPTY = ' ';
+
     public static void main(String[] args) {
         boolean isWhite = true;
         String userInput;
@@ -79,4 +78,3 @@ public class TestFile {
         System.out.println(""); // new line
     }
 }
-

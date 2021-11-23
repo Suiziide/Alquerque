@@ -1,5 +1,6 @@
 public class Move {
-    private int[] move;
+    private int from;
+    private int to;
     /**
      * Creates a new move with given origin and destination.
      * Precondition: from and to must be between 1 and 25.
@@ -7,7 +8,8 @@ public class Move {
      * @param to the place to move the peiece to.
      */
     public Move(int from, int to) {
-        move = new int[] {from, to};
+        this.from = from;
+        this.to = to;
     }
 
     /**
@@ -15,7 +17,7 @@ public class Move {
      * @return the origin of this move.
      */
     public int from() {
-        return move[0];
+        return from;
     }
 
     /**
@@ -23,6 +25,6 @@ public class Move {
      * @return the destination of this move
      */
     public int to() {
-        return move[1];
+        return to;
     }
 }

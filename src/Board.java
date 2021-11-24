@@ -53,6 +53,7 @@ public class Board {
 
     /**
      * Moves a piece and updates the board correspondingly.
+     * Precondition: move must be a valid Move
      * @param move the move to simulate.
      */
     public void move(Move move) {

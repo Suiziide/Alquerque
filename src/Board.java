@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Board {
     private char[] board;
     private int turn;
+    private boolean isWhite = (turn % 2 == 1); //isWhite bruges flere steder
 
     /**
      * Creates a new Alquerque board in the starting state:
@@ -64,8 +65,39 @@ public class Board {
         */
         board[move.to()] = board[move.from()];
         board[move.from()] = ' ';
+        if(isTakeMove(move))    //if the move is a take, the taken piece is removed
+            board[(move.to() + move.from()) / 2] = ' '; //calculates average position value and removes piece
         this.turn++;
     }
+
+    /**
+     * Checks whether a move is legal.
+     * Precondition: move must be an int from 1 through 25
+     * @param move move input to evaluate.
+     */
+    public boolean isLegal(Move move){
+        //boolean isWhite = (turn % 2 == 1); //checks turn
+        if(move.to() != ' ')
+            return false;
+        else if((isWhite && move.from() != 'W') || (!isWhite && move.from() != 'B'))
+            return false;
+        else if(!isTakeMove(move))
+            return false;
+        else
+            return true;
+    }
+
+    /*
+     * checks whether the move is a take move
+     */
+    private boolean isTakeMove(Move move){
+        //boolean isWhite = (turn % 2 == 1); //checks turn
+        return ((Math.abs(move.to() - move.from()) > 6 || Math.abs(move.to() - move.from()) < 4) && 
+                (isWhite && board[(move.to() + move.from()) / 2] != 'B') && //checks if opponent piece is taken
+                (!isWhite && board[(move.to() + move.from()) / 2] != 'W')); //checks if opponent piece is taken
+        //ought be revisited - might be better written as if-statements
+    }
+
 
 
 

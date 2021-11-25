@@ -12,6 +12,15 @@ public class Board {
     public Board() {
         turn = 1;
         board = new char[26];
+        for (int i = 0; i < 26; i++) {
+            if (i != 15 && i != 4) {
+                board[i] = ' ';
+            } else {
+                board[4] = 'B';
+                board[15] = 'W';
+            }
+        }
+        /*
         for (int i = 1; i < 26; i++) {
             if (i < 13)
                 board[i] = 'B';
@@ -20,6 +29,7 @@ public class Board {
             else
                 board[i] = 'W';
         }
+      */
         isWhite = (turn % 2 == 1);
     }
     /**
@@ -74,12 +84,18 @@ public class Board {
      * @param move move input to evaluate.
      */
     public boolean isLegal(Move move){
-        if (board[move.to()] != ' ')
+        if (board[move.to()] != ' ') {
+            System.out.println("Not empty");
             return false;
+        }
         else if ((isWhite && board[move.from()] != 'W') || (!isWhite && board[move.from()] != 'B')) {
+            System.out.println("Wrong piece");
             return false;
             //  } else if (!isTakeMove(move)) {
             //     return false;
+        } else if (move.from() % 5 == 0 && ((move.to() - 1) % 5 < 4)) {
+            System.out.println("Not a take move");
+            return false;
         } else {
             System.out.println("From: " + move.from());
             System.out.println("To: " + move.to());
@@ -87,14 +103,13 @@ public class Board {
             return true;
         }
     }
-
     /*
      * checks whether the move is a take move
      */
     private boolean isTakeMove(Move move) {
         return ((Math.abs(move.to() - move.from()) > 6 || Math.abs(move.to() - move.from()) < 4) && (
                 (isWhite && board[(move.to() + move.from()) / 2] == 'B') || //checks if opponent piece is taken
-                (!isWhite && board[(move.to() + move.from()) / 2] == 'W'))); //checks if opponent piece is taken
+                        (!isWhite && board[(move.to() + move.from()) / 2] == 'W'))); //checks if opponent piece is taken
         //ought to be revisited - might be better written as if-statements
     }
 

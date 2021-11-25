@@ -61,9 +61,12 @@ public class Board {
     public void move(Move move) {
         board[move.to()] = board[move.from()];
         board[move.from()] = ' ';
+/*
         if (isTakeMove(move))    //if the move is a take, the taken piece is removed
             board[(move.to() + move.from()) / 2] = ' '; //calculates average position value and removes piece
+*/
         this.turn++;
+        System.out.println("Turn: " + this.turn);
     }
 
     /**
@@ -77,8 +80,8 @@ public class Board {
             return false;
         else if ((isWhite && board[move.from()] != 'W') || (!isWhite && board[move.from()] != 'B'))
             return false;
-        else if (!isTakeMove(move))
-            return false;
+        //else if (!isTakeMove(move))
+         //   return false;
         else
             return true;
     }
@@ -88,7 +91,7 @@ public class Board {
      */
     private boolean isTakeMove(Move move) {
         return ((Math.abs(move.to() - move.from()) > 6 || Math.abs(move.to() - move.from()) < 4) && 
-                (isWhite && board[(move.to() + move.from()) / 2] == 'B') && //checks if opponent piece is taken
+                (isWhite && board[(move.to() + move.from()) / 2] == 'B') || //checks if opponent piece is taken
                 (!isWhite && board[(move.to() + move.from()) / 2] == 'W')); //checks if opponent piece is taken
         //ought to be revisited - might be better written as if-statements
     }

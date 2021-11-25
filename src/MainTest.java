@@ -8,23 +8,29 @@ public class MainTest {
         boolean isWhite = true;
         String userInput;
         boolean endGame = false;
+        Move nextMove = new Move(0,0);
         do {
             System.out.print("Do you want to make move? (y/n): ");
             switch (reader.nextLine().toLowerCase().charAt(0)) {
                 case 'y':
-                    printBoard();
-                    System.out.print("Please enter the piece you want to move: ");
-                    int from = reader.nextInt();
-                    System.out.print("Please enter where you want to move the piece: ");
-                    int to = reader.nextInt();
-                    Move nextMove = new Move(from, to);
-                    myBoard.move(nextMove); // says there is a problem but compiles and runs fine.
+                    do {
+                        printBoard();
+                        System.out.print("Please enter the piece you want to move: ");
+                        int from = reader.nextInt();
+                        System.out.print("Please enter where you want to move the piece: ");
+                        int to = reader.nextInt();
+                        nextMove = new Move(from, to);
+                        if (!myBoard.isLegal(nextMove)) {
+                            System.out.println("Not a legal move, try again.");
+                        }
+                    } while(!myBoard.isLegal(nextMove));
                     printBoard();
                     break;
                 case 'n':
                     endGame = true;
                     break;
             }
+            myBoard.move(nextMove); // says there is a problem but compiles and runs fine.
             reader.nextLine();
         } while(!endGame);
         System.out.println("Game was aborted");

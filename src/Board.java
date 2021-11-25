@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Board {
     private char[] board;
     private int turn;
-    private boolean isWhite = (turn % 2 == 1); //isWhite bruges flere steder
+    private boolean isWhite;
 
     /**
      * Creates a new Alquerque board in the starting state:
@@ -12,14 +12,15 @@ public class Board {
     public Board() {
         turn = 1;
         board = new char[26];
-        for (int i = 1; i < 26; i++) { // IDK if this curly bracket should be here.
+        for (int i = 1; i < 26; i++) {
             if (i < 13)
                 board[i] = 'B';
             else if (i == 13)
                 board[i] = ' ';
             else
                 board[i] = 'W';
-        } // same with this one.
+        }
+        isWhite = (turn % 2 == 1);
     }
     /**
      * Returns the positions of all black pieces on the board.
@@ -58,14 +59,9 @@ public class Board {
      * @param move the move to simulate.
      */
     public void move(Move move) {
-        /*
-        board[to] = board[from];
-        board[from] = ' ';
-        this.turn++;
-        */
         board[move.to()] = board[move.from()];
         board[move.from()] = ' ';
-        if(isTakeMove(move))    //if the move is a take, the taken piece is removed
+        if (isTakeMove(move))    //if the move is a take, the taken piece is removed
             board[(move.to() + move.from()) / 2] = ' '; //calculates average position value and removes piece
         this.turn++;
     }
@@ -77,11 +73,11 @@ public class Board {
      */
     public boolean isLegal(Move move){
         //boolean isWhite = (turn % 2 == 1); //checks turn
-        if(move.to() != ' ')
+        if (board[move.to()] != ' ')
             return false;
-        else if((isWhite && move.from() != 'W') || (!isWhite && move.from() != 'B'))
+        else if ((isWhite && board[move.from()] != 'W') || (!isWhite && board[move.from()] != 'B'))
             return false;
-        else if(!isTakeMove(move))
+        else if (!isTakeMove(move))
             return false;
         else
             return true;
@@ -95,7 +91,7 @@ public class Board {
         return ((Math.abs(move.to() - move.from()) > 6 || Math.abs(move.to() - move.from()) < 4) && 
                 (isWhite && board[(move.to() + move.from()) / 2] != 'B') && //checks if opponent piece is taken
                 (!isWhite && board[(move.to() + move.from()) / 2] != 'W')); //checks if opponent piece is taken
-        //ought be revisited - might be better written as if-statements
+        //ought to be revisited - might be better written as if-statements
     }
 
 

@@ -11,6 +11,7 @@ public class MainTest {
         Move nextMove = new Move(0,0);
         printBoard();
         int i = 1;
+        boolean legalMove = false;
         do {
             do {
                 System.out.print("Please enter the piece you want to move: ");
@@ -20,8 +21,10 @@ public class MainTest {
                 nextMove = new Move(from, to);
                 if (!myBoard.isLegal(nextMove)) {
                     System.out.println("Not a legal move, try again.");
-                }
-            } while(!myBoard.isLegal(nextMove));
+                    legalMove = false;
+                } else
+                    legalMove = true;
+            } while(!legalMove);
             myBoard.move(nextMove); // says there is a problem but compiles and runs fine.
             printBoard();
             i++;

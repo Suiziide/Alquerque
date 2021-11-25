@@ -170,7 +170,7 @@ public class Board {
         //
         return numberOfBoards;
     }
-    
+
     /*
      * Auxillerary methods to check how far there are between columns columns
      */

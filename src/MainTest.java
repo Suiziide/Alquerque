@@ -5,6 +5,13 @@ public class MainTest {
     public static final char EMPTY = ' ';
 
     public static void main(String[] args) {
+        System.out.println(myBoard.hashCode());
+        Move[] m = myBoard.legalMoves();
+        for (int i = 0; i < m.length; i++) {
+            System.out.println("From: " + m[i].from() + ", to: " + m[i].to());
+        }
+
+        /*
         boolean isWhite = true;
         String userInput;
         boolean endGame = false;
@@ -30,6 +37,7 @@ public class MainTest {
             i++;
         } while(i < 1000000000);
         System.out.println("Game was aborted");
+        */
     }
 
     // these methods were previously developed for our own Alquerque client.

@@ -75,18 +75,17 @@ public class Board {
     /**
      * Checks whether a move is legal.
      * Precondition: move must be an int from 1 through 25
-     *
      * @param move move input to evaluate.
      */
     public boolean isLegal(Move move) {
         if (board[move.to()] != ' ') {
-            System.out.println("Not empty");
+            //System.out.println("Not empty");
             return false;
         } else if ((isWhite && board[move.from()] != 'W') || (!isWhite && board[move.from()] != 'B')) {
-            System.out.println("Wrong piece");
+            //System.out.println("Wrong piece");
             return false;
         } else if (fileDiff(move) > 2) {
-            System.out.println("Trying to move to an illegal column");
+            //System.out.println("Trying to move to an illegal column");
             return false;
         } else if (!isTakeMove(move)) {
             if ((isWhite && (pieceDiff(move) < -6 || pieceDiff(move) > -4)) ||
@@ -103,11 +102,78 @@ public class Board {
             else if (move.from() % 2 == 0 && Math.abs(pieceDiff(move)) != 10 && Math.abs(pieceDiff(move)) != 2)
                 return false;
         }
-        System.out.println("From: " + move.from());
-        System.out.println("To: " + move.to());
-        System.out.println("isWhite: " + isWhite);
+        //System.out.println("From: " + move.from());
+        //System.out.println("To: " + move.to());
+        //System.out.println("isWhite: " + isWhite);
         return true;
     }
+
+    /**
+     * Returns an array of all legal moves for this board
+     * @return an array of all legal moves for this board
+     */
+    public Move[] legalMoves() {
+        ArrayList<Move> legalList = new ArrayList<Move>();
+        for (int i = 1; i < board.length; i++)
+            for (int j = 1; j < board.length; j++)
+                if (isLegal(new Move(i,j)))
+                    legalList.add(new Move(i,j));
+        Move[] legalMoves = new Move[legalList.size()];
+        for (int i = 0; i < legalList.size(); i++) {
+            legalMoves[i] = legalList.get(i);
+        }
+        return legalMoves;
+    }
+
+
+    /**
+     * Returns if the game is over
+     * @return if the game is over
+     */
+    public boolean isGameOver() {
+        return (white().length == 0 || black().length == 0 || legalMoves().length == 0);
+    }
+
+    /**
+     * Returns a copy of this board
+     * @return a copy of this board
+     */
+    public Board copy() {
+        Board newBoard = new Board();
+        newBoard.board = this.board;
+        newBoard.turn = this.turn;
+        newBoard.isWhite = this.isWhite;
+        return newBoard;
+    }
+
+    // MISSING AN EQUALS METHOD
+
+    /**
+     * Returns a hashCode compised of this boards attributes
+     * @return a hashCode comprised of this boards attributes
+     */
+    public int hashCode() {
+        return (this.board.hashCode() + this.turn * 31);
+    }
+
+    /**
+     * Returns how many objects of type Board that represents games, that are finished games.
+     * @return how many objects of type Board that represents games, that are finished games.
+     */
+    public int finishedGames() {
+        int numberOfBoards = 0;
+        //
+        //
+        // NOT DONE!!!!!!!!!!
+        //
+        //
+        return numberOfBoards;
+    }
+
+
+
+
+
 
 
     /*

@@ -76,13 +76,13 @@ public class Board {
      * @param move move input to evaluate.
      */
     public boolean isLegal(Move move) {
-        if (board[move.to()] != ' ') {
+        if (board[move.to()] != ' ')  //
             return false;
-        } else if ((isWhite && board[move.from()] != 'W') || (!isWhite && board[move.from()] != 'B')) {
+        else if ((isWhite && board[move.from()] != 'W') || (!isWhite && board[move.from()] != 'B'))
             return false;
-        } else if (fileDiff(move) > 2) {
+        else if (fileDiff(move) > 2)
             return false;
-        } else if (!isTakeMove(move)) {
+        else if (!isTakeMove(move)){
             if ((isWhite && (pieceDiff(move) < -6 || pieceDiff(move) > -4)) ||
                     (!isWhite && (pieceDiff(move) < 4 || pieceDiff(move) > 6)))
                 return false;
@@ -90,9 +90,9 @@ public class Board {
                 return false;
         } else if (isTakeMove(move)) {
             if (Math.abs(pieceDiff(move)) != 2 && Math.abs(pieceDiff(move)) != 8 &&
-                    Math.abs(pieceDiff(move)) != 10 && Math.abs(pieceDiff(move)) != 12) {
+                    Math.abs(pieceDiff(move)) != 10 && Math.abs(pieceDiff(move)) != 12)
                 return false;
-            }else if (move.from() % 2 == 0 && move.to() % 2 == 1)
+            else if (move.from() % 2 == 0 && move.to() % 2 == 1)
                 return false;
             else if (move.from() % 2 == 0 && Math.abs(pieceDiff(move)) != 10 && Math.abs(pieceDiff(move)) != 2)
                 return false;

@@ -115,9 +115,10 @@ public class Board {
     public Move[] legalMoves() {
         ArrayList<Move> legalList = new ArrayList<Move>();
         for (int i = 1; i < board.length; i++)
-            for (int j = 1; j < board.length; j++)
-                if (isLegal(new Move(i,j)))
-                    legalList.add(new Move(i,j));
+            if (board[i] != ' ')
+                for (int j = 1; j < board.length; j++)
+                    if (isLegal(new Move(i,j)))
+                        legalList.add(new Move(i,j));
         Move[] legalMoves = new Move[legalList.size()];
         for (int i = 0; i < legalList.size(); i++) {
             legalMoves[i] = legalList.get(i);
@@ -169,12 +170,6 @@ public class Board {
         //
         return numberOfBoards;
     }
-
-
-
-
-
-
 
     /*
      * Auxillerary methods to check how far there are between columns columns

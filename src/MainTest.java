@@ -5,11 +5,14 @@ public class MainTest {
     public static final char EMPTY = ' ';
 
     public static void main(String[] args) {
+        Board nBoard = new Board();
         System.out.println(myBoard.hashCode());
         Move[] m = myBoard.legalMoves();
         for (int i = 0; i < m.length; i++) {
             System.out.println("From: " + m[i].from() + ", to: " + m[i].to());
         }
+        nBoard = myBoard.copy();
+        System.out.println(nBoard.hashCode());
 
         /*
         boolean isWhite = true;

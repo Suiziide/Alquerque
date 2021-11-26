@@ -76,25 +76,32 @@ public class Board {
      * @param move move input to evaluate.
      */
     public boolean isLegal(Move move) {
-        if (board[move.to()] != ' ')  //
+        if (board[move.to()] != ' ')  // Checks whether the player tries to move from an empty cell
             return false;
         else if ((isWhite && board[move.from()] != 'W') || (!isWhite && board[move.from()] != 'B'))
+            // Checks if the player tries to move the opponents piece
             return false;
         else if (fileDiff(move) > 2)
+            // Checks if the player tries to move to a column that is too far away, which prevents moves rolling over from one row to the next
             return false;
-        else if (!isTakeMove(move)){
+        else if (!isTakeMove(move)){ // Logic for regular moves
             if ((isWhite && (pieceDiff(move) < -6 || pieceDiff(move) > -4)) ||
                     (!isWhite && (pieceDiff(move) < 4 || pieceDiff(move) > 6)))
+                // Checks if direction is correct and if it is within the range of allowed cells to move to
                 return false;
             else if (move.from() % 2 == 0 && move.to() % 2 == 0)
+                // Check for moves on even cells (To confirm that it follows the lines on the board)
                 return false;
-        } else if (isTakeMove(move)) {
+        } else if (isTakeMove(move)) { // Logic for moves that take another piece
             if (Math.abs(pieceDiff(move)) != 2 && Math.abs(pieceDiff(move)) != 8 &&
                     Math.abs(pieceDiff(move)) != 10 && Math.abs(pieceDiff(move)) != 12)
+                // Checks if the move is to the specified allowed cells for a take move
                 return false;
             else if (move.from() % 2 == 0 && move.to() % 2 == 1)
+                // Checks for moves on even cells (to confirm it follows the lines on the board)
                 return false;
             else if (move.from() % 2 == 0 && Math.abs(pieceDiff(move)) != 10 && Math.abs(pieceDiff(move)) != 2)
+                // Checks for moves on even cells (to confirm it follows the lines on the board)
                 return false;
         }
         return true;

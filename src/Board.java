@@ -42,7 +42,6 @@ public class Board {
 
     /**
      * Returns the positions of all white pieces on the board.
-     *
      * @return the positions of all white pieces on the board.
      */
     public int[] white() {
@@ -59,8 +58,7 @@ public class Board {
 
     /**
      * Moves a piece and updates the board correspondingly.
-     * Precondition: move must be a valid Move
-     *
+     * Precondition: move must be a legal Move
      * @param move the move to simulate.
      */
     public void move(Move move) {
@@ -70,7 +68,7 @@ public class Board {
             board[(move.to() + move.from()) / 2] = ' '; //calculates average position value and removes piece
         this.turn++;
         isWhite = (turn % 2 == 1);
-        System.out.println("Turn: " + this.turn);
+        //System.out.println("Turn: " + this.turn);
     }
 
     /**
@@ -146,7 +144,8 @@ public class Board {
      */
     public Board copy() {
         Board newBoard = new Board();
-        newBoard.board = this.board;
+        for (int i = 0; i < this.board.length; i++)
+            newBoard.board[i] = this.board[i];
         newBoard.turn = this.turn;
         newBoard.isWhite = this.isWhite;
         return newBoard;
@@ -186,13 +185,7 @@ public class Board {
      * @return how many objects of type Board that represents games, that are finished games.
      */
     public int finishedGames() {
-        int numberOfBoards = 0;
-        //
-        //
-        // NOT DONE!!!!!!!!!!
-        //
-        //
-        return numberOfBoards;
+        return finishedGames;
     }
 
     /*

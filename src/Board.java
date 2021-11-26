@@ -4,6 +4,7 @@ public class Board {
     private char[] board;
     private int turn;
     private boolean isWhite;
+    private static int finishedGames = 0;
 
     /**
      * Creates a new Alquerque board in the starting state:
@@ -132,7 +133,11 @@ public class Board {
      * @return if the game is over
      */
     public boolean isGameOver() {
-        return (white().length == 0 || black().length == 0 || legalMoves().length == 0);
+        if (white().length == 0 || black().length == 0 || legalMoves().length == 0) {
+            finishedGames++;
+            return true;
+        } else
+            return false;
     }
 
     /**

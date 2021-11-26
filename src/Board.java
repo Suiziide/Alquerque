@@ -68,7 +68,6 @@ public class Board {
             board[(move.to() + move.from()) / 2] = ' '; //calculates average position value and removes piece
         this.turn++;
         isWhite = (turn % 2 == 1);
-        //System.out.println("Turn: " + this.turn);
     }
 
     /**
@@ -78,13 +77,10 @@ public class Board {
      */
     public boolean isLegal(Move move) {
         if (board[move.to()] != ' ') {
-            //System.out.println("Not empty");
             return false;
         } else if ((isWhite && board[move.from()] != 'W') || (!isWhite && board[move.from()] != 'B')) {
-            //System.out.println("Wrong piece");
             return false;
         } else if (fileDiff(move) > 2) {
-            //System.out.println("Trying to move to an illegal column");
             return false;
         } else if (!isTakeMove(move)) {
             if ((isWhite && (pieceDiff(move) < -6 || pieceDiff(move) > -4)) ||
@@ -101,9 +97,6 @@ public class Board {
             else if (move.from() % 2 == 0 && Math.abs(pieceDiff(move)) != 10 && Math.abs(pieceDiff(move)) != 2)
                 return false;
         }
-        //System.out.println("From: " + move.from());
-        //System.out.println("To: " + move.to());
-        //System.out.println("isWhite: " + isWhite);
         return true;
     }
 

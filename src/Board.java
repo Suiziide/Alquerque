@@ -152,8 +152,27 @@ public class Board {
         return newBoard;
     }
 
-    // MISSING AN EQUALS METHOD
-
+    /**
+     * Checks whether this Board is equal to other Object
+     * @param other Object to check against this board
+     * @return whether this Board is equal to other Object
+     */
+    public boolean equals(Object other){
+        if (other == null)
+            return false;
+        else if (this == other)
+            return true;
+        else if (!(other instanceof Board))
+            return false;
+        Board otherBoard = (Board)other;
+        int i = 0;
+        while(i < this.board.length && this.board[i] == otherBoard.board[i]){
+            i++;
+        }
+        return (i == this.board.length && this.turn == otherBoard.turn);
+    }
+    
+    
     /**
      * Returns a hashCode compised of this boards attributes
      * @return a hashCode comprised of this boards attributes

@@ -3,7 +3,6 @@ public class Move {
     private int to;
     /**
      * Creates a new move with given origin and destination.
-     * Precondition: from and to must be between 1 and 25.
      * @param from the place to move the piece from.
      * @param to the place to move the peiece to.
      */

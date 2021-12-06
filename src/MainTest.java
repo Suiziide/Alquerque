@@ -6,6 +6,45 @@ public class MainTest {
 
     public static void main(String[] args) {
         Board nBoard = new Board();
+
+
+        System.out.println("Boards starting positon.");
+
+        for (int i = 0; i < 26; i++) {
+            myBoard.removePiece(i);
+        }
+        myBoard.insertPiece(15, 'W');
+        myBoard.insertPiece(16, 'B');
+        printBoard();
+        System.out.println("White moved from 15 to 17.");
+        myBoard.move(new Move(15,17));
+        myBoard.removePiece(16);
+        printBoard();
+
+
+
+
+
+        /*
+
+        myBoard.insertPiece(16, 'B');
+        System.out.println("White moved from D4 to C3.");
+        myBoard.move(new Move(19,13));
+        printBoard();
+         */
+
+        /*
+        myBoard.move(new Move(19,13));
+        myBoard.removePiece(16);
+        System.out.println("White moved from 19 to 13.");
+        printBoard();
+        */
+
+
+
+
+
+        /*
         System.out.println(myBoard.hashCode());
         Move[] m = myBoard.legalMoves();
         for (int i = 0; i < m.length; i++) {
@@ -13,6 +52,7 @@ public class MainTest {
         }
         nBoard = myBoard.copy();
         System.out.println(nBoard.hashCode());
+        */
 
         /*
         boolean isWhite = true;

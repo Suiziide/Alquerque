@@ -58,7 +58,7 @@ public class Board {
 
     /**
      * Moves a piece and updates the board correspondingly.
-     * Precondition: move must be a legal Move
+     * Precondition: move must be a legal between 1 and 25
      * @param move the move to simulate.
      */
     public void move(Move move) {
@@ -210,4 +210,21 @@ public class Board {
                 (isWhite && board[(move.to() + move.from()) / 2] == 'B') || //checks if opponent piece is taken
                         (!isWhite && board[(move.to() + move.from()) / 2] == 'W'))); //checks if opponent piece is taken
     }
+
+    /*
+     * Auxilary method to remove pieces from the board to create artificial game scenarios
+     */
+    public void removePiece(int index) {
+        board[index] = ' ';
+    }
+
+    /*
+     * Auxilary method to insert pieces to the board to create artificial game scenarios
+     */
+    public void insertPiece(int index, char piece) {
+        board[index] = piece;
+    }
+
+
+
 }

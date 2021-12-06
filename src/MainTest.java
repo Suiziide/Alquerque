@@ -5,9 +5,7 @@ public class MainTest {
     public static final char EMPTY = ' ';
 
     public static void main(String[] args) {
-        Board nBoard = new Board();
-
-
+    /*
         System.out.println("Boards starting positon.");
 
         for (int i = 0; i < 26; i++) {
@@ -20,6 +18,8 @@ public class MainTest {
         myBoard.move(new Move(15,17));
         myBoard.removePiece(16);
         printBoard();
+        */
+
 
 
 

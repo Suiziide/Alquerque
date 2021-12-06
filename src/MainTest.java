@@ -1,11 +1,75 @@
+import java.util.Locale;
 import java.util.Scanner;
 public class MainTest {
     public static Board myBoard = new Board();
+    public static Board yourBoard = new Board();
     public static Scanner reader = new Scanner(System.in);
     public static final char EMPTY = ' ';
 
     public static void main(String[] args) {
-    /*
+        /*
+        for (int i = 0; i < 25; i++) {
+            myBoard.removePiece(i);
+        }
+        for (int i = 0; i < 25; i++) {
+            yourBoard.removePiece(i);
+        }
+        System.out.println(myBoard.isGameOver());
+        System.out.println(yourBoard.isGameOver());
+        System.out.println(Board.finishedGames());
+        for (int i = 0; i < 25; i++) {
+            yourBoard.removePiece(i);
+        }
+        */
+
+
+        /*  // test to see if finishedGames() works
+        int white = 0;
+        int black = 0;
+        int draw = 0;
+        boolean end = false;
+        boolean isWhite = true;
+        do {
+            System.out.println("Games Played: " + Board.finishedGames());
+            myBoard = new Board();
+            printBoard();
+            do {
+                Move nextMove = Minimax.nextMove(myBoard, 5, isWhite);
+                myBoard.move(nextMove);
+                printBoard();
+                isWhite = !isWhite;
+            } while (!myBoard.isGameOver());
+            if (myBoard.white().length == 0) {
+                System.out.println("White won!");
+                black++;
+            } else if (myBoard.black().length == 0) {
+                System.out.println("White won!");
+                white++;
+            } else {
+                System.out.println("Draw.");
+                draw++;
+            }
+            System.out.println("Stats:");
+            System.out.println("White's wins: " + white);
+            System.out.println("Black's wins: " + black);
+            System.out.println("Draws: " + draw);
+
+            System.out.println();
+            System.out.print("Do you want to continue with another game? (y/n): ");
+            end = ((reader.nextLine().toLowerCase().charAt(0) == 'n') ? true : false);
+        } while (!end);
+         */
+
+
+
+
+
+
+
+
+
+
+        /*
         System.out.println("Boards starting positon.");
 
         for (int i = 0; i < 26; i++) {
@@ -19,11 +83,6 @@ public class MainTest {
         myBoard.removePiece(16);
         printBoard();
         */
-
-
-
-
-
 
         /*
 

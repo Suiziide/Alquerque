@@ -184,7 +184,7 @@ public class Board {
      * Returns how many objects of type Board that represents games, that are finished games.
      * @return how many objects of type Board that represents games, that are finished games.
      */
-    public int finishedGames() {
+    public static int finishedGames() {
         return finishedGames;
     }
 

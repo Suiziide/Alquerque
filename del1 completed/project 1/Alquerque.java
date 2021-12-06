@@ -33,7 +33,7 @@ public class Alquerque {
                 } while (!inputWithinRange);
                 board.move(nextMove);
             } else if (!board.isGameOver()) {
-                nextMove = new Minimax().nextMove(board, cpuDepth, isWhite);
+                nextMove = Minimax.nextMove(board, cpuDepth, isWhite);
                 System.out.println((isWhite ? whiteName : blackName) + " played " +
                         convertPosition(nextMove.from()) + " to " + convertPosition(nextMove.to()));
                 board.move(nextMove);

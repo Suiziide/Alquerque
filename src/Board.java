@@ -189,17 +189,19 @@ public class Board {
     }
 
     /*
-     * Auxillerary methods to check how far there are between columns columns
+     * Auxillerary methods to check how far there are between the columns in the move
      */
     private int fileDiff(Move move){
         return Math.abs(((move.from() - 1) % 5 + 1) - ((move.to() - 1) % 5 + 1));
     }
+
     /*
      * Auxillerary method to check how far there is between two pieces
      */
     private int pieceDiff(Move move) {
         return (move.to() - move.from());
     }
+
     /*
      * checks whether the move is a take move
      */
@@ -207,6 +209,5 @@ public class Board {
         return ((Math.abs(pieceDiff(move)) > 6 || Math.abs(pieceDiff(move)) < 4) && (
                 (isWhite && board[(move.to() + move.from()) / 2] == 'B') || //checks if opponent piece is taken
                         (!isWhite && board[(move.to() + move.from()) / 2] == 'W'))); //checks if opponent piece is taken
-        //ought to be revisited - might be better written as if-statements
     }
 }

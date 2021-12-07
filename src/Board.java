@@ -4,7 +4,10 @@ public class Board {
     private char[] board;
     private int turn;
     private boolean isWhite;
+    private boolean isGameDone;
+
     private static int finishedGames = 0;
+    private static final char EMPTY = ' ';
 
     /**
      * Creates a new Alquerque board in the starting state:
@@ -17,11 +20,12 @@ public class Board {
             if (i < 13)
                 board[i] = 'B';
             else if (i == 13)
-                board[i] = ' ';
+                board[i] = EMPTY;
             else
                 board[i] = 'W';
         }
         isWhite = (turn % 2 == 1);
+        isGameDone = false;
     }
 
     /**
@@ -63,9 +67,9 @@ public class Board {
      */
     public void move(Move move) {
         board[move.to()] = board[move.from()];
-        board[move.from()] = ' ';
+        board[move.from()] = EMPTY;
         if (isTakeMove(move))    //if the move is a take, the taken piece is removed
-            board[(move.to() + move.from()) / 2] = ' '; //calculates average position value and removes piece
+            board[(move.to() + move.from()) / 2] = EMPTY; //calculates average position value and removes piece
         this.turn++;
         isWhite = (turn % 2 == 1);
     }
@@ -76,7 +80,7 @@ public class Board {
      * @param move move input to evaluate.
      */
     public boolean isLegal(Move move) {
-        if (board[move.to()] != ' ')  // Checks whether the player tries to move from an empty cell
+        if (board[move.to()] != EMPTY)  // Checks whether the player tries to move from an empty cell
             return false;
         else if ((isWhite && board[move.from()] != 'W') || (!isWhite && board[move.from()] != 'B'))
             // Checks if the player tries to move the opponents piece
@@ -97,9 +101,11 @@ public class Board {
                     Math.abs(pieceDiff(move)) != 10 && Math.abs(pieceDiff(move)) != 12)
                 // Checks if the move is to the specified allowed cells for a take move
                 return false;
+            /*
             else if (move.from() % 2 == 0 && move.to() % 2 == 1)
                 // Checks for moves on even cells (to confirm it follows the lines on the board)
                 return false;
+             */
             else if (move.from() % 2 == 0 && Math.abs(pieceDiff(move)) != 10 && Math.abs(pieceDiff(move)) != 2)
                 // Checks for moves on even cells (to confirm it follows the lines on the board)
                 return false;
@@ -114,7 +120,7 @@ public class Board {
     public Move[] legalMoves() {
         ArrayList<Move> legalList = new ArrayList<Move>();
         for (int i = 1; i < board.length; i++)
-            if (board[i] != ' ')
+            if (board[i] != EMPTY)
                 for (int j = 1; j < board.length; j++)
                     if (isLegal(new Move(i,j)))
                         legalList.add(new Move(i,j));
@@ -132,10 +138,22 @@ public class Board {
      */
     public boolean isGameOver() {
         if (white().length == 0 || black().length == 0 || legalMoves().length == 0) {
-            finishedGames++;
+            if (!isGameDone) {
+                finishedGames++;
+                isGameDone = true;
+            }
             return true;
         } else
             return false;
+    }
+
+
+    /**
+     * Returns how many objects of type Board that represents games, that are finished games.
+     * @return how many objects of type Board that represents games, that are finished games.
+     */
+    public static int finishedGames() {
+        return finishedGames;
     }
 
     /**
@@ -180,14 +198,6 @@ public class Board {
         return (this.board.hashCode() + this.turn * 31);
     }
 
-    /**
-     * Returns how many objects of type Board that represents games, that are finished games.
-     * @return how many objects of type Board that represents games, that are finished games.
-     */
-    public static int finishedGames() {
-        return finishedGames;
-    }
-
     /*
      * Auxillerary methods to check how far there are between the columns in the move
      */
@@ -211,11 +221,16 @@ public class Board {
                         (!isWhite && board[(move.to() + move.from()) / 2] == 'W'))); //checks if opponent piece is taken
     }
 
+
+
+
+
+    // slettes senere.
     /*
      * Auxilary method to remove pieces from the board to create artificial game scenarios
      */
     public void removePiece(int index) {
-        board[index] = ' ';
+        board[index] = EMPTY;
     }
 
     /*
@@ -224,7 +239,4 @@ public class Board {
     public void insertPiece(int index, char piece) {
         board[index] = piece;
     }
-
-
-
 }

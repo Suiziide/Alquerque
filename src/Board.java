@@ -124,9 +124,8 @@ public class Board {
                     if (isLegal(new Move(i,j)))
                         legalList.add(new Move(i,j));
         Move[] legalMoves = new Move[legalList.size()];
-        for (int i = 0; i < legalList.size(); i++) {
+        for (int i = 0; i < legalList.size(); i++)
             legalMoves[i] = legalList.get(i);
-        }
         return legalMoves;
     }
 
@@ -211,8 +210,8 @@ public class Board {
      * checks whether the move is a take move
      */
     private boolean isTakeMove(Move move) {
-        return ((Math.abs(pieceDiff(move)) > 6 || Math.abs(pieceDiff(move)) < 4) && (
-                (isWhite && board[(move.to() + move.from()) / 2] == 'B') || //checks if opponent piece is taken
+        return ((Math.abs(pieceDiff(move)) > 6 || Math.abs(pieceDiff(move)) < 4) &&
+                ((isWhite && board[(move.to() + move.from()) / 2] == 'B') || //checks if opponent piece is taken
                         (!isWhite && board[(move.to() + move.from()) / 2] == 'W'))); //checks if opponent piece is taken
     }
 

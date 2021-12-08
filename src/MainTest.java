@@ -150,9 +150,6 @@ public class MainTest {
         printBoard();
         */
 
-
-
-
         // testing hashCode and copy
         /*
         System.out.println(myBoard.hashCode());

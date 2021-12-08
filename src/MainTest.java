@@ -7,29 +7,16 @@ public class MainTest {
     public static final char EMPTY = ' ';
 
     public static void main(String[] args) {
-        /*
-        // anden test for finisehedGames
-        for (int i = 0; i < 26; i++) {
-            myBoard.removePiece(i);
-        }
-        myBoard.isGameOver();
-        myBoard.isGameOver();
-        System.out.println(Board.finishedGames());
-        */
 
-        /*
         // tets to check whether minimax increments finishedGames.
-        char input;
         boolean isWhite = true;
-        do {
             myBoard = new Board();
             do {
-                myBoard.move(Minimax.nextMove(myBoard, 5, isWhite));
+                myBoard.move(Minimax.nextMove(myBoard, 6, isWhite));
                 isWhite = !isWhite;
             } while (!myBoard.isGameOver());
             System.out.println(Board.finishedGames());
-        } while (10 > Board.finishedGames());
-        */
+
 
         /*
         // test to see if what copy returns is equal to original board.

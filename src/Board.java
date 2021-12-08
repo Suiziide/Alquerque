@@ -71,6 +71,8 @@ public class Board {
         // Updates who's turn it is
         this.turn++;
         isWhite = (turn % 2 == 1);
+        // updates finishedGames after eachmove
+        isGameOver();
     }
 
     /**

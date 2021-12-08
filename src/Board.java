@@ -4,7 +4,6 @@ public class Board {
     private char[] board;
     private int turn;
     private boolean isWhite;
-    private boolean isGameDone;
     private static int finishedGames = 0;
     private static final char EMPTY = ' ';
 
@@ -24,7 +23,6 @@ public class Board {
                 board[i] = 'W';
         }
         isWhite = (turn % 2 == 1);
-        isGameDone = false;
     }
 
     /**
@@ -136,10 +134,7 @@ public class Board {
      */
     public boolean isGameOver() {
         if (white().length == 0 || black().length == 0 || legalMoves().length == 0) {
-            if (!isGameDone) {
                 finishedGames++;
-                isGameDone = true;
-            }
             return true;
         } else
             return false;
@@ -164,7 +159,6 @@ public class Board {
             newBoard.board[i] = this.board[i];
         newBoard.turn = this.turn;
         newBoard.isWhite = this.isWhite;
-        newBoard.isGameDone = this.isGameDone;
         return newBoard;
     }
 
@@ -181,7 +175,7 @@ public class Board {
         int i = 0;
         while(i < this.board.length && this.board[i] == otherBoard.board[i])
             i++;
-        return (i == this.board.length && this.turn == otherBoard.turn && this.isGameDone == otherBoard.isGameDone);
+        return (i == this.board.length && this.turn == otherBoard.turn);
     }
     
     

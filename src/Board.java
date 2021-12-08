@@ -59,7 +59,6 @@ public class Board {
         return white;
     }
 
-
     /**
      * Moves a piece and updates the board correspondingly.
      * Precondition: move must be a legal between 1 and 25
@@ -70,6 +69,7 @@ public class Board {
         board[move.from()] = EMPTY;
         if (isTakeMove(move))    //if the move is a take, the taken piece is removed
             board[(move.to() + move.from()) / 2] = EMPTY; //calculates average position value and removes piece
+        // Updates who's turn it is
         this.turn++;
         isWhite = (turn % 2 == 1);
     }
@@ -131,7 +131,6 @@ public class Board {
         return legalMoves;
     }
 
-
     /**
      * Returns if the game is over
      * @return if the game is over
@@ -175,18 +174,14 @@ public class Board {
      * @return whether this Board is equal to other Object
      */
     public boolean equals(Object other){
-        if (other == null)
-            return false;
-        else if (this == other)
-            return true;
-        else if (!(other instanceof Board))
-            return false;
-        Board otherBoard = (Board)other;
+        if (other == null) return false;
+        else if (this == other) return true;
+        else if (!(other instanceof Board)) return false;
+        Board otherBoard = (Board) other;
         int i = 0;
-        while(i < this.board.length && this.board[i] == otherBoard.board[i]){
+        while(i < this.board.length && this.board[i] == otherBoard.board[i])
             i++;
-        }
-        return (i == this.board.length && this.turn == otherBoard.turn);
+        return (i == this.board.length && this.turn == otherBoard.turn && this.isGameDone == otherBoard.isGameDone);
     }
     
     
@@ -195,7 +190,7 @@ public class Board {
      * @return a hashCode comprised of this boards attributes
      */
     public int hashCode() {
-        return (this.board.hashCode() + this.turn * 31);
+        return (this.board.hashCode() + this.turn*31);
     }
 
     /*

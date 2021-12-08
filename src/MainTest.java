@@ -8,6 +8,15 @@ public class MainTest {
 
     public static void main(String[] args) {
 
+
+        Board copy = new Board();
+        copy = myBoard.copy();
+        System.out.println(myBoard.equals(copy));
+
+
+
+
+
         /*
         // to test the incrementation of finished games when isGameOver() is called.
         for (int i = 0; i < 26; i++)

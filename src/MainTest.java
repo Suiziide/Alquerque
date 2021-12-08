@@ -8,6 +8,38 @@ public class MainTest {
 
     public static void main(String[] args) {
 
+        // test of white() and black()
+        System.out.println("Starting positon of the board:");
+        printBoard(myBoard);
+        System.out.println("Position of white's pieces:");
+        for (int i = 0; i < myBoard.white().length; i++)
+            System.out.print(myBoard.white()[i] + ", ");
+        System.out.println("\nPosition of black's pieces:");
+        for (int i = 0; i < myBoard.black().length; i++)
+            System.out.print(myBoard.black()[i] + ", ");
+
+
+        boolean isWhite = true;
+        do {
+            myBoard.move(Minimax.nextMove(myBoard,5,isWhite));
+            isWhite = !isWhite;
+        } while (!myBoard.isGameOver());
+
+        System.out.println("\n");
+        System.out.println("Other position of board: ");
+        printBoard(myBoard);
+        System.out.println("Position of white's pieces:");
+        for (int i = 0; i < myBoard.white().length; i++)
+            System.out.print(myBoard.white()[i] + ", ");
+        System.out.println("\nPosition of black's pieces:");
+        for (int i = 0; i < myBoard.black().length; i++)
+            System.out.print(myBoard.black()[i] + ", ");
+
+
+
+
+
+        /*
         // tets to check whether minimax increments finishedGames.
         boolean isWhite = true;
             myBoard = new Board();
@@ -16,6 +48,7 @@ public class MainTest {
                 isWhite = !isWhite;
             } while (!myBoard.isGameOver());
             System.out.println(Board.finishedGames());
+         */
 
 
         /*

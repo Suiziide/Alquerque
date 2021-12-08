@@ -216,23 +216,4 @@ public class Board {
                 ((isWhite && board[(move.to() + move.from()) / 2] == 'B') || //checks if opponent piece is taken
                         (!isWhite && board[(move.to() + move.from()) / 2] == 'W'))); //checks if opponent piece is taken
     }
-
-
-
-
-
-    // slettes senere.
-    /*
-     * Auxilary method to remove pieces from the board to create artificial game scenarios
-     */
-    public void removePiece(int index) {
-        board[index] = EMPTY;
-    }
-
-    /*
-     * Auxilary method to insert pieces to the board to create artificial game scenarios
-     */
-    public void insertPiece(int index, char piece) {
-        board[index] = piece;
-    }
 }

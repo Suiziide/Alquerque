@@ -8,6 +8,16 @@ public class MainTest {
 
     public static void main(String[] args) {
         /*
+        // anden test for finisehedGames
+        for (int i = 0; i < 26; i++) {
+            myBoard.removePiece(i);
+        }
+        myBoard.isGameOver();
+        myBoard.isGameOver();
+        System.out.println(Board.finishedGames());
+        */
+
+        /*
         // tets to check whether minimax increments finishedGames.
         char input;
         boolean isWhite = true;

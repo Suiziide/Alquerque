@@ -5,7 +5,6 @@ public class Board {
     private int turn;
     private boolean isWhite;
     private boolean isGameDone;
-
     private static int finishedGames = 0;
     private static final char EMPTY = ' ';
 

@@ -164,7 +164,7 @@ public class Board {
             newBoard.board[i] = this.board[i];
         newBoard.turn = this.turn;
         newBoard.isWhite = this.isWhite;
-        newBoard.isGameDone = this.isGameDone();
+        newBoard.isGameDone = this.isGameDone;
         return newBoard;
     }
 

@@ -7,15 +7,30 @@ public class MainTest {
     public static final char EMPTY = ' ';
 
     public static void main(String[] args) {
+        /*
+        // tets to check whether minimax increments finishedGames.
+        char input;
+        boolean isWhite = true;
+        do {
+            myBoard = new Board();
+            do {
+                myBoard.move(Minimax.nextMove(myBoard, 5, isWhite));
+                isWhite = !isWhite;
+            } while (!myBoard.isGameOver());
+            System.out.println(Board.finishedGames());
+        } while (10 > Board.finishedGames());
+        */
 
-
+        /*
+        // test to see if what copy returns is equal to original board.
+        for (int i = 0; i < 26; i++) {
+            myBoard.removePiece(i);
+        }
+        myBoard.isGameOver();
         Board copy = new Board();
         copy = myBoard.copy();
         System.out.println(myBoard.equals(copy));
-
-
-
-
+        */
 
         /*
         // to test the incrementation of finished games when isGameOver() is called.

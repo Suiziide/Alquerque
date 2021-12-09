@@ -7,7 +7,7 @@ public class MainTest {
     public static final char EMPTY = ' ';
 
     public static void main(String[] args) {
-
+        /*
         // test of white() and black()
         System.out.println("Starting positon of the board:");
         printBoard(myBoard);
@@ -17,7 +17,6 @@ public class MainTest {
         System.out.println("\nPosition of black's pieces:");
         for (int i = 0; i < myBoard.black().length; i++)
             System.out.print(myBoard.black()[i] + ", ");
-
 
         boolean isWhite = true;
         do {
@@ -34,9 +33,7 @@ public class MainTest {
         System.out.println("\nPosition of black's pieces:");
         for (int i = 0; i < myBoard.black().length; i++)
             System.out.print(myBoard.black()[i] + ", ");
-
-
-
+         */
 
 
         /*
@@ -44,7 +41,7 @@ public class MainTest {
         boolean isWhite = true;
             myBoard = new Board();
             do {
-                myBoard.move(Minimax.nextMove(myBoard, 6, isWhite));
+                myBoard.move(Minimax.nextMove(myBoard, 4, isWhite));
                 isWhite = !isWhite;
             } while (!myBoard.isGameOver());
             System.out.println(Board.finishedGames());
@@ -77,7 +74,7 @@ public class MainTest {
 
         myBoard = new Board();
 
-        System.out.println(myBoard.finishedGames());
+        System.out.println(Board.finishedGames());
         */
 
         // test isLegal without the middel if statement

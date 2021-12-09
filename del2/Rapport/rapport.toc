@@ -15,7 +15,10 @@
 \contentsline {subsection}{\numberline {4.2}Test of \emph {legalMoves()}}{9}{}%
 \contentsline {subsection}{\numberline {4.3}Sketchy take-moves}{9}{}%
 \contentsline {subsection}{\numberline {4.4}Proof of \emph {isLegal()}’s functionality}{11}{}%
-\contentsline {section}{\numberline {5}Appendix}{12}{}%
-\contentsline {subsection}{\numberline {5.1}Move class}{12}{}%
-\contentsline {subsection}{\numberline {5.2}Board class}{13}{}%
-\contentsline {subsection}{\numberline {5.3}MainTest}{17}{}%
+\contentsline {subsection}{\numberline {4.5}Test of \emph {finishedGames()}}{15}{}%
+\contentsline {subsection}{\numberline {4.6}Test of \emph {black()} \& \emph {white()}}{15}{}%
+\contentsline {section}{\numberline {5}Conclusion}{16}{}%
+\contentsline {section}{\numberline {6}Appendix}{17}{}%
+\contentsline {subsection}{\numberline {6.1}Move class}{17}{}%
+\contentsline {subsection}{\numberline {6.2}Board class}{17}{}%
+\contentsline {subsection}{\numberline {6.3}MainTest}{21}{}%

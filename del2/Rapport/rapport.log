@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.9)  9 DEC 2021 14:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.9)  9 DEC 2021 15:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -454,7 +454,7 @@ File: Billeder//isLegalProf/3in1.png Graphic file (type png)
 <use Billeder//isLegalProf/3in1.png>
 Package pdftex.def Info: Billeder//isLegalProf/3in1.png  used on input line 198
 .
-(pdftex.def)             Requested size: 350.99762pt x 132.38336pt.
+(pdftex.def)             Requested size: 390.0pt x 147.09303pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -469,6 +469,26 @@ ng  used on input line 204.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+File: Billeder//isLegalProf/MåIkkeRykkeTilFelterDerStårEnBrik.png Graphic fil
+e (type png)
+<use Billeder//isLegalProf/MåIkkeRykkeTilFelterDerStårEnBrik.png>
+Package pdftex.def Info: Billeder//isLegalProf/MåIkkeRykkeTilFelterDerStårEnB
+rik.png  used on input line 210.
+(pdftex.def)             Requested size: 155.99762pt x 210.38034pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Billeder//isLegalProf/TrækFraTommeFelterErIkkeTilladt.png, id=50, 288.3272pt 
+x 374.90062pt>
+File: Billeder//isLegalProf/TrækFraTommeFelterErIkkeTilladt.png Graphic file (
+type png)
+<use Billeder//isLegalProf/TrækFraTommeFelterErIkkeTilladt.png>
+Package pdftex.def Info: Billeder//isLegalProf/TrækFraTommeFelterErIkkeTilladt
+.png  used on input line 216.
+(pdftex.def)             Requested size: 155.99762pt x 202.84375pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -478,7 +498,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [11 <./Billeder//isLegalProf/LovligeTrækOgTakeMoves/DuMåGodLaveLovligeTræk.p
-ng>] (../../src/Move.java
+ng>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -488,7 +508,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [12 <./Billeder//isLegalProf/MåIkkeRykkeTilFelterDerStårEnBrik.png> <./Billed
-er//isLegalProf/3in1.png (PNG copy)>]) (../../src/Board.java
+er//isLegalProf/3in1.png (PNG copy)>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -506,7 +526,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[14]
+[14 <./Billeder//isLegalProf/TrækFraTommeFelterErIkkeTilladt.png>]
+<Billeder//TestAfFinishedGames.png, id=64, 474.27188pt x 504.38437pt>
+File: Billeder//TestAfFinishedGames.png Graphic file (type png)
+<use Billeder//TestAfFinishedGames.png>
+Package pdftex.def Info: Billeder//TestAfFinishedGames.png  used on input line 
+225.
+(pdftex.def)             Requested size: 234.00238pt x 248.85907pt.
+<Billeder//2in1.png, id=65, 623.32875pt x 383.031pt>
+File: Billeder//2in1.png Graphic file (type png)
+<use Billeder//2in1.png>
+Package pdftex.def Info: Billeder//2in1.png  used on input line 233.
+(pdftex.def)             Requested size: 350.99762pt x 215.68819pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -515,7 +550,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[15]
+[15
+
+ <./Billeder//TestAfFinishedGames.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -524,7 +561,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[16])
+[16 <./Billeder//2in1.png (PNG copy)>] (../../src/Move.java)
+(../../src/Board.java
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -533,7 +571,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[17] (../../src/MainTest.java
+[17]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -560,7 +598,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[20])
+[20]) (../../src/MainTest.java
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -569,12 +607,39 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[21] (rapport.aux) ) 
+[21]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[22]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[23])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[24] (rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 6573 strings out of 480612
- 108019 string characters out of 2897866
- 1240829 words of memory out of 3000000
- 24347 multiletter control sequences out of 15000+600000
+ 6597 strings out of 480612
+ 108948 string characters out of 2897866
+ 1254829 words of memory out of 3000000
+ 24368 multiletter control sequences out of 15000+600000
  412298 words of font info for 58 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  55i,12n,63p,1366b,1249s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -592,9 +657,9 @@ all/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/suiziide/.miktex/texmfs/ins
 tall/fonts/type1/public/amsfonts/cm/cmti12.pfb></home/suiziide/.miktex/texmfs/i
 nstall/fonts/type1/public/amsfonts/cm/cmti8.pfb></home/suiziide/.miktex/texmfs/
 install/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on rapport.pdf (21 pages, 486783 bytes).
+Output written on rapport.pdf (24 pages, 656446 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
+ 154 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -195,14 +195,50 @@ Below is a selection of examples of legal and illegal moves used to test the gen
 \begin{figure}[h]
 	\centering
 	\caption*{Take-moves in all directions are valid moves.}
-	\includegraphics[width=0.9\textwidth]{isLegalProf/3in1.png}	
+	\includegraphics[width=1\textwidth]{isLegalProf/3in1.png}	
 \end{figure}
 
 \begin{figure}[h]
 	\centering
-	\caption*{Take-moves in all directions are valid moves.}
+	\caption*{Take-moves across the board are not allowed. Normal moves in a backwards direction are not valid moves.}
 	\includegraphics[width=0.4\textwidth]{isLegalProf/IkkeRykkeBagudEllerOutOfBounds.png}	
 \end{figure}
+
+\begin{figure}[h]
+	\centering
+	\caption*{Moves to a non-empty position are not allowed.}
+	\includegraphics[width=0.4\textwidth]{isLegalProf/MåIkkeRykkeTilFelterDerStårEnBrik.png}	
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\caption*{Moves from an empty position are not allowed.}
+	\includegraphics[width=0.4\textwidth]{isLegalProf/TrækFraTommeFelterErIkkeTilladt.png}	
+\end{figure}
+\clearpage
+\subsection{Test of \emph{finishedGames()}} \par
+To test \emph{finishedGames}, an impromptu client was made to initiate a game with ‘CPU vs. CPU’. After a game is finished, the user can choose to play again, which will initiate a new game. If the user chooses not to play again, the program will end. The \emph{finishedGames} attribute is incremented in \emph{move()} whenever \emph{isGameOver()} returns true. \par To check functionality, \emph{finishedGames()} was printed as “Games Played”, as seen on the image below. 
+Note that the total number of wins, losses, and draws, which indicate the actual number of games played, does not match “Games Played” played when the next game is initiated. This is due to the fact that every copy of \emph{board} made by MiniMax, whenever an end-state is reached, also counts towards the total number of \emph{finishedGames}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{TestAfFinishedGames.png}	
+\end{figure}
+
+\subsection{Test of \emph{black()} \& \emph{white()}}
+By printing the respective array of positions for black and white pieces, we ensure that \emph{black()} and \emph{white()} work as intended, which is that they return an array with the correct positions of their respective pieces on the board. Two of the tested board positions can be seen in the images below.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{2in1.png}	
+\end{figure}
+
+As seen on picture 1, the starting position for white and black pieces are printed correctly on and below the board.
+As seen on picture 2, which is an arbitrary end-of-game position, the positions on the board match the ones printed from the respective arrays.
+
+\section{Conclusion}
+Through the development and testing of the classes \emph{Board} and \emph{Move}, both separately and coherently, a few issues occured. These issues, as described in the test phase of the report, were eliminated. As a result of resolving these issues, each class then worked properly, as intended, and in accordance with the contract for phase 2. Furthermore, as seen through the test-section, the tests have been conducted with the help of a separate test class, developed for that purpose. Along with this, the classes have been tested with our own version of the Alquerque interface, as well as the precompiled version from phase 2. With a significant level of confidence, it can be concluded that the developed versions of classes \emph{Board} and \emph{Move} will work with all other interfaces developed in accordance with the contract from phase 1 of this project, as well as other interfaces developed in a similar fashion adhering to the documentation for \emph{Board} and \emph{Move}.
+
 
 \newpage
 

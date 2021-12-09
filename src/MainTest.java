@@ -42,11 +42,6 @@ public class MainTest {
         } while (!myBoard.isGameOver());
 
 
-
-
-
-
-        /*
         // test of white() and black()
         System.out.println("Starting positon of the board:");
         printBoard(myBoard);
@@ -113,7 +108,6 @@ public class MainTest {
 
 
         // testing hashCode and copy
-
         System.out.println(myBoard.hashCode());
         Move[] m = myBoard.legalMoves();
         for (int i = 0; i < m.length; i++) {

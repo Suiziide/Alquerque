@@ -1,24 +1,30 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Introduction}{3}{}%
-\contentsline {section}{\numberline {2}Design choices}{3}{}%
-\contentsline {subsection}{\numberline {2.1}\emph {Move}}{3}{}%
-\contentsline {subsection}{\numberline {2.2}\emph {Board}}{3}{}%
-\contentsline {subsubsection}{\numberline {2.2.1}\emph {Board()}}{4}{}%
-\contentsline {subsubsection}{\numberline {2.2.2} \emph {black()} \& \emph {white()}}{4}{}%
-\contentsline {subsubsection}{\numberline {2.2.3}\emph {isLegal()}}{4}{}%
-\contentsline {subsubsection}{\numberline {2.2.4}\emph {legalMoves()}}{4}{}%
-\contentsline {section}{\numberline {3}Implementation \& functionality}{5}{}%
-\contentsline {subsection}{\numberline {3.1}The methods \emph {black()} \& \emph {white()}}{5}{}%
-\contentsline {subsection}{\numberline {3.2}The method \emph {isLegal()}}{5}{}%
-\contentsline {section}{\numberline {4}Testing}{8}{}%
-\contentsline {subsection}{\numberline {4.1}Test-approach for \emph {isLegal()}}{8}{}%
-\contentsline {subsection}{\numberline {4.2}Test of \emph {legalMoves()}}{9}{}%
-\contentsline {subsection}{\numberline {4.3}Sketchy take-moves}{9}{}%
-\contentsline {subsection}{\numberline {4.4}Proof of \emph {isLegal()}’s functionality}{11}{}%
-\contentsline {subsection}{\numberline {4.5}Test of \emph {finishedGames()}}{15}{}%
-\contentsline {subsection}{\numberline {4.6}Test of \emph {black()} \& \emph {white()}}{15}{}%
-\contentsline {section}{\numberline {5}Conclusion}{16}{}%
-\contentsline {section}{\numberline {6}Appendix}{17}{}%
-\contentsline {subsection}{\numberline {6.1}Move class}{17}{}%
-\contentsline {subsection}{\numberline {6.2}Board class}{17}{}%
-\contentsline {subsection}{\numberline {6.3}MainTest}{21}{}%
+\contentsline {section}{\numberline {1}Introduction}{4}{}%
+\contentsline {section}{\numberline {2}Design choices}{4}{}%
+\contentsline {subsection}{\numberline {2.1}\emph {Move}}{4}{}%
+\contentsline {subsection}{\numberline {2.2}\emph {Board}}{4}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}\emph {Board()}}{5}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}\emph {black()} \& \emph {white()}}{5}{}%
+\contentsline {subsubsection}{\numberline {2.2.3}\emph {isLegal()}}{5}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}\emph {legalMoves()}}{5}{}%
+\contentsline {section}{\numberline {3}Implementation \& functionality}{6}{}%
+\contentsline {subsection}{\numberline {3.1}The methods \emph {black()} \& \emph {white()}}{6}{}%
+\contentsline {subsection}{\numberline {3.2}The method \emph {isLegal()}}{6}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}\emph {legalMoves()}}{8}{}%
+\contentsline {subsubsection}{\numberline {3.2.2}\emph {move()}}{8}{}%
+\contentsline {subsubsection}{\numberline {3.2.3}\emph {isGameOver()} \& \emph {finishedGames()}}{8}{}%
+\contentsline {subsubsection}{\numberline {3.2.4}\emph {copy()}}{9}{}%
+\contentsline {subsubsection}{\numberline {3.2.5}\emph {equals()}}{9}{}%
+\contentsline {subsubsection}{\numberline {3.2.6}\emph {hashCode()}}{10}{}%
+\contentsline {section}{\numberline {4}Testing}{11}{}%
+\contentsline {subsection}{\numberline {4.1}Test-approach for \emph {isLegal()}}{11}{}%
+\contentsline {subsection}{\numberline {4.2}Test of \emph {legalMoves()}}{11}{}%
+\contentsline {subsection}{\numberline {4.3}Sketchy take-moves}{12}{}%
+\contentsline {subsection}{\numberline {4.4}Proof of \emph {isLegal()}’s functionality}{13}{}%
+\contentsline {subsection}{\numberline {4.5}Test of \emph {finishedGames()}}{16}{}%
+\contentsline {subsection}{\numberline {4.6}Test of \emph {black()} \& \emph {white()}}{17}{}%
+\contentsline {section}{\numberline {5}Conclusion}{18}{}%
+\contentsline {section}{\numberline {6}Appendix}{19}{}%
+\contentsline {subsection}{\numberline {6.1}Move class}{19}{}%
+\contentsline {subsection}{\numberline {6.2}Board class}{20}{}%
+\contentsline {subsection}{\numberline {6.3}MainTest}{24}{}%

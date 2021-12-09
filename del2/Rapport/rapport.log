@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.9)  9 DEC 2021 12:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.9)  9 DEC 2021 13:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -305,7 +305,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7])
+[7]) (../../src/MainTest.java
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -314,32 +314,59 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[8] (rapport.aux) ) 
+[8]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[9]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[10])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[11] (rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 5218 strings out of 480612
- 80151 string characters out of 2897866
- 1190379 words of memory out of 3000000
- 23014 multiletter control sequences out of 15000+600000
+ 5238 strings out of 480612
+ 80480 string characters out of 2897866
+ 1183381 words of memory out of 3000000
+ 23031 multiletter control sequences out of 15000+600000
  411233 words of font info for 55 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 55i,12n,62p,240b,1210s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/jknappe
-n/ec/dpi600/tcit0800.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/pu
-blic/cm/dpi600/cmmi8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/pu
-blic/cm/dpi600/cmsy8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/jk
-nappen/ec/dpi600/tctt0800.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfo
-ur/public/cm/dpi480/cmitt10.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/lj
-four/public/cm/dpi600/cmtt8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/lj
-four/public/cm/dpi600/cmti8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/lj
-four/public/cm/dpi720/cmbx12.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/l
-jfour/public/cm/dpi600/cmbx12.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/
-ljfour/public/cm/dpi864/cmbx12.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk
-/ljfour/public/cm/dpi600/cmr12.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk
-/ljfour/public/cm/dpi720/cmr12.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk
-/ljfour/public/cm/dpi720/cmr17.pk>
-Output written on rapport.pdf (8 pages, 112420 bytes).
+ 55i,12n,62p,247b,1249s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/jknapp
+en/ec/dpi600/tcit0800.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/p
+ublic/cm/dpi600/cmmi8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/p
+ublic/cm/dpi600/cmsy8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/j
+knappen/ec/dpi600/tctt0800.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljf
+our/public/cm/dpi480/cmitt10.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/l
+jfour/public/cm/dpi600/cmtt8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/l
+jfour/public/cm/dpi600/cmti8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/l
+jfour/public/cm/dpi720/cmbx12.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/
+ljfour/public/cm/dpi600/cmbx12.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk
+/ljfour/public/cm/dpi864/cmbx12.pk> </home/suiziide/.miktex/texmfs/data/fonts/p
+k/ljfour/public/cm/dpi600/cmr12.pk> </home/suiziide/.miktex/texmfs/data/fonts/p
+k/ljfour/public/cm/dpi720/cmr12.pk> </home/suiziide/.miktex/texmfs/data/fonts/p
+k/ljfour/public/cm/dpi720/cmr17.pk>
+Output written on rapport.pdf (11 pages, 140674 bytes).
 PDF statistics:
- 318 PDF objects out of 1000 (max. 8388607)
+ 364 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

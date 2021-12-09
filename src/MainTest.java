@@ -1,4 +1,3 @@
-import java.util.Locale;
 import java.util.Scanner;
 public class MainTest {
     public static Board myBoard = new Board();
@@ -11,7 +10,7 @@ public class MainTest {
 
 
         // test to see if legal moves prints the correct moves
-        /*
+
         printBoard(myBoard);
         int from = 0;
         int to = 0;
@@ -30,12 +29,12 @@ public class MainTest {
             isWhite = !isWhite;
             printBoard(myBoard);
         } while (!myBoard.isGameOver());
-         */
 
 
 
 
-        /*
+
+
         // test of white() and black()
         System.out.println("Starting positon of the board:");
         printBoard(myBoard);
@@ -61,9 +60,9 @@ public class MainTest {
         System.out.println("\nPosition of black's pieces:");
         for (int i = 0; i < myBoard.black().length; i++)
             System.out.print(myBoard.black()[i] + ", ");
-         */
 
-        /*
+
+
         // test to see if the finishedGames method works and if it is incremented by MiniMax
         int white = 0;
         int black = 0;
@@ -99,18 +98,19 @@ public class MainTest {
             System.out.print("Do you want to continue with another game? (y/n): ");
             end = ((reader.nextLine().toLowerCase().charAt(0) == 'n') ? true : false);
         } while (!end);
-        */
+
 
         // testing hashCode and copy
-        /*
+
         System.out.println(myBoard.hashCode());
         Move[] m = myBoard.legalMoves();
         for (int i = 0; i < m.length; i++) {
             System.out.println("From: " + m[i].from() + ", to: " + m[i].to());
         }
+        Board nBoard;
         nBoard = myBoard.copy();
         System.out.println(nBoard.hashCode());
-        */
+
     }
 
     // these methods were previously developed for our own Alquerque client.

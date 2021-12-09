@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.9)  9 DEC 2021 15:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.9)  9 DEC 2021 15:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -639,7 +639,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Here is how much of TeX's memory you used:
  6589 strings out of 480612
  108473 string characters out of 2897866
- 1199829 words of memory out of 3000000
+ 1199771 words of memory out of 3000000
  24361 multiletter control sequences out of 15000+600000
  412298 words of font info for 58 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
@@ -658,7 +658,7 @@ all/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/suiziide/.miktex/texmfs/ins
 tall/fonts/type1/public/amsfonts/cm/cmti12.pfb></home/suiziide/.miktex/texmfs/i
 nstall/fonts/type1/public/amsfonts/cm/cmti8.pfb></home/suiziide/.miktex/texmfs/
 install/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on rapport.pdf (27 pages, 642533 bytes).
+Output written on rapport.pdf (27 pages, 642683 bytes).
 PDF statistics:
  163 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

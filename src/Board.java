@@ -137,7 +137,6 @@ public class Board {
         return (white().length == 0 || black().length == 0 || legalMoves().length == 0);
     }
 
-
     /**
      * Returns how many objects of type Board that represents games, that are finished games.
      * @return how many objects of type Board that represents games, that are finished games.
@@ -175,8 +174,7 @@ public class Board {
             i++;
         return (i == this.board.length && this.turn == otherBoard.turn && this.isGameDone == otherBoard.isGameDone);
     }
-    
-    
+
     /**
      * Returns a hashCode compised of this boards attributes
      * @return a hashCode comprised of this boards attributes

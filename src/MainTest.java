@@ -8,7 +8,17 @@ public class MainTest {
 
     public static void main(String[] args) {
 
-
+        // test whether an instance of Move returns the correct to and from values
+        Move m1 = new Move(19,13);
+        System.out.println("Move 1 excpected: 19, 13 - Got: "  + m1.from() + ", " + m1.to());
+        Move m2 = new Move(2,25);
+        System.out.println("Move 2 excpected: 2, 25 - Got: " + m2.from() + ", " + m2.to());
+        Move m3 = new Move(23,46);
+        System.out.println("Move 3 excpected: 23, 46 - Got: " + m3.from() + ", " + m3.to());
+        Move m4 = new Move(-12,40);
+        System.out.println("Move 4 excpected: -12, 40 - Got: " + m4.from() + ", " + m4.to());
+        Move m5 = new Move(-91,-108);
+        System.out.println("Move 4 excpected: -91, -108 - Got: " + m5.from() + ", " + m5.to());
 
         // test to see if legal moves prints the correct moves
         /*
@@ -31,9 +41,6 @@ public class MainTest {
             printBoard(myBoard);
         } while (!myBoard.isGameOver());
          */
-
-
-
 
         /*
         // test of white() and black()

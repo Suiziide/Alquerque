@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.9)  9 DEC 2021 13:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.9)  9 DEC 2021 14:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -252,6 +252,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [2]
+Overfull \hbox (1.06271pt too wide) in paragraph at lines 73--74
+\OT1/cmr/m/n/12 ensures that int \OT1/cmr/m/it/12 finishedGames \OT1/cmr/m/n/12
+ can only be incremented once for each instance
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -260,12 +265,37 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3] (/home/suiziide/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
+[3]
+Overfull \hbox (6.62366pt too wide) in paragraph at lines 79--80
+\OT1/cmr/m/n/12 the char array that represents the board, each returning an int
+-array containing
+ []
+
+
+Overfull \hbox (8.96947pt too wide) in paragraph at lines 79--80
+\OT1/cmr/m/n/12 `W', and adding their position to their respective array, throu
+gh their respective
+ []
+
+
+Overfull \hbox (18.24925pt too wide) in paragraph at lines 90--91
+\OT1/cmr/m/n/12 done by initializing \OT1/cmr/m/it/12 int[] nameOfIntegerArray 
+= new int[nameOfArrayList.size()]
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4] (/home/suiziide/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-(../../src/Move.java) (../../src/Board.java
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-9.
+100.
 
 (/home/suiziide/.miktex/texmfs/install/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
@@ -278,16 +308,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
 [5]
+Overfull \hbox (12.59444pt too wide) in paragraph at lines 116--116
+\OT1/cmr/m/n/12 method, fileDiff(), returns an int, calculated by subtracting 1
+ from the positional
+ []
+
+
+Overfull \hbox (3.77458pt too wide) in paragraph at lines 121--121
+\OT1/cmr/m/n/12 passing through the filter, \OT1/cmr/m/it/12 isLegal() \OT1/cmr
+/m/n/12 recognizes it as a valid move, in accordance
+ []
+
+
+Overfull \hbox (2.54686pt too wide) in paragraph at lines 124--126
+\OT1/cmr/m/n/12 legalList. This is done by initializing \OT1/cmr/m/it/12 int[] 
+legalMove = new int[legalList.size()]
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -297,6 +335,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [6]
+Overfull \hbox (17.95439pt too wide) in paragraph at lines 133--134
+[]\OT1/cmr/m/n/12 The static method \OT1/cmr/m/it/12 finishedGames() \OT1/cmr/m
+/n/12 was implemented with the same functionality
+ []
+
+
+Overfull \hbox (6.73813pt too wide) in paragraph at lines 135--137
+\OT1/cmr/m/n/12 implemented such that it creates a new instance of \OT1/cmr/m/i
+t/12 Board\OT1/cmr/m/n/12 , from the constructor,
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -305,7 +354,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7]) (../../src/MainTest.java
+[7]
+Overfull \hbox (14.14723pt too wide) in paragraph at lines 139--141
+[]\OT1/cmr/m/n/12 Equals() The \OT1/cmr/m/it/12 equals() \OT1/cmr/m/n/12 method
+ was implemented due to \OT1/cmr/m/it/12 copy() \OT1/cmr/m/n/12 being overwritt
+en.
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -323,7 +378,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[9]
+[9] (../../src/Move.java) (../../src/Board.java
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -332,7 +387,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[10])
+[10]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -341,32 +396,90 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[11] (rapport.aux) ) 
+[11]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[12]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[13]) (../../src/MainTest.java
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[14]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[15]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[16])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[17] (rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 5238 strings out of 480612
- 80480 string characters out of 2897866
- 1183381 words of memory out of 3000000
- 23031 multiletter control sequences out of 15000+600000
- 411233 words of font info for 55 fonts, out of 8000000 for 9000
+ 5261 strings out of 480612
+ 80713 string characters out of 2897866
+ 1242309 words of memory out of 3000000
+ 23052 multiletter control sequences out of 15000+600000
+ 412298 words of font info for 58 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 55i,12n,62p,247b,1249s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,62p,1366b,1247s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/jknapp
 en/ec/dpi600/tcit0800.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/p
 ublic/cm/dpi600/cmmi8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/p
 ublic/cm/dpi600/cmsy8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljfour/j
 knappen/ec/dpi600/tctt0800.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljf
+our/public/cm/dpi600/cmtt8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/ljf
 our/public/cm/dpi480/cmitt10.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/l
-jfour/public/cm/dpi600/cmtt8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/l
 jfour/public/cm/dpi600/cmti8.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/l
-jfour/public/cm/dpi720/cmbx12.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/
-ljfour/public/cm/dpi600/cmbx12.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk
-/ljfour/public/cm/dpi864/cmbx12.pk> </home/suiziide/.miktex/texmfs/data/fonts/p
-k/ljfour/public/cm/dpi600/cmr12.pk> </home/suiziide/.miktex/texmfs/data/fonts/p
-k/ljfour/public/cm/dpi720/cmr12.pk> </home/suiziide/.miktex/texmfs/data/fonts/p
-k/ljfour/public/cm/dpi720/cmr17.pk>
-Output written on rapport.pdf (11 pages, 140674 bytes).
+jfour/public/cm/dpi600/cmmi12.pk> </home/suiziide/.miktex/texmfs/data/fonts/pk/
+ljfour/public/cm/dpi720/cmbxti10.pk> </home/suiziide/.miktex/texmfs/data/fonts/
+pk/ljfour/public/cm/dpi864/cmbxti10.pk> </home/suiziide/.miktex/texmfs/data/fon
+ts/pk/ljfour/public/cm/dpi720/cmbx12.pk> </home/suiziide/.miktex/texmfs/data/fo
+nts/pk/ljfour/public/cm/dpi600/cmti12.pk> </home/suiziide/.miktex/texmfs/data/f
+onts/pk/ljfour/public/cm/dpi600/cmbx12.pk> </home/suiziide/.miktex/texmfs/data/
+fonts/pk/ljfour/public/cm/dpi864/cmbx12.pk> </home/suiziide/.miktex/texmfs/data
+/fonts/pk/ljfour/public/cm/dpi600/cmr12.pk> </home/suiziide/.miktex/texmfs/data
+/fonts/pk/ljfour/public/cm/dpi720/cmr12.pk> </home/suiziide/.miktex/texmfs/data
+/fonts/pk/ljfour/public/cm/dpi720/cmr17.pk>
+Output written on rapport.pdf (17 pages, 220752 bytes).
 PDF statistics:
- 364 PDF objects out of 1000 (max. 8388607)
+ 553 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

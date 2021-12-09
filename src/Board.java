@@ -72,7 +72,11 @@ public class Board {
         this.turn++;
         isWhite = (turn % 2 == 1);
         // updates finishedGames after eachmove
-        isGameOver();
+       if (isGameOver()) {
+           finishedGames++;
+            isGameDone = false;
+       }
+
     }
 
     /**
@@ -136,14 +140,7 @@ public class Board {
      * @return if the game is over
      */
     public boolean isGameOver() {
-        if (white().length == 0 || black().length == 0 || legalMoves().length == 0) {
-            if (!isGameDone) {
-                finishedGames++;
-                isGameDone = true;
-            }
-            return true;
-        } else
-            return false;
+        return (white().length == 0 || black().length == 0 || legalMoves().length == 0);
     }
 
 

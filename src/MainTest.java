@@ -7,6 +7,34 @@ public class MainTest {
     public static final char EMPTY = ' ';
 
     public static void main(String[] args) {
+
+
+
+        // test to see if legal moves prints the correct moves
+        /*
+        printBoard(myBoard);
+        int from = 0;
+        int to = 0;
+        boolean isWhite = true;
+        do {
+            do {
+                System.out.println("It's " + ((isWhite) ? "white to move, these are the legal moves:" : "black to move these are the legal moves:"));
+                for (int i = 0; i < myBoard.legalMoves().length; i++)
+                    System.out.println("From: " + myBoard.legalMoves()[i].from() + ", " + "to: " + myBoard.legalMoves()[i].to());
+                System.out.println("which peice do you want to move: ");
+                from = reader.nextInt();
+                System.out.println("where do you want to move that piece");
+                to = reader.nextInt();
+            } while (!myBoard.isLegal(new Move(from, to)));
+            myBoard.move(new Move(from, to));
+            isWhite = !isWhite;
+            printBoard(myBoard);
+        } while (!myBoard.isGameOver());
+         */
+
+
+
+
         /*
         // test of white() and black()
         System.out.println("Starting positon of the board:");
@@ -35,71 +63,8 @@ public class MainTest {
             System.out.print(myBoard.black()[i] + ", ");
          */
 
-
         /*
-        // tets to check whether minimax increments finishedGames.
-        boolean isWhite = true;
-            myBoard = new Board();
-            do {
-                myBoard.move(Minimax.nextMove(myBoard, 4, isWhite));
-                isWhite = !isWhite;
-            } while (!myBoard.isGameOver());
-            System.out.println(Board.finishedGames());
-         */
-
-
-        /*
-        // test to see if what copy returns is equal to original board.
-        for (int i = 0; i < 26; i++) {
-            myBoard.removePiece(i);
-        }
-        myBoard.isGameOver();
-        Board copy = new Board();
-        copy = myBoard.copy();
-        System.out.println(myBoard.equals(copy));
-        */
-
-        /*
-        // to test the incrementation of finished games when isGameOver() is called.
-        for (int i = 0; i < 26; i++)
-            myBoard.removePiece(i);
-
-        for (int i = 0; i < 10; i++)
-            myBoard.isGameOver();
-
-        myBoard = new Board();
-        for (int i = 0; i < 26; i++)
-            myBoard.removePiece(i);
-        myBoard.isGameOver();
-
-        myBoard = new Board();
-
-        System.out.println(Board.finishedGames());
-        */
-
-        // test isLegal without the middel if statement
-        /*
-        for (int i = 0; i < 26; i++) {
-            myBoard.removePiece(i);
-        }
-        myBoard.insertPiece(14, 'W');
-        myBoard.insertPiece(8, 'B');
-        printBoard(myBoard);
-        Move nextMove;
-        do {
-            do {
-                System.out.print("Make a move: ");
-                int from = reader.nextInt();
-                int to = reader.nextInt();
-                nextMove = new Move(from, to);
-            } while (!myBoard.isLegal(nextMove));
-            myBoard.move(nextMove);
-            printBoard(myBoard);
-        } while (!myBoard.isGameOver());
-      */
-
-        /*
-        // test to see if the finishedGames method works
+        // test to see if the finishedGames method works and if it is incremented by MiniMax
         int white = 0;
         int black = 0;
         int draw = 0;
@@ -134,37 +99,6 @@ public class MainTest {
             System.out.print("Do you want to continue with another game? (y/n): ");
             end = ((reader.nextLine().toLowerCase().charAt(0) == 'n') ? true : false);
         } while (!end);
-        /*
-
-        // recreating moveing from 15 to 17 bug
-        /*
-        System.out.println("Boards starting positon.");
-
-        for (int i = 0; i < 26; i++) {
-            myBoard.removePiece(i);
-        }
-        myBoard.insertPiece(15, 'W');
-        myBoard.insertPiece(16, 'B');
-        printBoard();
-        System.out.println("White moved from 15 to 17.");
-        myBoard.move(new Move(15,17));
-        myBoard.removePiece(16);
-        printBoard();
-        */
-
-        // recreating moving from 19 from 13 and 16 dissapears
-        /*
-        myBoard.insertPiece(16, 'B');
-        System.out.println("White moved from D4 to C3.");
-        myBoard.move(new Move(19,13));
-        printBoard();
-         */
-
-        /*
-        myBoard.move(new Move(19,13));
-        myBoard.removePiece(16);
-        System.out.println("White moved from 19 to 13.");
-        printBoard();
         */
 
         // testing hashCode and copy

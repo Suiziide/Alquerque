@@ -13,7 +13,9 @@
 \contentsline {section}{\numberline {4}Testing}{8}{}%
 \contentsline {subsection}{\numberline {4.1}Test-approach for \emph {isLegal()}}{8}{}%
 \contentsline {subsection}{\numberline {4.2}Test of \emph {legalMoves()}}{9}{}%
-\contentsline {section}{\numberline {5}Appendix}{10}{}%
-\contentsline {subsection}{\numberline {5.1}Move class}{10}{}%
-\contentsline {subsection}{\numberline {5.2}Board class}{10}{}%
-\contentsline {subsection}{\numberline {5.3}MainTest}{14}{}%
+\contentsline {subsection}{\numberline {4.3}Sketchy take-moves}{9}{}%
+\contentsline {subsection}{\numberline {4.4}Proof of \emph {isLegal()}’s functionality}{11}{}%
+\contentsline {section}{\numberline {5}Appendix}{12}{}%
+\contentsline {subsection}{\numberline {5.1}Move class}{12}{}%
+\contentsline {subsection}{\numberline {5.2}Board class}{13}{}%
+\contentsline {subsection}{\numberline {5.3}MainTest}{17}{}%

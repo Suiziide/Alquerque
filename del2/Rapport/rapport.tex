@@ -9,6 +9,7 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{fancyhdr}
+\usepackage{caption}
 \definecolor{listinggray}{gray}{0.9}
 \definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
@@ -151,6 +152,57 @@ To thoroughly test whether \emph{isLegal()} worked as desired, it was convenient
 To test the method \emph{legalMoves}, we modified our MainTest class to print out the contents of the array while playing. This seemed as an effective way of testing two things at the same time. One: That it stores valid moves correctly in the array; and two: That \emph{isLegal} works properly, which calculates all the valid moves available without returning any invalid moves. \par
 Below is a sample output of the console during these tests.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{isLegalprint.png}		
+\end{figure}
+
+\subsection{Sketchy take-moves}
+
+The move from 19 to 13 would remove the piece on 16, regardless of color. \par
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{19til13TakeFejl.png}	
+\end{figure}
+
+The same logic applied to the move 17 to 13, which would instead remove the piece on 15. 
+Two things went wrong in these instances: Not only did white remove a white piece, it removed a piece whilst not being a take-move. \par So to kill two birds with one stone, we made the auxiliary boolean method, \emph{isTakeMove()}, to check whether the absolute positional difference between the value returned by \emph{from()} and the value returned by \emph{to()} was greater than 6 or less than 4, and to check whether the piece taken was an opponent piece. \par 
+We later discovered certain cases where, as an example, a piece on 15 could take 16 and move to 17, which implied that more had to be done to check for the legality of a take-move. \par
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{15til17TakeFejl.png}	
+\end{figure}
+
+As the absolute positional difference of the move was 2, which is less than 4, and the piece on 16 was an opponent piece, it fully qualified for a legal take-move. \par To fix this as generally as possible, we made the auxiliary method, \emph{fileDiff()}, to check the difference between the from-file and the to-file. For a take-move to be legal, this would always have to be either 2 or 0. \par This method conveniently could have been used for non-take-moves as well, but that seemed redundant, as non-take-moves were only allowed to be within a specific range, which is a piece difference of min. 4, max. 6 for black and min. -6, max. -4 for white.
+
+\subsection{Proof of \emph{isLegal()}’s functionality}
+Below is a selection of examples of legal and illegal moves used to test the general functionality, which, as a result, should give sufficient confidence in the method, \emph{isLegal()}.
+
+\begin{figure}[h]
+	\centering
+	\caption*{Moves in the right direction are valid moves}
+	\includegraphics[width=0.4\textwidth]{isLegalProf/LovligeTrækOgTakeMoves/DuMåGodLaveLovligeTræk.png}	
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\caption*{Moving pieces on the wrong turn are not valid moves}
+	\includegraphics[width=0.4\textwidth]{isLegalProf/MåIkkeRykkeTilFelterDerStårEnBrik.png}	
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\caption*{Take-moves in all directions are valid moves.}
+	\includegraphics[width=0.9\textwidth]{isLegalProf/3in1.png}	
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\caption*{Take-moves in all directions are valid moves.}
+	\includegraphics[width=0.4\textwidth]{isLegalProf/IkkeRykkeBagudEllerOutOfBounds.png}	
+\end{figure}
 
 \newpage
 

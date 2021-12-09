@@ -76,7 +76,6 @@ public class Board {
            finishedGames++;
             isGameDone = false;
        }
-
     }
 
     /**

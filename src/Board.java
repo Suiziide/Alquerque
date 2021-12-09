@@ -72,9 +72,9 @@ public class Board {
         this.turn++;
         isWhite = (turn % 2 == 1);
         // updates finishedGames after eachmove
-       if (isGameOver()) {
+       if (isGameOver() && !isGameDone) {
            finishedGames++;
-            isGameDone = false;
+           isGameDone = true;
        }
     }
 
@@ -105,11 +105,6 @@ public class Board {
                     Math.abs(pieceDiff(move)) != 10 && Math.abs(pieceDiff(move)) != 12)
                 // Checks if the move is to the specified allowed cells for a take move
                 return false;
-            /*
-            else if (move.from() % 2 == 0 && move.to() % 2 == 1)
-                // Checks for moves on even cells (to confirm it follows the lines on the board)
-                return false;
-             */
             else if (move.from() % 2 == 0 && Math.abs(pieceDiff(move)) != 10 && Math.abs(pieceDiff(move)) != 2)
                 // Checks for moves on even cells (to confirm it follows the lines on the board)
                 return false;

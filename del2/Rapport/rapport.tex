@@ -87,7 +87,7 @@ For the design of \emph{legalMoves()}, it goes through all cells where a piece i
 
 \section{Implementation \& functionality}
 
-\subsection{The methods \emph{black()} \& \emph{white()}}
+\subsection{\emph{black()} \& \emph{white()}}
 The implementation of the methods \emph{black()} and \emph{white()} are identical except the fact that \emph{white()} looks for white pieces and \emph{black()} looks for black pieces. The methods work by creating a \emph{new ArrayList$<$Integer$>$()} and using a for-loop to go through \emph{this.board} looking for a corresponding piece and adding its index to the respective created arraylist. Afterwards, the arraylist is converted to an integer-array with the size of the created arraylist. This is done by initializing \emph{int[] nameOfIntegerArray = new int[nameOfArrayList.size()]} before going through the created arraylist with a for-loop, making the index in the integer-array equal the index in the arraylist. The method then returns the integer-array containing all the positions of the white and black pieces, respectively.
 
 \begin{lstlisting}[style=JavaStyle]
@@ -109,7 +109,7 @@ return white;
 
 For black: ‘W’ would be replaced with ‘B’ and the variable names would be different, but the implementation is the same.
 
-\subsection{The method \emph{isLegal()}}
+\subsection{\emph{isLegal()}}
 The boolean method, \emph{isLegal()}, works by taking an instance of the class Move as an argument and checking whether it is legal according to the rules of Alquerque. A series of if- and else-if-statements filters away any move with a set of characteristics that would make it illegal, and so, whenever a move passes through, \emph{isLegal()} returns true. \par 
 This “filter” is implemented by checking the following criteria: \par
 The position returned by \emph{to()} must always be empty. \par 
@@ -122,26 +122,26 @@ And lastly, take-moves from even-numbered positions must have an absolute positi
 If an instance of Move breaks none of the aforementioned criteria, thereby passing through the filter, \emph{isLegal()} recognizes it as a valid move, in accordance with the current state of the board, on which it was called, and returns true. \par
 The auxiliary method, \emph{isTakeMove()}, checks whether a move is considered a take-move by returning true if the pieceDiff() is greater than 6 or less than 4, albeit only if the piece taken is an opponent's piece, which is checked with the average positional value of to() and \emph{from()}.
 
-\subsubsection{\emph{legalMoves()}}
+\subsection{\emph{legalMoves()}}
 The method \emph{legalMoves()} is implemented using an arraylist, which is then converted to an integer-array. Firstly a new arraylist of type move, called legalList is created. Then a for-loop is used to go through all cells of this.board and if that cell is not empty, then calculate all legalMoves from that cell to any other cells using another for-loop and creating new instances of Move, where the outer for-loops iterator variable is used as the origin of the move and the inner for-loops iterator variable is used as the destination for an instance of Move. IsLegal() is then called with that instance of Move as its argument, and if isLegal() returns true, that instance of move is added to the arraylist, legalList. Afterwards, the arraylist,legalList, is converted to an integer-array, legalMove, with the size of legalList. This is done by initializing \emph{int[] legalMove = new int[legalList.size()]} before going through legalListt with a for-loop, making the index in the legalMove equal the index in legalList. The method then returns the integer-array, legalMoves, containing all the legalMoves.
 
-\subsubsection{\emph{move()}}
+\subsection{\emph{move()}}
 The method \emph{move()} takes an instance of the \emph{Move} class as a parameter and updates the \emph{board} array accordingly with the \emph{from()} and \emph{to()} getters for that move, it then checks if the move is a take-move, using the auxiliary \emph{isTakeMove()} method, and if this is true, it calculates the average positional value between \emph{to()} and \emph{from()} and removes the piece at that cell.
 After exiting or skipping the if-statement it increments the \emph{turn} counter, and updates the \emph{isWhite} variable. Finally it uses the method \emph{isGameOver()} to check if the game has ended, and if it has, it increments the \emph{finishedGames} variable, and then sets the \emph{isGameDone} variable to true.
 
-\subsubsection{\emph{isGameOver()} \& \emph{finishedGames()}}
+\subsection{\emph{isGameOver()} \& \emph{finishedGames()}}
 The methods \emph{isGameOver()} and \emph{finishedGames()} are implemented in such a way that \emph{isGameOver()} returns whether there are no pieces remaining in \emph{white()} or whether there are no pieces left in \emph{black()} or whether there are no moves left in \emph{legalMove()} to indicate when the game represented by this board is over. \par
 The static method \emph{finishedGames()} was implemented with the same functionality as a getter for the static class variable \emph{finishedGames}, meaning that when \emph{finishedGames()} is called on the class, \emph{Board}, it returns the value of the attribute \emph{finishedGames}.
 
-\subsubsection{\emph{copy()}}
+\subsection{\emph{copy()}}
 The method \emph{copy()} is implemented such that it creates a new instance of \emph{Board}, from the constructor, \emph{Board()}, called \emph{newBoard}. The respective char at each position on the board is copied via a for-loop to \emph{newBoard}, so that the current game gamestate of \emph{newBoard} matches the original board. Afterwards, the instance variables \emph{turn}, \emph{isWhite}, and \emph{isGameDone} for \emph{newBoard} are changed to equal the value of the original boards \emph{turn}, \emph{isWhite}, and \emph{isGameDone}, respectively. Lastly, \emph{newBoard} is returned as a copy of the instance of \emph{Board}, which \emph{copy()} was called upon. \par
 
-\subsubsection{\emph{equals()}}
+\subsection{\emph{equals()}}
 The \emph{equals()} method was implemented due to \emph{copy()} being overwritten. Overwriting \emph{copy()} could, potentially, make the original \emph{equals()} method return false on two copies of the same board. Therefore, a new \emph{equals()} was implemented, which created a filter of tests that ensures that the compared object does not equal null, which would return false, and that checks whether the instance of \emph{board} and the other object have the same memory address, which would return true. The last part of the filter checks whether the other object is an instance of \emph{Board}, which, if it is not, returns false, otherwise, \emph{other} is typecast to be a \emph{Board} called \emph{otherBoard}. Thereafter, the contents of each cell on \emph{otherBoard} is compared to the same cell on the instance of \emph{board}, that \emph{equals()} was called upon, through a while-loop, which increments a counter once every time both cells contain the same character. The loop is stopped at any point where two compared cells do have identical contents, or when the counter equals the length of the char array board. Finally, \emph{equals()} returns whether: The counter is equal to the length of the char array AND both boards are on the same \emph{turn} AND \emph{isGameDone} has the same boolean value for both.
 
 \newpage
 
-\subsubsection{\emph{hashCode()}}
+\subsection{\emph{hashCode()}}
 The \emph{hashCode()} method was implemented due to \emph{equals()} being overwritten. This method is implemented by returning an integer based on the values of the attributes on the instance of the \emph{Board} that it is called upon. The attributes used to create the hashcode are \emph{board} and \emph{turn}. Even though \emph{board} is a char array, it needs to be converted to an integer first. This is done by calling \emph{hashCode()} for char arrays on \emph{board}. In short; the method returns the sum of \emph{board.hashCode()} and \emph{turn} multiplied by 31.
 
 \newpage

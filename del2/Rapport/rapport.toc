@@ -2,3 +2,4 @@
 \contentsline {section}{\numberline {1}Appendix}{4}{}%
 \contentsline {subsection}{\numberline {1.1}Move class}{4}{}%
 \contentsline {subsection}{\numberline {1.2}Board class}{4}{}%
+\contentsline {subsection}{\numberline {1.3}MainTest}{8}{}%

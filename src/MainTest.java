@@ -7,7 +7,7 @@ public class MainTest {
     public static final char EMPTY = ' ';
 
     public static void main(String[] args) {
-
+        /*
         // test whether an instance of Move returns the correct to and from values
         Move m1 = new Move(19,13);
         System.out.println("Move 1 excpected: 19, 13 - Got: "  + m1.from() + ", " + m1.to());
@@ -118,14 +118,14 @@ public class MainTest {
         System.out.println(nBoard.hashCode());
 
     }
-
+*/
     // these methods were previously developed for our own Alquerque client.
     /**
      * Creates a representation of the game board with the pieces correctly placed
      * in the form of a two dimensional array.
      * Precondition: Relies on method black() and white() to return valid positions numbered from 1-25
      * @return a two dimensional array 5 x 5 with the game pieces placed correctly
-     */
+     */ /*
     private static char[][] boardWithPieces(Board myBoard) {
         char[][] boardArr = new char[6][5]; //A-E & (no 0) 1-5
         for (int j = 1; j < boardArr.length; j++)
@@ -140,7 +140,7 @@ public class MainTest {
 
     /**
      * prints a representation of the board to the terminal
-     */
+     */ /*
     private static void printBoard(Board myBoard) {
         System.out.println(); // new line
         int i = 0, j = 1;
@@ -165,5 +165,7 @@ public class MainTest {
         }
         System.out.println("   A   B   C   D   E"); //bottom-coordinate-line (A-E)
         System.out.println(""); // new line
+ */
     }
+
 }

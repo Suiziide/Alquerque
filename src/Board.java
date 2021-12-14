@@ -4,9 +4,11 @@ public class Board {
     private char[] board;
     private int turn;
     private boolean isWhite;
-    private boolean isGameDone;
     private static int finishedGames = 0;
     private static final char EMPTY = ' ';
+    private static final char p1 = 'W';
+    private static final char p2 = 'B';
+
 
     /**
      * Creates a new Alquerque board in the starting state:
@@ -17,14 +19,13 @@ public class Board {
         board = new char[26];
         for (int i = 1; i < 26; i++) {
             if (i < 13)
-                board[i] = 'B';
+                board[i] = p2;
             else if (i == 13)
                 board[i] = EMPTY;
             else
-                board[i] = 'W';
+                board[i] = p1;
         }
         isWhite = (turn % 2 == 1);
-        isGameDone = false;
     }
 
     /**
@@ -33,14 +34,7 @@ public class Board {
      * @return the positions of all black pieces on the board.
      */
     public int[] black() {
-        ArrayList<Integer> blackPieces = new ArrayList<Integer>();
-        for (int i = 1; i <= 25; i++)
-            if (this.board[i] == 'B')
-                blackPieces.add(i);
-        int[] black = new int[blackPieces.size()];
-        for (int i = 0; i < blackPieces.size(); i++)
-            black[i] = blackPieces.get(i);
-        return black;
+        return findPiece(p2);
     }
 
     /**
@@ -48,19 +42,26 @@ public class Board {
      * @return the positions of all white pieces on the board.
      */
     public int[] white() {
-        ArrayList<Integer> whitePieces = new ArrayList<Integer>();
+        return findPiece(p1);
+    }
+
+    /*
+     * Auxiliary method for finding a piece on the board
+     */
+    private int[] findPiece(char c) {
+        ArrayList<Integer> pieces = new ArrayList<Integer>();
         for (int i = 1; i <= 25; i++)
-            if (this.board[i] == 'W')
-                whitePieces.add(i);
-        int[] white = new int[whitePieces.size()];
-        for (int i = 0; i < whitePieces.size(); i++)
-            white[i] = whitePieces.get(i);
-        return white;
+            if (this.board[i] == c)
+                pieces.add(i);
+        int[] color = new int[pieces.size()];
+        for (int i = 0; i < pieces.size(); i++)
+            color[i] = pieces.get(i);
+        return color;
     }
 
     /**
      * Moves a piece and updates the board correspondingly.
-     * Precondition: move must be a legal between 1 and 25
+     * Precondition: move must be a legal Move between 1 and 25
      * @param move the move to simulate.
      */
     public void move(Move move) {
@@ -72,10 +73,8 @@ public class Board {
         this.turn++;
         isWhite = (turn % 2 == 1);
         // updates finishedGames after eachmove
-       if (isGameOver() && !isGameDone) {
+       if (isGameOver())
            finishedGames++;
-           isGameDone = true;
-       }
     }
 
     /**
@@ -86,7 +85,7 @@ public class Board {
     public boolean isLegal(Move move) {
         if (board[move.to()] != EMPTY)  // Checks whether the player tries to move from an empty cell
             return false;
-        else if ((isWhite && board[move.from()] != 'W') || (!isWhite && board[move.from()] != 'B'))
+        else if ((isWhite && board[move.from()] != p1) || (!isWhite && board[move.from()] != p2))
             // Checks if the player tries to move the opponents piece
             return false;
         else if (fileDiff(move) > 2)
@@ -155,7 +154,8 @@ public class Board {
             newBoard.board[i] = this.board[i];
         newBoard.turn = this.turn;
         newBoard.isWhite = this.isWhite;
-        newBoard.isGameDone = this.isGameDone;
+        if (this.isGameOver())
+            finishedGames++;
         return newBoard;
     }
 

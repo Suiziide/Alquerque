@@ -172,7 +172,7 @@ public class Board {
         int i = 0;
         while(i < this.board.length && this.board[i] == otherBoard.board[i])
             i++;
-        return (i == this.board.length && this.turn == otherBoard.turn && this.isGameDone == otherBoard.isGameDone);
+        return (i == this.board.length && this.turn == otherBoard.turn);
     }
 
     /**

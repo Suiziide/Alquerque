@@ -16,6 +16,10 @@ public class Alquerque {
             printBoard();
             if (!isWhiteCPU && isWhite || !isBlackCPU && !isWhite) {
                 boolean inputWithinRange = false;
+                for (int i = 0; i < board.legalMoves().length; i++) {
+                    System.out.println("from: " + board.legalMoves()[i].from() + ", to: " + board.legalMoves()[i].to());
+                }
+
                 do { // loop for validating the players input
                     System.out.print("It's " + (isWhite ? whiteName : blackName) + "'s turn" + ", please enter which " +
                             "piece you want to move: ");

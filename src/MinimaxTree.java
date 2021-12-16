@@ -1,35 +1,23 @@
-public class MinimaxTree /*implements Iterable<Board>*/{
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Stack;
+
+public class MinimaxTree implements Iterable<Board> {
     private Node root;
 
     /**
      * Creates a new MinimaxTree
+     *
      * @param board
      * @param depth
      * @param isWhite
      */
     public MinimaxTree(Board board, int depth, boolean isWhite) {
-        this.root = new Node(board,null, depth, isWhite, true);
+        this.root = new Node(board, null, depth, isWhite, true);
     }
-    /* too complicated did something else. (keep for repport)
-    private void addNodes(int depth) {
-        // adds the first layer of nodes
-        if (root == null) {
-            root = new Node[legalMoves.length];
-            for (int i = 0; i < legalMoves.length; i++) {
-                Board copy = board.copy();
-                copy.move(legalMoves[i]);
-                root[i] = new Node(copy, legalMoves[i]);
-                //System.out.println("NyNode");
-            }
-            addNodes(depth-1);
-        } else
-            for (int i = 0; i < 1; i++)
-                root[i].addNodes(root, depth);
-    }
-    */
 
     /**
-     *
      * @param <Board>
      */
     private static class Node {
@@ -39,31 +27,75 @@ public class MinimaxTree /*implements Iterable<Board>*/{
         private Move move;
         private Node[] next;
 
-        /**
-         *
-         * @param board
-         */
+       /*
+        * Inner classe for creating nodes to represent a MinimaxTree
+        */
         private Node(Board board, Move move, int depth, boolean isWhite, boolean isMaximizeNode) {
             this.boardState = board;
             this.move = move;
             this.isMaximizeNode = isMaximizeNode;
-            next = new Node [boardState.legalMoves().length];
+            next = null;
             addNodes(depth, isWhite, isMaximizeNode);
         }
 
+        /*
+         * Creates parent nodes' children nodes
+         */
         private void addNodes(int depth, boolean isWhite, boolean isMaximizeNode) {
             if (depth == 0 || boardState.legalMoves().length == 0)
                 boardValue = MinimaxTree.valueOfBoard(boardState, isWhite, isMaximizeNode);
             else {
+                next = new Node[boardState.legalMoves().length];
                 Move[] legalMoves = boardState.legalMoves();
                 for (int i = 0; i < legalMoves.length; i++) {
                     Board copy = boardState.copy();
                     copy.move(legalMoves[i]);
                     System.out.println("from: " + legalMoves[i].from() + ", to: " + legalMoves[i].to());
-                    next[i] = new Node(copy, legalMoves[i], depth-1, isWhite, isMaximizeNode);
+                    next[i] = new Node(copy, legalMoves[i], depth - 1, isWhite, isMaximizeNode);
                 }
             }
         }
+    }
+
+    // creates an iterator for the stack class
+    private class MinimaxTreeIterator implements Iterator {
+        Node current;
+        Stack<Board> boardList;
+
+        public MinimaxTreeIterator() {
+            current = root;
+            boardList = addChildren(current);
+        }
+
+        public boolean hasNext() {
+            return (!boardList.isEmpty());
+        }
+
+        public Board next() {
+            if (boardList.isEmpty())
+                throw new NoSuchElementException();
+            else {
+                return boardList.pop();
+            }
+        }
+
+        /*
+         * Auxiliary method for adding all the board states to a stack
+         */
+        private Stack<Board> addChildren(Node parent) {
+            Stack<Board> stack = new Stack<>();
+            if (parent.next != null) {
+                for (int i = 0; i < parent.next.length; i++) {
+                    stack.push(parent.next[i].boardState);
+                    stack.addAll(addChildren(parent.next[i]));
+                }
+            }
+            return stack;
+        }
+    }
+
+    public Iterator iterator() {
+        return new MinimaxTreeIterator();
     }
 
     /**
@@ -72,7 +104,15 @@ public class MinimaxTree /*implements Iterable<Board>*/{
      * @return best move for the next player on this MinimaxTree
      */
     public Move next() {
-        return new Move(0,0);
+        bestMove(root);
+        return (new Move(0,0));
+    }
+
+    /*
+     *
+     */
+    private int bestMove(Node n) {
+        return 1;
     }
 
     /*

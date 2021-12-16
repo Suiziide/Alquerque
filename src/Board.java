@@ -17,14 +17,12 @@ public class Board {
     public Board() {
         turn = 1;
         board = new char[26];
-        for (int i = 1; i < 26; i++) {
-            if (i < 13)
-                board[i] = p2;
-            else if (i == 13)
-                board[i] = EMPTY;
-            else
-                board[i] = p1;
-        }
+        for (int i = 1; i < 13; i++)
+            board[i] = p2;
+        board[12] = EMPTY;
+        for (int i = 13; i < 26; i++)
+            board[i] = p1;
+
         isWhite = (turn % 2 == 1);
     }
 

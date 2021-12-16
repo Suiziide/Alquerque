@@ -1,11 +1,5 @@
 public class MinimaxTree /*implements Iterable<Board>*/{
-    private Node[] root;
-    private Board board;
-    private Move[] legalMoves;
-
-    // lav kopi af board og foretag et legal move repeat for alle legal moves
-    // gør det samme for de nye board indtil depth er nået
-    // vælg den besdste position og returner et move
+    private Node root;
 
     /**
      * Creates a new MinimaxTree
@@ -14,13 +8,9 @@ public class MinimaxTree /*implements Iterable<Board>*/{
      * @param isWhite
      */
     public MinimaxTree(Board board, int depth, boolean isWhite) {
-        this.board = board.copy();
-        this.root = null;
-        this.legalMoves = board.legalMoves();
-        addNodes(depth);
-        // evaluateTree(); returns the best move. hjælpemetoder min() max() for at
+        this.root = new Node(board,null, depth, isWhite, true);
     }
-
+    /* too complicated did something else. (keep for repport)
     private void addNodes(int depth) {
         // adds the first layer of nodes
         if (root == null) {
@@ -36,51 +26,65 @@ public class MinimaxTree /*implements Iterable<Board>*/{
             for (int i = 0; i < 1; i++)
                 root[i].addNodes(root, depth);
     }
+    */
 
     /**
      *
      * @param <Board>
      */
     private static class Node {
-        private Board board;
+        private Board boardState;
+        private int boardValue;
+        private boolean isMaximizeNode;
         private Move move;
         private Node[] next;
-        private Move[] legalMoves;
-        private int boardValue;
 
         /**
          *
          * @param board
          */
-        private Node(Board board, Move move) {
-            this.board = board;
+        private Node(Board board, Move move, int depth, boolean isWhite, boolean isMaximizeNode) {
+            this.boardState = board;
             this.move = move;
-            this.next = null;
-            this.legalMoves = board.legalMoves();
-            if (this.board.isGameOver())
-                this.boardValue = board.white().length - board.black().length;
+            this.isMaximizeNode = isMaximizeNode;
+            next = new Node [boardState.legalMoves().length];
+            addNodes(depth, isWhite, isMaximizeNode);
         }
 
-        public void addNodes(int depth) {
-            if (depth > 0) {
-                next = new Node[legalMoves.length];
+        private void addNodes(int depth, boolean isWhite, boolean isMaximizeNode) {
+            if (depth == 0 || boardState.legalMoves().length == 0)
+                boardValue = MinimaxTree.valueOfBoard(boardState, isWhite, isMaximizeNode);
+            else {
+                Move[] legalMoves = boardState.legalMoves();
                 for (int i = 0; i < legalMoves.length; i++) {
-                    System.out.println("from: " + legalMoves[i].from() + ", to: " + legalMoves[i].to());
-                    Board copy = board.copy();
+                    Board copy = boardState.copy();
                     copy.move(legalMoves[i]);
-                    next[i] = new Node(this.board, legalMoves[i]);
-                    //System.out.println("NyNode");
+                    System.out.println("from: " + legalMoves[i].from() + ", to: " + legalMoves[i].to());
+                    next[i] = new Node(copy, legalMoves[i], depth-1, isWhite, isMaximizeNode);
                 }
-                addNodes(depth-1);
             }
         }
-
-        /**
-         * returns the best move found by evaluateTree()
-         * Precondition: the game is not over
-         * @return best move for the next player on this MinimaxTree
-         */
-        public Move next() {
-            return new Move(0,0);
-        }
     }
+
+    /**
+     * returns the best move found by evaluateTree()
+     * Precondition: the game is not over
+     * @return best move for the next player on this MinimaxTree
+     */
+    public Move next() {
+        return new Move(0,0);
+    }
+
+    /*
+     * Auxiliary method to calculate the value of a specific board state
+     */
+    private static int valueOfBoard(Board board, boolean isWhite, boolean isMaximizeNode) {
+        return ((isWhite) ? board.white().length - board.black().length : board.black().length - board.white().length);
+        // mangler at tage højde for om det er en minimerings node eller en maximerings node
+    }
+}
+
+
+// lav kopi af board og foretag et legal move repeat for alle legal moves
+// gør det samme for de nye board indtil depth er nået
+// vælg den besdste position og returner et move

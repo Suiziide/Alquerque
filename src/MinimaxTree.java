@@ -32,11 +32,11 @@ public class MinimaxTree implements Iterable<Board> {
                 maxValue = moveValues[i];
             }
         /*
-        System.out.println("maxvalue = " + maxValue);
-        for (int moveValue : moveValues) {
-            System.out.print("movevalues: " + moveValue + " \n");
-        }
-         */
+           System.out.println("maxvalue = " + maxValue);
+           for (int moveValue : moveValues) {
+           System.out.print("movevalues: " + moveValue + " \n");
+           }
+           */
         return root.next[indexOfMax].move;
     }
 
@@ -52,9 +52,9 @@ public class MinimaxTree implements Iterable<Board> {
         private Move move;
         private Node[] next;
 
-       /*
-        * Inner classe for creating nodes to represent a MinimaxTree
-        */
+        /*
+         * Inner classe for creating nodes to represent a MinimaxTree
+         */
         private Node(Board board, Move move, int depth, boolean isWhite, boolean isMaximizeNode) {
             this.boardState = board;
             this.move = move;
@@ -162,10 +162,10 @@ public class MinimaxTree implements Iterable<Board> {
         int min = v[0];
         //System.out.println("v: " + v[0]);
         for (int i = 1; i < v.length; i++)
-           if (min > v[i]) {
-               min = v[i];
-               //System.out.println("v: " + v[i]);
-           }
+            if (min > v[i]) {
+                min = v[i];
+                //System.out.println("v: " + v[i]);
+            }
         //System.out.println("min: " + min);
         return min;
     }
@@ -174,15 +174,31 @@ public class MinimaxTree implements Iterable<Board> {
      * Auxiliary method to calculate the value of a specific board state
      */
     private static int valueOfBoard(Board board, boolean isWhite) {
-           if (isWhite && board.black().length == 0)
-            return Integer.MAX_VALUE;
-        else if (!isWhite && board.white().length == 0)
-            return Integer.MAX_VALUE;
-        else if (isWhite && board.white().length == 0)
-            return Integer.MIN_VALUE;
-        else if (!isWhite && board.black().length == 0)
-            return Integer.MIN_VALUE;
-        else
-            return ((isWhite) ? board.white().length - board.black().length*2 : board.black().length - board.white().length*2);
+        if (board.legalMoves().length == 0) {
+            if (isWhite && board.black().length == 0)
+                return Integer.MAX_VALUE;
+            else if (!isWhite && board.white().length == 0)
+                return Integer.MAX_VALUE;
+            else if (isWhite && board.white().length == 0)
+                return Integer.MIN_VALUE;
+            else
+                return Integer.MIN_VALUE;
+        } else {
+            int value = 0;
+            int[] array = (isWhite) ? board.white() : board.black();
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] % 2 == 1) value++;
+                if (array[i] % 5 == 1 || board.white()[i] % 5 == 0) value++;
+                if (isWhite) {
+                    value += 5;
+                    if (board.white()[i] < 6) value += 2;
+                } else 
+                    value += 5;
+                if (board.black()[i] > 20) value += 2;
+
+            }
+            return value;
+        }
     }
+
 }

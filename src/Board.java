@@ -19,8 +19,8 @@ public class Board {
         board = new char[26];
         for (int i = 1; i < 13; i++)
             board[i] = p2;
-        board[12] = EMPTY;
-        for (int i = 13; i < 26; i++)
+        board[13] = EMPTY;
+        for (int i = 14; i < 26; i++)
             board[i] = p1;
 
         isWhite = (turn % 2 == 1);

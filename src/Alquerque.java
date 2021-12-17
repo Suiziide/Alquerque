@@ -37,10 +37,10 @@ public class Alquerque {
                 } while (!inputWithinRange);
                 board.move(nextMove);
             } else if (!board.isGameOver()) {
-                /*nextMove = Minimax.nextMove(board, cpuDepth, isWhite);
+                nextMove = Minimax.nextMove(board, cpuDepth, isWhite);
                 System.out.println((isWhite ? whiteName : blackName) + " played " +
                         convertPosition(nextMove.from()) + " to " + convertPosition(nextMove.to()));
-                board.move(nextMove);*/
+                board.move(nextMove);
             }
             isWhite = !isWhite; // changes who's turn it is at the end of a turn
         } while (!board.isGameOver());

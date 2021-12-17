@@ -170,7 +170,3 @@ public class MinimaxTree implements Iterable<Board> {
         // mangler at tage højde for om det er en minimerings node eller en maximerings node
     }
 }
-
-// lav kopi af board og foretag et legal move repeat for alle legal moves
-// gør det samme for de nye board indtil depth er nået
-// vælg den besdste position og returner et move

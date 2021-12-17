@@ -1,12 +1,14 @@
 public class Test {
     public static void main(String[] args) {
         Board board = new Board();
-        MinimaxTree tree = new MinimaxTree(board,1,true);
+        MinimaxTree tree = new MinimaxTree(board,10,true);
+       /*
         for (Board t : tree) {
             printBoard(t);
         }
-
+        */
     }
+
     /**
      * Creates a representation of the game board with the pieces correctly placed
      * in the form of a two dimensional array.

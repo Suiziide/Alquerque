@@ -7,7 +7,6 @@ public class MinimaxTree implements Iterable<Board> {
 
     /**
      * Creates a new MinimaxTree
-     *
      * @param board
      * @param depth
      * @param isWhite
@@ -23,16 +22,21 @@ public class MinimaxTree implements Iterable<Board> {
      */
     public Move next() {
         int[] moveValues = new int[root.next.length];
-        //Move[] moves = new Move[root.next.length];
-
         for (int i = 0; i < moveValues.length; i++)
             moveValues[i] = bestMove(root.next[i]);
-
         int indexOfMax = 0;
         int maxValue = moveValues[0];
         for (int i = 1; i < moveValues.length; i++)
-            if (maxValue < moveValues[i])
+            if (maxValue < moveValues[i]) {
                 indexOfMax = i;
+                maxValue = moveValues[i];
+            }
+        /*
+        System.out.println("maxvalue = " + maxValue);
+        for (int moveValue : moveValues) {
+            System.out.print("movevalues: " + moveValue + " \n");
+        }
+         */
         return root.next[indexOfMax].move;
     }
 
@@ -73,7 +77,6 @@ public class MinimaxTree implements Iterable<Board> {
                 for (int i = 0; i < legalMoves.length; i++) {
                     Board copy = boardState.copy();
                     copy.move(legalMoves[i]);
-                    //System.out.println("from: " + legalMoves[i].from() + ", to: " + legalMoves[i].to());
                     next[i] = new Node(copy, legalMoves[i], depth - 1, isWhite, !isMaximizeNode);
                 }
             }
@@ -127,17 +130,18 @@ public class MinimaxTree implements Iterable<Board> {
      * Auxiliary method for finding the highest value of move
      */
     private int bestMove(Node n) {
-        if (n.next != null) { // this is also super scuffed!
+        if (n.next != null) {
             int[] valArr = new int[n.next.length];
             for (int i = 0; i < valArr.length; i++) {
-                if (n.next[i].next == null)
+                if (n.next[i].next == null) {
                     valArr[i] = valueOfBoard(n.boardState, n.isWhite);
-                else
+                    //System.out.println(valueOfBoard(n.boardState, n.isWhite));
+                } else
                     bestMove(n.next[i]);
             }
             return (n.isMaximizeNode) ? maxValue(valArr) : minValue(valArr);
         }
-        return Integer.MIN_VALUE;
+        return valueOfBoard(n.boardState, n.isWhite);
     }
 
     /*
@@ -156,9 +160,13 @@ public class MinimaxTree implements Iterable<Board> {
      */
     private int minValue(int[] v) {
         int min = v[0];
+        //System.out.println("v: " + v[0]);
         for (int i = 1; i < v.length; i++)
-           if (min > v[i])
+           if (min > v[i]) {
                min = v[i];
+               //System.out.println("v: " + v[i]);
+           }
+        //System.out.println("min: " + min);
         return min;
     }
 
@@ -166,11 +174,15 @@ public class MinimaxTree implements Iterable<Board> {
      * Auxiliary method to calculate the value of a specific board state
      */
     private static int valueOfBoard(Board board, boolean isWhite) {
-        return ((isWhite) ? board.white().length - board.black().length : board.black().length - board.white().length);
-        // mangler at tage højde for om det er en minimerings node eller en maximerings node
+           if (isWhite && board.black().length == 0)
+            return Integer.MAX_VALUE;
+        else if (!isWhite && board.white().length == 0)
+            return Integer.MAX_VALUE;
+        else if (isWhite && board.white().length == 0)
+            return Integer.MIN_VALUE;
+        else if (!isWhite && board.black().length == 0)
+            return Integer.MIN_VALUE;
+        else
+            return ((isWhite) ? board.white().length - board.black().length*2 : board.black().length - board.white().length*2);
     }
 }
-
-// lav kopi af board og foretag et legal move repeat for alle legal moves
-// gør det samme for de nye board indtil depth er nået
-// vælg den besdste position og returner et move

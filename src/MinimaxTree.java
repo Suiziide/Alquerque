@@ -84,7 +84,7 @@ public class MinimaxTree implements Iterable<Board> {
 
         public MinimaxTreeIterator() {
             boardList.push(root.boardState);
-            boardList.addAll(addChildren(root)); // Er det nødvendigt??
+            boardList.addAll(addChildren(root));
         }
 
         public boolean hasNext() {
@@ -114,13 +114,17 @@ public class MinimaxTree implements Iterable<Board> {
         }
     }
 
+    /**
+     * Constructor for the iterator
+     * @return new instance of the MinimaxTreeIterator()
+     */
     public Iterator iterator() {
         return new MinimaxTreeIterator();
     }
 
     /*
-     * Auxiliary method for recursively finding the value of boards in terminal state, and returning the
-     * value of these boards
+     * Auxiliary method for recursively finding the value of boards in terminal state or at max depth,
+     * and returning the value of these boards
      */
     private int bestMove(Node n) {
         if (n.next != null) {
@@ -128,7 +132,6 @@ public class MinimaxTree implements Iterable<Board> {
             for (int i = 0; i < valArr.length; i++) {
                 if (n.next[i].next == null) {
                     valArr[i] = valueOfBoard(n.next[i].boardState, n.next[i].isWhite);
-                    //System.out.println(valueOfBoard(n.boardState, n.isWhite));
                 } else
                     valArr[i] = bestMove(n.next[i]);
             }
@@ -176,25 +179,25 @@ public class MinimaxTree implements Iterable<Board> {
                 return -20; // if further behind than -20, and a draw is possible, the autoplayer will draw
         } else {
             int value = 0;
-            int[] array = (isWhite) ? board.white() : board.black();
-            int[] enemyArray = (!isWhite) ? board.white() : board.black();
-            for (int i = 0; i < array.length; i++) {
-                value = value + 5;
+            int[] array = (isWhite) ? board.white() : board.black(); //new array is set to the current players array of pieces
+            int[] enemyArray = (!isWhite) ? board.white() : board.black(); //new array is set to the enemy players array of pieces
+            for (int i = 0; i < array.length; i++) {        //for every allied piece;
+                value = value + 5;          //+5 per piece
                 if (array[i] % 2 == 1)
-                    value = value + 1;
+                    value = value + 1;      //+1 per piece on odd numbers (more options)
                 if (array[i] % 5 == 1 || array[i] % 5 == 0)
-                    value = value + 1;
+                    value = value + 1;      //+1 per piece on the borders (can't be taken diagonally)
             }
-            for (int i = 0; i < enemyArray.length; i++) {
-                value = value - 5;
+            for (int i = 0; i < enemyArray.length; i++) {   //for every enemy piece
+                value = value - 5;          //-5 per piece
                 if (enemyArray[i] % 2 == 1)
-                    value = value - 1;
+                    value = value - 1;      //-1 per piece on odd numbers
                 if (enemyArray[i] % 5 == 1 || enemyArray[i] % 5 == 0)
-                    value = value - 1;
-                if (!isWhite && (enemyArray[i] > 20))
-                    value = value - 2;
-                if (enemyArray[i] < 6)
-                    value = value - 2;
+                    value = value - 1;      //-1 per piece on the borders
+                if (!isWhite && (enemyArray[i] < 6))
+                    value = value - 2;      //-2 per white piece on blacks backline (when turn is black)
+                else if (isWhite && (enemyArray[i] > 20))
+                    value = value - 2;      //-2 per black piece on whites backline (when turn is white)
             }
             return value;
         }

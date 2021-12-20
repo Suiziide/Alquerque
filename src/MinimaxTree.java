@@ -32,7 +32,7 @@ public class MinimaxTree implements Iterable<Board> {
                 maxValue = moveValues[i];
             }
 
-           System.out.println("maxvalue = " + maxValue);
+        System.out.println("maxvalue = " + maxValue);
            /*
         for (int moveValue : moveValues) {
            System.out.print("movevalues: " + moveValue + " \n");
@@ -195,10 +195,6 @@ public class MinimaxTree implements Iterable<Board> {
                     value = value + 1;
                 if (array[i] % 5 == 1 || array[i] % 5 == 0)
                     value = value + 1;
-                //if (isWhite && (array[i] < 6))
-                   // value = value + 2;
-                //else if (array[i] > 20)
-                    //value = value + 2;
             }
             for (int i = 0; i < enemyArray.length; i++) {
                 value = value - 5;
@@ -208,7 +204,7 @@ public class MinimaxTree implements Iterable<Board> {
                     value = value - 1;
                 if (!isWhite && (enemyArray[i] > 20))
                     value = value - 2;
-                 if (enemyArray[i] < 6)
+                if (enemyArray[i] < 6)
                     value = value - 2;
             }
             return value;

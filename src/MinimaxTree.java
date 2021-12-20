@@ -22,7 +22,7 @@ public class MinimaxTree implements Iterable<Board> {
      * Precondition: the game is not over
      * @return best move for the next player on this MinimaxTree
      */
-    public Move next() {
+    public Move nextMove() {
         int[] moveValues = new int[root.next.length];
         for (int i = 0; i < moveValues.length; i++)
             moveValues[i] = bestMove(root.next[i]);
@@ -84,7 +84,7 @@ public class MinimaxTree implements Iterable<Board> {
 
         public MinimaxTreeIterator() {
             boardList.push(root.boardState);
-            boardList.addAll(addChildren(root));
+            boardList.addAll(addChildren(root)); // Er det nødvendigt??
         }
 
         public boolean hasNext() {
@@ -119,7 +119,8 @@ public class MinimaxTree implements Iterable<Board> {
     }
 
     /*
-     * Auxiliary method for finding the highest value of move
+     * Auxiliary method for recursively finding the value of boards in terminal state, and returning the
+     * value of these boards
      */
     private int bestMove(Node n) {
         if (n.next != null) {
@@ -156,15 +157,12 @@ public class MinimaxTree implements Iterable<Board> {
         for (int i = 1; i < v.length; i++)
             if (min > v[i]) {
                 min = v[i];
-                //System.out.println("v: " + v[i]);
             }
-        //System.out.println("min: " + min);
         return min;
     }
 
     /*
      * Auxiliary method to calculate the value of a specific board state
-     * simple alt. heuristic: return (isWhite ? board.white().length - board.black().length : board.black().length - board.white().length);
      */
     private static int valueOfBoard(Board board, boolean isWhite) {
         if (board.legalMoves().length == 0) {

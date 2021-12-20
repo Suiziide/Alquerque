@@ -31,9 +31,8 @@ public class MinimaxTree implements Iterable<Board> {
                 indexOfMax = i;
                 maxValue = moveValues[i];
             }
-
+            /*
         System.out.println("maxvalue = " + maxValue);
-           /*
         for (int moveValue : moveValues) {
            System.out.print("movevalues: " + moveValue + " \n");
            }
@@ -184,7 +183,7 @@ public class MinimaxTree implements Iterable<Board> {
             else if (isWhite && board.white().length == 0)
                 return Integer.MIN_VALUE;
             else
-                return -20; // if further behind than this, and draw is possible, this will try to force draw
+                return -20; // if further behind than -20, and a draw is possible, the autoplayer will draw
         } else {
             int value = 0;
             int[] array = (isWhite) ? board.white() : board.black();

@@ -6,7 +6,7 @@ public class MinimaxTree implements Iterable<Board> {
     private Node root;
 
     /**
-     * Creates a new MinimaxTree
+     * Creates a new instance of MinimaxTree
      * @param board
      * @param depth
      * @param isWhite
@@ -16,7 +16,9 @@ public class MinimaxTree implements Iterable<Board> {
     }
 
     /**
-     * returns the best move found by evaluateTree()
+     *
+     * Returns the best move of this MinimaxTree by passing the children of the root to bestMove() and returning the
+     * move corrosponding to the board with the highest value.
      * Precondition: the game is not over
      * @return best move for the next player on this MinimaxTree
      */
@@ -31,21 +33,14 @@ public class MinimaxTree implements Iterable<Board> {
                 indexOfMax = i;
                 maxValue = moveValues[i];
             }
-            /*
-        System.out.println("maxvalue = " + maxValue);
-        for (int moveValue : moveValues) {
-           System.out.print("movevalues: " + moveValue + " \n");
-           }
-           */
         return root.next[indexOfMax].move;
     }
 
     /*
-     * Implements a node class for representing vertecies in the MinimaxTree
+     * Implements a node class for representing nodes in a MinimaxTree
      */
     private static class Node {
         private Board boardState;
-        private int boardValue;
         private int depth;
         boolean isMaximizeNode;
         boolean isWhite;
@@ -53,7 +48,7 @@ public class MinimaxTree implements Iterable<Board> {
         private Node[] next;
 
         /*
-         * Inner classe for creating nodes to represent a MinimaxTree
+         * Constructor for creating nodes
          */
         private Node(Board board, Move move, int depth, boolean isWhite, boolean isMaximizeNode) {
             this.boardState = board;
@@ -66,12 +61,10 @@ public class MinimaxTree implements Iterable<Board> {
         }
 
         /*
-         * Creates parent nodes' children nodes
+         * Auxiliary method for creating nodes
          */
         private void addNodes(int depth, boolean isWhite) {
-            if (depth == 0 || boardState.legalMoves().length == 0)
-                boardValue = MinimaxTree.valueOfBoard(boardState, isWhite);
-            else {
+            if (depth != 0 && boardState.legalMoves().length != 0) {
                 next = new Node[boardState.legalMoves().length];
                 Move[] legalMoves = boardState.legalMoves();
                 for (int i = 0; i < legalMoves.length; i++) {
@@ -87,12 +80,11 @@ public class MinimaxTree implements Iterable<Board> {
      * Creates an iterator for the MinimaxTree
      */
     private class MinimaxTreeIterator implements Iterator {
-        Node current;
-        Stack<Board> boardList;
+        Stack<Board> boardList = new Stack<>();
 
         public MinimaxTreeIterator() {
-            current = root;
-            boardList = addChildren(current);
+            boardList.push(root.boardState);
+            boardList.addAll(addChildren(root));
         }
 
         public boolean hasNext() {

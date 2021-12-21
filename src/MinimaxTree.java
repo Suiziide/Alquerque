@@ -41,7 +41,6 @@ public class MinimaxTree implements Iterable<Board> {
      */
     private static class Node {
         private Board boardState;
-        private int depth;
         boolean isMaximizeNode;
         boolean isWhite;
         private Move move;
@@ -54,7 +53,6 @@ public class MinimaxTree implements Iterable<Board> {
             this.boardState = board;
             this.move = move;
             next = null;
-            this.depth = depth;
             this.isMaximizeNode = isMaximizeNode;
             this.isWhite = isWhite;
             addNodes(depth, isWhite);
@@ -94,9 +92,8 @@ public class MinimaxTree implements Iterable<Board> {
         public Board next() {
             if (boardList.isEmpty())
                 throw new NoSuchElementException();
-            else {
+            else
                 return boardList.pop();
-            }
         }
 
         /*
@@ -127,12 +124,12 @@ public class MinimaxTree implements Iterable<Board> {
      * and returning the value of these boards
      */
     private int bestMove(Node n) {
-        if (n.next != null) {
+        if (n.next != null) { // checks if n has child nodes
             int[] valArr = new int[n.next.length];
             for (int i = 0; i < valArr.length; i++) {
-                if (n.next[i].next == null) {
+                if (n.next[i].next == null) // checks if n's child nodes do not have any child nodes
                     valArr[i] = valueOfBoard(n.next[i].boardState, n.next[i].isWhite);
-                } else
+                else
                     valArr[i] = bestMove(n.next[i]);
             }
             return (n.isMaximizeNode) ? maxValue(valArr) : minValue(valArr);
@@ -156,11 +153,9 @@ public class MinimaxTree implements Iterable<Board> {
      */
     private int minValue(int[] v) {
         int min = v[0];
-        //System.out.println("v: " + v[0]);
         for (int i = 1; i < v.length; i++)
-            if (min > v[i]) {
+            if (min > v[i])
                 min = v[i];
-            }
         return min;
     }
 
@@ -202,5 +197,4 @@ public class MinimaxTree implements Iterable<Board> {
             return value;
         }
     }
-
 }

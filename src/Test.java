@@ -1,7 +1,7 @@
 public class Test {
     public static void main(String[] args) {
         Board board = new Board();
-        MinimaxTree tree = new MinimaxTree(board,3,true);
+        MinimaxTree tree = new MinimaxTree(board,1,true);
         for (Board t : tree) {
             printBoard(t);
         }

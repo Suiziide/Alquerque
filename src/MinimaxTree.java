@@ -89,7 +89,7 @@ public class MinimaxTree implements Iterable<Board> {
             return (!boardList.isEmpty());
         }
 
-        public Board next() {
+        public Board next() throws NoSuchElementException {
             if (boardList.isEmpty())
                 throw new NoSuchElementException();
             else
@@ -112,7 +112,7 @@ public class MinimaxTree implements Iterable<Board> {
      * Constructor for the iterator
      * @return new instance of the MinimaxTreeIterator()
      */
-    public Iterator<Board> iterator() {
+    public Iterator<Board> iterator() throws NoSuchElementException {
         return new MinimaxTreeIterator();
     }
 

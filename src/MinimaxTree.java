@@ -62,9 +62,9 @@ public class MinimaxTree implements Iterable<Board> {
          * Auxiliary method for creating nodes
          */
         private void addNodes(int depth, boolean isWhite) {
-            if (depth != 0 && boardState.legalMoves().length != 0) {
-                next = new Node[boardState.legalMoves().length];
-                Move[] legalMoves = boardState.legalMoves();
+            Move[] legalMoves = boardState.legalMoves();
+            if (depth != 0 && legalMoves.length != 0) {
+                next = new Node[legalMoves.length];
                 for (int i = 0; i < legalMoves.length; i++) {
                     Board copy = boardState.copy();
                     copy.move(legalMoves[i]);

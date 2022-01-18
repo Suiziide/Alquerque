@@ -33,7 +33,7 @@ public class Alquerque {
                 } while (!inputWithinRange);
                 board.move(nextMove);
             } else if (!board.isGameOver()) {
-                nextMove = Minimax.nextMove(board, cpuDepth, isWhite);
+                nextMove = new Minimax().nextMove(board, cpuDepth, isWhite);
                 System.out.println((isWhite ? whiteName : blackName) + " played " +
                         convertPosition(nextMove.from()) + " to " + convertPosition(nextMove.to()));
                 board.move(nextMove);
@@ -65,7 +65,7 @@ public class Alquerque {
         System.out.println("*******************************************");
         do {
             printOptions();
-            option = reader.nextInt();
+            option = validOption();
             switch (option) {
                 case 0:
                     System.out.println("You have chosen option " + option + ": Exit program");
@@ -261,12 +261,31 @@ public class Alquerque {
         int depth = 0;
         do {
             if (reader.hasNextInt())
-                return reader.nextInt();
+                depth = reader.nextInt();
 
             if (depth <= 0) {
                 System.out.print("Not valid int above 0. Please try again: ");
                 reader.nextLine(); // clears input
             }
         } while(depth <= 0);
+		return  depth;
+    }
+
+    /*
+     * Auxiliary method for finding a valid option
+     */
+    private static int validOption() {
+        int option = 0;
+        do {
+            if (reader.hasNextInt())
+                option = reader.nextInt();
+
+            if (option <= 0 || option > 3) {
+                System.out.print("Not valid int between 0 & 3. Please try again: ");
+                reader.nextLine(); // clears input
+            }
+        } while(option <= 0 || option > 3);
+        return  option;
     }
 } // end of alquerque class
+

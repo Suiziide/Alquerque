@@ -78,9 +78,10 @@ public class MinimaxTree implements Iterable<Board> {
      * Creates an iterator for the MinimaxTree
      */
     private class MinimaxTreeIterator implements Iterator<Board> {
-        Stack<Board> boardList = new Stack<>();
+        Stack<Board> boardList;
 
         public MinimaxTreeIterator() {
+            boardList = new Stack<>();
             boardList.push(root.boardState);
             addChildren(root);
         }

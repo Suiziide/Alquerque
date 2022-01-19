@@ -33,7 +33,7 @@ public class Alquerque {
                 } while (!inputWithinRange);
                 board.move(nextMove);
             } else if (!board.isGameOver()) {
-                nextMove = new Minimax().nextMove(board, cpuDepth, isWhite);
+                nextMove = Minimax.nextMove(board, cpuDepth, isWhite);
                 System.out.println((isWhite ? whiteName : blackName) + " played " +
                         convertPosition(nextMove.from()) + " to " + convertPosition(nextMove.to()));
                 board.move(nextMove);
@@ -70,6 +70,7 @@ public class Alquerque {
                 case 0:
                     System.out.println("You have chosen option " + option + ": Exit program");
                     System.out.println("Thank you for playing, have a nice day!");
+                    System.exit(0); // exits program
                     break;
                 case 1: // Player vs Player
                     System.out.println("You have chosen option " + option + ": Player vs Player");
@@ -199,7 +200,7 @@ public class Alquerque {
      * @return position on board, represented by an integer (1-25)
      */
     private static int convertCoordinate(String coord){
-        return ((Character.toUpperCase(coord.charAt(0))-64)+(5*((Integer.parseInt(coord.substring(1))-1))));
+        return ((Character.toUpperCase(coord.charAt(0))-64)+(5*(coord.charAt(1)-49)));
 		/*
         int position = 0;
         switch(Character.toUpperCase(coord.charAt(0))){
@@ -275,16 +276,16 @@ public class Alquerque {
      * Auxiliary method for finding a valid option
      */
     private static int validOption() {
-        int option = 0;
+        int option = -1;
         do {
             if (reader.hasNextInt())
                 option = reader.nextInt();
 
-            if (option <= 0 || option > 3) {
+            if (option < 0 || option > 3) {
                 System.out.print("Not valid int between 0 & 3. Please try again: ");
                 reader.nextLine(); // clears input
             }
-        } while(option <= 0 || option > 3);
+        } while(option < 0 || option > 3);
         return  option;
     }
 } // end of alquerque class

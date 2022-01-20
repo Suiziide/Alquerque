@@ -167,6 +167,8 @@ public class MinimaxTree implements Iterable<Board> {
                 return Integer.MAX_VALUE;
             else if (isWhite && board.white().length == 0)
                 return Integer.MIN_VALUE;
+            else if (!isWhite && board.black().length == 0)
+                return Integer.MIN_VALUE;
             else
                 return -20; // if further behind than -20, and a draw is possible, the autoplayer will try to draw
         } else {
